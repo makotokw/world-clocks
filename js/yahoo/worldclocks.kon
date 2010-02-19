@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget version="1.0" author="kw (makoto.kw@gmail.com)" name="World Clocks">
+	<debug>off</debug>
+	<action trigger="onLoad">
+	<!--
+		include("wal.js");
+		include("weather.js");
+		include("worldclocks.js");
+		copyright = "World Clocks " + widget.version +  ". Copyright(c) 2006 kw."; 
+		wc = new WorldClocks();
+		wc.loadPreference(true);
+		onUpdateClock.ticking = true;
+		onUpdateWeather.ticking = true;
+	-->
+	</action>
+	
+	<action trigger="onUnload">
+	<!--
+		wc.savePreference();
+	-->
+	</action>
+	
+	<action trigger="onPreferencesChanged">
+	<!--
+		wc.loadPreference();
+	-->
+	</action>
+
+	<timer name="onUpdateClock" interval="1" ticking="false">
+		<onTimerFired>
+			<!--
+			wc.updateClock();
+			//-->
+		</onTimerFired>
+	</timer>
+	
+	<action trigger="onWakeFromSleep">
+			onUpdateWeather.ticking = false;
+			onSleepPause.ticking = true;
+	</action>
+
+	<timer name="onUpdateWeather" interval="300" ticking="false">
+		<onTimerFired>
+			<!--
+				wc.updateWeather(true);
+			-->
+		</onTimerFired>
+	</timer>
+
+	<timer name="onSleepPause" interval="10" ticking="false">
+		<onTimerFired>
+			<!--
+				wc.updateWeather(false);
+				onUpdateWeather.ticking = true;
+				onSleepPause.ticking = false;
+			-->
+		</onTimerFired>
+	</timer>
+	
+	<preference name="clocks">
+		<type>text</type>
+		<hidden>true</hidden>
+		<defaultValue></defaultValue>
+	</preference>
+	
+	<preference name="dateFormat">
+		<type>text</type>
+		<title>Date Format: </title>
+		<description>YYYY=Year, MM=Month, DD=Day, ddd=a day of the week</description>
+		<defaultValue>ddd MM/DD/YYYY</defaultValue>
+	</preference>
+	
+	<preference name="use24HourTime">
+		<type>checkbox</type>
+		<title>Use 24-hour time format</title>
+		<description>Check this box to display times in 24-hour format instead of AM/PM.</description>
+		<defaultValue>0</defaultValue>
+	</preference>
+	
+	<preference name="font">
+		<title>Font:</title>
+		<type>font</type>
+		<defaultValue>Helvetica Bold</defaultValue>
+	</preference>
+	
+	<preference name="fontSize">
+		<hidden>true</hidden>
+		<title>Font Size:</title>
+		<type>text</type>
+		<defaultValue>14</defaultValue>
+	</preference>
+	
+	<preference name="locationFontColor">
+		<hidden>true</hidden>
+		<title>Font Color(Location):</title>
+		<type>color</type>
+		<defaultValue>#DCFE76</defaultValue>
+	</preference>
+	
+	<preference name="timeFontColor">
+		<hidden>true</hidden>
+		<title>Font Color(Time):</title>
+		<type>color</type>
+		<defaultValue>#FFFFFF</defaultValue>
+	</preference>
+	
+	<preference name="bgColor">
+		<hidden>true</hidden>
+		<title>Bg Color:</title>
+		<type>color</type>
+		<defaultValue>#000000</defaultValue>
+	</preference>
+	
+	<preference name="unitsPref">
+		<title>Use Metric Units</title>
+		<type>checkbox</type>
+		<defaultValue>0</defaultValue>
+		<description>Check this box if you would like your weather displayed in degrees Celsius rather than degrees Fahrenheit.</description>
+	</preference>
+	
+	<preference name="showTodayWeather">
+		<type>checkbox</type>
+		<title>Display Today Weahter</title>
+		<defaultValue>1</defaultValue>
+	</preference>
+	
+	<preference name="showTommorowWeather">
+		<type>checkbox</type>
+		<title>Display Tommrow Weahter</title>
+		<defaultValue>1</defaultValue>
+	</preference>
+	
+	<preference name="showTodayMoon">
+		<type>checkbox</type>
+		<title>Display Moon</title>
+		<defaultValue>0</defaultValue>
+	</preference>
+	
+	<preference name="firstDisplay">
+		<hidden>true</hidden>
+		<type>checkbox</type>
+		<defaultValue>1</defaultValue>
+	</preference>
+	
+		
+</widget>
+

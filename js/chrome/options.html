@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+body {
+	font-size:0.8em;
+	font-style:normal;
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', "Segoe UI", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+#mail_label, #password_label { display:inline-block; width:100px; padding-right:.5em; text-align:right; }
+#mail, #password { width:300px; }
+fieldset p { padding:2px; margin:0; }
+</style>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+(function($){
+	$(document).ready(function() {
+		var background = chrome.extension.getBackgroundPage(),
+			Blz = background.Blz, 
+			w = Blz.Widget;
+		
+		// localize
+		var messages = {
+			'logo':'WINDOW_CAPTION',
+			'account':'PREF_GROUP_ACCOUNT',
+			'use_google_apps_label':'PREF_GOOGLE_APPS_TITLE',
+			'mail_label':'PREF_MAIL_TITLE',
+			'password_label':'PREF_PASSWORD_TITLE',
+			'appearance':'PREF_GROUP_APPEARANCE',
+			'display_day_count_label':'PREF_DAYCOUNT_TITLE',
+			'display_day_count_help':'PREF_DAYCOUNT_DESC',
+			'use24_hour_time_label':'PREF_24TIME_TITLE',
+			'use24_hour_time_help':'PREF_24TIME_DESC',
+			'show_past_label':'PREF_SHOWPAST_TITLE',
+			'show_past_help':'PREF_SHOWPAST_DESC'
+		};		
+		$.each(messages,function(key,value){
+			$('#' + key).html(w.getResourceString(value));
+		});
+		
+		var $mail = $('#mail'), $password = $('#password');
+		if (w.getPref('useGoogleApps')=='1') $('#use_google_apps').attr('checked',true);
+		$mail.val(w.getPref('mail'));
+		$password.val(w.getPref('password'));
+		$('#use_google_apps').change(function(){
+			var checked = $(this).attr('checked');
+			$mail.attr({'disabled':!checked});
+			$password.attr({'disabled':!checked});
+		}).change();
+		
+		var displayDayCount = w.getPref('displayDayCount');
+		$('#display_day_count').val(!isNaN(displayDayCount) ? displayDayCount : 2);
+		if (w.getPref('use24HourTime')=='1') $('#use24_hour_time').attr('checked',true);
+		if (w.getPref('showPast')=='1') $('#show_past').attr('checked',true);
+		
+		$('#save').html(w.getResourceString('SAVE_BUTTON')).click(function(){
+			var useGoogleApps = $('#use_google_apps').attr('checked'),
+				mail = $('#mail').val(), 
+				pass = $('#password').val();
+			var displayDayCount = $('#display_day_count').val(),
+				use24HourTime = $('#use24_hour_time').attr('checked'),
+				showPast = $('#show_past').attr('checked');
+			w.setPref('useGoogleApps',(useGoogleApps) ? 1 : 0);
+			w.setPref('mail',mail);
+			w.setPref('password',pass);
+			if (!isNaN(displayDayCount)) w.setPref('displayDayCount',displayDayCount);
+			w.setPref('use24HourTime',(use24HourTime) ? 1 : 0);
+			w.setPref('showPast',(showPast) ? 1 : 0);
+			if (useGoogleApps) {
+				app.gcal.useGoogleLogin = true;
+				app.login(mail,pass);
+			} else {
+				app.gcal.useGoogleLogin = false;
+				app.logout();
+				app.session();
+			}
+			background.update();
+			window.close();
+			return;
+		});
+		$('#cancel').html(w.getResourceString('CANCEL_BUTTON')).click(function(){
+			window.close();
+			return;
+		});
+	});
+})(jQuery);
+</script>
+</head>
+<body>
+<h1 id="logo"></h1>
+<div id="form">
+	<fieldset class="appearance">
+		<legend id="appearance">Appearance</legend>
+		<label id="display_day_count_label" for="display_day_count"></label>
+		<input id="display_day_count" value="2"/>
+		<p id="display_day_count_help"></p>
+		<input id="use24_hour_time" type="checkbox"/>
+		<label id="use24_hour_time_label" for="use24_hour_time"></label>
+		<p id="use24_hour_time_help"></p>
+		<input id="show_past" type="checkbox"/>
+		<label id="show_past_label" for="show_past"></label>
+		<p id="show_past_help"></p>
+	</fieldset>
+	<button id="save">Save</button>
+	<button id="cancel">Cancel</button>
+</div>
+<div id="footer">
+	<p id="copyright">Copyright (c) 2010, makoto_kw (<a href="http://www.makotokw.com" target="_blank">http://www.makotokw.com</a>)</p>
+</div>
+</body>
+</html>
