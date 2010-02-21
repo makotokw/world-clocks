@@ -34,7 +34,10 @@
 		<mkdir dir="${resources}"/>
 		<copy todir="${resources}">
 			<fileset dir="${js}/${long}/Resources"/>
-		 	<fileset dir="${res}"/>
+		</copy>
+		<copy todir="${resources}/Images">
+		 	<fileset dir="${res}/Images" includes="weather/**"/>
+			<fileset dir="${res}/Images/yahoo"/>
 		</copy>
 		
 		<delete>

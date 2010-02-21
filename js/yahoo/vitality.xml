@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dock-item version="1.0">
+  <image id="bg" src="Resources/images/yahoo/dock.png"/> 
+  <text id="text" hAlign="center" vOffset="20" data="loading" width="66" wrap="true" 
+        style="font-family:'Trubuchet MS'; font-size: 7px; font-weight:bold; color:#333333; "/>
+</dock-item>

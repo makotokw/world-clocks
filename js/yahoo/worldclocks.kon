@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget version="1.0" author="kw (makoto.kw@gmail.com)" name="World Clocks">
-	<debug>off</debug>
+<widget version="@VERSION">
 	<action trigger="onLoad">
 	<!--
 		include("wal.js");
