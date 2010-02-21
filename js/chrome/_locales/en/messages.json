@@ -1,12 +1,14 @@
 {
 	"LOCAL_TIME": {"message":"Local Time"},
 	"LONDON": {"message":"London"},
+	"VANCOUVER": {"message":"Vancouver"},
 	"SANJOSE": {"message":"San Jose"},
 	"TOKYO": {"message":"Tokyo"},
 	"ADD_HELP": {"message":"Add a clock"},
 	"CLOSE_HELP": {"message":"Remove the clock"},
 	"EDIT_HELP": {"message":"Edit clocks"},
 	"SIZE_LABEL": {"message":"Size:"},
+	"SKIN_LABEL": {"message":"Skin:"},
 	"COLUMN_LABEL": {"message":"Column:"},
 	"SHORTDAY_NAMES": {"message":"Sun,Mon,Tue,Wed,Thu,Fri,Sat"}
 }
