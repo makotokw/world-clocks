@@ -3,8 +3,11 @@
       "default_icon": "icon.png",
       "popup": "popup.html"
    },
+   "icons": {
+      "128": "icon_128.png"
+   },
    "default_locale": "en",
-   "description": "This extension displays cool multiple world clocks.",
+   "description": "This extension displays multiple world clocks that you can add, remote and edit.",
    "name": "World Clocks",
    "version": "@VERSION"
 }

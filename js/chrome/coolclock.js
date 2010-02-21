@@ -122,6 +122,9 @@ CoolClock.prototype = {
 		return this;
 	},
 	
+	setSkin: function(skinId) {
+		this.skinId = skinId || CoolClock.config.defaultSkin;
+	},
 	setOffset: function(gmtOffset) {
 		this.gmtOffset = gmtOffset;
 	},

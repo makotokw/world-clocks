@@ -1,12 +1,14 @@
 {
 	"LOCAL_TIME": {"message":"ローカル時刻"},
 	"LONDON": {"message":"ロンドン"},
+	"VANCOUVER": {"message":"バンクーバー"},
 	"SANJOSE": {"message":"サンノゼ"},
 	"TOKYO": {"message":"東京"},
 	"ADD_HELP": {"message":"時計を追加します"},
 	"CLOSE_HELP": {"message":"時計を削除します"},
 	"EDIT_HELP": {"message":"時計を編集します"},
 	"SIZE_LABEL": {"message":"サイズ:"},
+	"SKIN_LABEL": {"message":"スキン:"},
 	"COLUMN_LABEL": {"message":"列数:"},
 	"SHORTDAY_NAMES": {"message":"日,月,火,水,木,金,土"}
 }
