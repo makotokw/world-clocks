@@ -1,51 +1,285 @@
+<meta charset="utf-8"/>
 <style>
 body {
-	font-size:0.8em;
+	font-size:0.7em;
 	font-style:normal;
 	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', "Segoe UI", Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 ul {
 	list-style:none; padding:0; margin:0;
+	padding-right:2px;
 }
-li {
+
+li.clock {
+	position:relative;
 	float:left;
 }
-li span {
+li.clock span {
 	display:block;
 	text-align: center;
 	height:1em; line-height:1em;
+	margin:2px auto 2px auto;
+}
+li.clock span.digital_clock {
+	margin-top:4px;
+}
+li.clock input, li.clock select {
+	line-height:1em; width:100%;
+	margin:0; padding:0;
+	border:1px solid #ddd;
+	outline:none;
+}
+li.clock .close {
+	position:absolute; top:-8px; right:-12px;
+	display:none;
+}
+ul.edit_mode li.clock .close {
+	display:inline;
+}
+.clock-placeholder {
+	border: 1px solid #ddd !important;
+	background-color:#ddd;
+}
+#option_button {
+	float:right;
+}
+#option_content {
+	display:none;
+	float:right;
+}
+#column {
+	width:2em;
+}
+#footer {
+	clear:both;
 }
 </style>
 <ul id="clocks"></ul>
-<div id="timezone">
+<div id="footer">
+	<img id="option_button" src="images/clock_edit.png"/>
+	<div id="option_content">
+		<img id="add" src="images/add.png"/>
+		<label>Column:</label>
+		<input id="column" type="text" pattern="[0-9]+" size="4" required="required" value="3"/>
+		<label>Size:</label>
+		<input id="size_range" type="range" step="5" min="30" max="60"/>
+	</div>
 </div>
+<script src="bullseye.js"></script>
 <script src="coolclock.js"></script>
 <script src="moreskins.js"></script>
-<script src="jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" type="text/javascript"></script>
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
 <script src="jquery.timezonecombobox.js"></script>
+<script src="jquery.jeditable.mini.js"></script>
 <script>
 (function($){
-	var $list = $('#clocks');
-	var radius = 40, skin = 'chunkySwiss', showSecondHand = true;
-	var colmun = 3, margin = 5, width = radius*2;
+	var w = Blz.Widget;
+	var editMode = true;
+	var radius = w.getPref('radius',40), skin = w.getPref('skin','chunkySwiss'), showSecondHand = true;
+	var column = w.getPref('column',4), margin = 5, width = radius*2;
+	var $list = $('#clocks'), listWidth = column*(margin*2 + radius*2);
 	
-	$list.css({width:(colmun*(maring*2 + radius*2)}};
-	
-	var locales = [
-		{label:'LocalTime'},
-		{label:'New York',offset:'-4'},
-		{label:'London',offset:'+1'},
-		{label:'Tokyo',offset:'+9'}
+	var timeZones = [{value:"-12.0",label:"(GMT -12:00) Eniwetok, Kwajalein"},
+		{value:"-11",label:"(GMT -11:00) Midway Island, Samoa"},
+		{value:"-10",label:"(GMT -10:00) Hawaii"},
+		{value:"-9",label:"(GMT -9:00) Alaska"},
+		{value:"-8",label:"(GMT -8:00) Pacific Time (US &amp; Canada)"},
+		{value:"-7",label:"(GMT -7:00) Mountain Time (US &amp; Canada)"},
+		{value:"-6",label:"(GMT -6:00) Central Time (US &amp; Canada), Mexico City"},
+		{value:"-5",label:"(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima"},
+		{value:"-4",label:"(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz"},
+		{value:"-3.5",label:"(GMT -3:30) Newfoundland"},
+		{value:"-3",label:"(GMT -3:00) Brazil, Buenos Aires, Georgetown"},
+		{value:"-2",label:"(GMT -2:00) Mid-Atlantic"},
+		{value:"-1",label:"(GMT -1:00 hour) Azores, Cape Verde Islands"},
+		{value:"0",label:"(GMT) Western Europe Time, London, Lisbon, Casablanca"},
+		{value:"1",label:"(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris"},
+		{value:"2",label:"(GMT +2:00) Kaliningrad, South Africa"},
+		{value:"3",label:"(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg"},
+		{value:"3.5",label:"(GMT +3:30) Tehran"},
+		{value:"4",label:"(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi"},
+		{value:"4.5",label:"(GMT +4:30) Kabul"},
+		{value:"5",label:"(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent"},
+		{value:"5.5",label:"(GMT +5:30) Bombay, Calcutta, Madras, New Delhi"},
+		{value:"5.75",label:"(GMT +5:45) Kathmandu"},
+		{value:"6",label:"(GMT +6:00) Almaty, Dhaka, Colombo"},
+		{value:"7",label:"(GMT +7:00) Bangkok, Hanoi, Jakarta"},
+		{value:"8",label:"(GMT +8:00) Beijing, Perth, Singapore, Hong Kong"},
+		{value:"9",label:"(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk"},
+		{value:"9.5",label:"(GMT +9:30) Adelaide, Darwin"},
+		{value:"10",label:"(GMT +10:00) Eastern Australia, Guam, Vladivostok"},
+		{value:"11",label:"(GMT +11:00) Magadan, Solomon Islands, New Caledonia"},
+		{value:"12",label:"(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka"}
 	];
-	for (var i=0, len = locales.length; i<len; i++) {
-		var id = 'locale'+i, l = locales[i];
-		var $li = $('<li/>').css({margin:margin,width:width}).html('<span>'+l.label+'</span><canvas id="'+id+'"/>');
-		$list.append($li);
-		new CoolClock(id, radius, skin, showSecondHand, l.offset);
+	
+	var $timezone = $('<select/>');
+	$.each(timeZones,function(i,t){
+		$timezone.append('<option value="'+t.value+'">'+t.label+'</option>');
+	});
+	
+	$list.css({width:listWidth}).disableSelection();
+	
+	var localeTime = new Date(), localeOffset = (localeTime.getTimezoneOffset()/(-60.0));
+	var locales = {_length:0}, default_locales = [
+		{label:'LocalTime', offset:localeOffset},
+		{label:'London',offset:'0'},
+		{label:'San Jose',offset:'-8'},
+		{label:'Tokyo',offset:'9'}
+	];
+	
+	var user_locales = w.getPref('locales');
+	if (user_locales) user_locales = JSON.parse(user_locales);
+	if (user_locales && user_locales.length > 0) default_locales = user_locales;
+	
+	$.fn.extend({
+		editColumn: function() {
+			var $edit = $(this).val(column);
+			function cancel() {
+				$edit.val(column);
+			}
+			function submit() {
+				var c = $edit.val();
+				c = parseInt(c);
+				if (c > 0 && c <= 10) {
+					column = c;
+					w.setPref('column',column);
+					updateClockSize(radius);
+				} else {
+					$edit.val(column);
+				}
+			}
+			$edit.keydown(function(e){
+				if (e.keyCode == 13) submit();
+				else if (e.keyCode == 27) cancel();
+			}).blur(function(){submit();});
+		},
+		editLabel: function(l) {
+			var $self = $(this), editing = false;
+			$(this).click(function(e){
+				if (editing) return false;
+				editing = true;
+				var revert = $self.html(), $edit = $('<input type="text" value="' + revert + '"/>');
+				$self.empty().append($edit);
+				function cancel() {
+					$self.html(revert);
+					editing = false;
+				}
+				function submit() {
+					l.label = $edit.val();
+					$self.html(l.label);
+					editing = false;
+					saveLocales();
+				}
+				$edit.keydown(function(e){
+					if (e.keyCode == 13) submit();
+					else if (e.keyCode == 27) cancel();
+				}).blur(function(){submit();}).focus();
+			});
+		},
+		editTimezone:function(l) {
+			var $self = $(this);
+			$self.click(function(e){
+				if (l.editing) return;
+				var revert = $self.html(), $select = $timezone.clone();
+				l.editing = true;
+				function cancel() {
+					l.editing = false;
+					$self.html(revert);
+				}
+				function submit() {
+					l.editing = false;
+					l.offset = $select.val();
+					l.coolClock.setOffset(l.offset);
+					$self.html(revert);
+					saveLocales();
+				}
+				$self.empty().append($select.change(submit).blur(cancel).val(l.offset));
+				$select.focus();
+			});
+		}
+	});
+	$.each(default_locales,function(i,l){
+		addClock(l);
+	});
+	
+	$('.close', $list).live('click', function() {
+		$(this).parent().remove(); // TODO: add effect
+		saveLocales();
+	});
+		
+	updateDigitalClock();
+	setInterval(updateDigitalClock,1000);
+	
+	$('#add').click(function(){
+		addClock();
+		saveLocales();
+	});
+	
+	$('#column').editColumn();
+	$('#size_range').change(function(){
+		radius = $(this).val();
+		updateClockSize(radius);
+		w.setPref('radius',radius);
+	}).val(radius);
+	
+	var $option_button = $('#option_button'), $option_content = $('#option_content');
+	$option_button.toggle(function(){
+		$list.addClass('edit_mode').sortable({update:function(){
+			saveLocales();
+		}});
+		$option_content.show();
+	},function(){
+		$list.removeClass('edit_mode').sortable('destroy');
+		$option_content.hide();
+	});
+	
+	function saveLocales() {
+		var al = [];
+		$('li',$list).each(function(i){
+			var id = $(this).attr('id'), l = locales[id]
+			al.push({label:l.label, offset:l.offset});
+		});
+		w.setPref('locales',JSON.stringify(al));
 	}
 
+	function addClock(locale) {
+		var i = locales._length++, l = locale || {label:'LocalTime',offset:localeOffset};
+		var id = 'locale'+i, canvasId = 'clock'+i+'_'+(new Date().valueOf());
+		var $li = $('<li/>').attr({id:id}).addClass('clock').css({margin:margin,width:width})
+			.html('<img class="close" src="images/close.png"/><span class="label">'+l.label+'</span><canvas id="'+canvasId+'"/><span class="digital_clock"></span>');
+		$list.append($li);
+		l.coolClock = new CoolClock(canvasId, radius, skin, showSecondHand, l.offset);
+		locales[id] = l;
+		$('.label', $li).editLabel(l);
+		$('.digital_clock', $li).editTimezone(l);
+	}
 	
-	//$('#timezone').timezoneComboBox();
-		
+	function updateClockSize(radius) {
+		var width = radius*2, listWidth = column*(margin*2 + radius*2);
+		$list.css({width:listWidth});
+		$('li',$list).each(function(i){
+			$(this).css({margin:margin,width:width});
+			var id = $(this).attr('id');
+			locales[id].coolClock.setRadius(radius);
+		});
+	}
+	
+	function toLocalTime() {
+		return new Date(this.getUTCFullYear(),this.getUTCMonth(), this.getUTCDate(), this.getUTCHours(), 
+			this.getUTCMinutes(), this.getUTCSeconds(), this.getUTCMilliseconds());
+	}
+	
+	function updateDigitalClock() {
+		//if (editMode) return;
+		var now = new Date(), days = w.getResourceString('SHORTDAY_NAMES').split(',');
+		$('li',$list).each(function(i){
+			var id = $(this).attr('id'), l = locales[id]
+			if (l.editing) return;
+			var t = new Date(now.valueOf() + (l.offset * 1000 * 60 * 60)), lt = toLocalTime.apply(t);
+			$(this).find('.digital_clock').html(days[lt.getDay()]+' '+lt.toLocaleTimeString());
+		});
+	}
 })(jQuery);
 </script>

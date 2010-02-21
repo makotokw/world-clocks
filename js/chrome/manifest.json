@@ -4,8 +4,6 @@
       "popup": "popup.html"
    },
    "default_locale": "en",
-   "background_page": "background.html",
-   "options_page": "options.html",
    "description": "This extension displays cool multiple world clocks.",
    "name": "World Clocks",
    "version": "@VERSION"
