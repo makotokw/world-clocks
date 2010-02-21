@@ -5,7 +5,7 @@ body {
 	font-style:normal;
 	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', "Segoe UI", Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
-ul {
+ul#clocks {
 	list-style:none; padding:0; margin:0;
 	padding-right:2px;
 }
@@ -36,19 +36,18 @@ li.clock .close {
 ul.edit_mode li.clock .close {
 	display:inline;
 }
-.clock-placeholder {
-	border: 1px solid #ddd !important;
-	background-color:#ddd;
-}
 #option_button {
 	float:right;
+}
+input {
+	outline:none; border:1px solid #ddd;
 }
 #option_content {
 	display:none;
 	float:right;
 }
-#column {
-	width:2em;
+#column_text {
+	width:1.5em;
 }
 #footer {
 	clear:both;
@@ -59,9 +58,9 @@ ul.edit_mode li.clock .close {
 	<img id="option_button" src="images/clock_edit.png"/>
 	<div id="option_content">
 		<img id="add" src="images/add.png"/>
-		<label>Column:</label>
-		<input id="column" type="text" pattern="[0-9]+" size="4" required="required" value="3"/>
-		<label>Size:</label>
+		<label id="colmun_label">Column:</label>
+		<input id="column_text" type="text" pattern="[0-9]+" size="4" required="required" value="3"/>
+		<label id="size_label">Size:</label>
 		<input id="size_range" type="range" step="5" min="30" max="60"/>
 	</div>
 </div>
@@ -76,11 +75,7 @@ ul.edit_mode li.clock .close {
 <script>
 (function($){
 	var w = Blz.Widget;
-	var editMode = true;
-	var radius = w.getPref('radius',40), skin = w.getPref('skin','chunkySwiss'), showSecondHand = true;
-	var column = w.getPref('column',4), margin = 5, width = radius*2;
-	var $list = $('#clocks'), listWidth = column*(margin*2 + radius*2);
-	
+	//localStorage.clear();
 	var timeZones = [{value:"-12.0",label:"(GMT -12:00) Eniwetok, Kwajalein"},
 		{value:"-11",label:"(GMT -11:00) Midway Island, Samoa"},
 		{value:"-10",label:"(GMT -10:00) Hawaii"},
@@ -113,26 +108,31 @@ ul.edit_mode li.clock .close {
 		{value:"11",label:"(GMT +11:00) Magadan, Solomon Islands, New Caledonia"},
 		{value:"12",label:"(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka"}
 	];
-	
 	var $timezone = $('<select/>');
-	$.each(timeZones,function(i,t){
-		$timezone.append('<option value="'+t.value+'">'+t.label+'</option>');
+	$.each(timeZones,function(i,t){ $timezone.append('<option value="'+t.value+'">'+t.label+'</option>'); });
+	
+	// localize
+	var messages = {
+		'size_label':'SIZE_LABEL',
+		'colmun_label':'COLUMN_LABEL',
+	};
+	$.each(messages,function(key,value){
+		$('#' + key).html(w.getResourceString(value));
 	});
 	
-	$list.css({width:listWidth}).disableSelection();
-	
+	var radius = w.getPref('radius',40), skin = w.getPref('skin','chunkySwiss'), showSecondHand = true;
+	var column = w.getPref('column',4), margin = 5, width = radius*2, listWidth = column*(margin*2 + radius*2);
+	var $list = $('#clocks').css({width:listWidth}).disableSelection();
 	var localeTime = new Date(), localeOffset = (localeTime.getTimezoneOffset()/(-60.0));
-	var locales = {_length:0}, default_locales = [
-		{label:'LocalTime', offset:localeOffset},
-		{label:'London',offset:'0'},
-		{label:'San Jose',offset:'-8'},
-		{label:'Tokyo',offset:'9'}
+	var locales = {_length:0}, user_locales = w.getPref('locales'), default_locales = [
+		{label:w.getResourceString('LOCAL_TIME'),offset:localeOffset},
+		{label:w.getResourceString('LONDON'),offset:'0'},
+		{label:w.getResourceString('SANJOSE'),offset:'-8'},
+		{label:w.getResourceString('TOKYO'),offset:'9'}
 	];
-	
-	var user_locales = w.getPref('locales');
 	if (user_locales) user_locales = JSON.parse(user_locales);
 	if (user_locales && user_locales.length > 0) default_locales = user_locales;
-	
+
 	$.fn.extend({
 		editColumn: function() {
 			var $edit = $(this).val(column);
@@ -200,35 +200,25 @@ ul.edit_mode li.clock .close {
 			});
 		}
 	});
-	$.each(default_locales,function(i,l){
-		addClock(l);
-	});
 	
-	$('.close', $list).live('click', function() {
-		$(this).parent().remove(); // TODO: add effect
-		saveLocales();
-	});
-		
+	$.each(default_locales,function(i,l){newClock(l);});
 	updateDigitalClock();
 	setInterval(updateDigitalClock,1000);
 	
-	$('#add').click(function(){
-		addClock();
+	// edit
+	$('#add').attr({title:w.getResourceString('ADD_HELP')}).click(function(){
+		newClock().hide().fadeIn();
 		saveLocales();
 	});
-	
-	$('#column').editColumn();
+	$('#column_text').editColumn();
 	$('#size_range').change(function(){
 		radius = $(this).val();
 		updateClockSize(radius);
 		w.setPref('radius',radius);
 	}).val(radius);
-	
-	var $option_button = $('#option_button'), $option_content = $('#option_content');
-	$option_button.toggle(function(){
-		$list.addClass('edit_mode').sortable({update:function(){
-			saveLocales();
-		}});
+	var $option_content = $('#option_content');
+	$('#option_button').attr({title:w.getResourceString('EDIT_HELP')}).toggle(function(){
+		$list.addClass('edit_mode').sortable({update:function(){saveLocales();}});
 		$option_content.show();
 	},function(){
 		$list.removeClass('edit_mode').sortable('destroy');
@@ -244,16 +234,23 @@ ul.edit_mode li.clock .close {
 		w.setPref('locales',JSON.stringify(al));
 	}
 
-	function addClock(locale) {
-		var i = locales._length++, l = locale || {label:'LocalTime',offset:localeOffset};
+	function newClock(locale) {
+		var i = locales._length++, l = locale || {label:w.getResourceString('LOCAL_TIME'),offset:localeOffset};
 		var id = 'locale'+i, canvasId = 'clock'+i+'_'+(new Date().valueOf());
 		var $li = $('<li/>').attr({id:id}).addClass('clock').css({margin:margin,width:width})
 			.html('<img class="close" src="images/close.png"/><span class="label">'+l.label+'</span><canvas id="'+canvasId+'"/><span class="digital_clock"></span>');
 		$list.append($li);
 		l.coolClock = new CoolClock(canvasId, radius, skin, showSecondHand, l.offset);
 		locales[id] = l;
+		$('.close').attr({title:w.getResourceString('CLOSE_HELP')}).click(function() {
+			$(this).parent().fadeOut('fast', function() {
+				$(this).remove();
+				saveLocales();
+			});
+		});
 		$('.label', $li).editLabel(l);
 		$('.digital_clock', $li).editTimezone(l);
+		return $li;
 	}
 	
 	function updateClockSize(radius) {
@@ -272,7 +269,6 @@ ul.edit_mode li.clock .close {
 	}
 	
 	function updateDigitalClock() {
-		//if (editMode) return;
 		var now = new Date(), days = w.getResourceString('SHORTDAY_NAMES').split(',');
 		$('li',$list).each(function(i){
 			var id = $(this).attr('id'), l = locales[id]
