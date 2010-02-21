@@ -106,30 +106,34 @@ CoolClock.config = {
 CoolClock.prototype = {
 	init: function(canvasId,displayRadius,skinId,showSecondHand,gmtOffset) {
 		this.canvasId = canvasId;
-		this.displayRadius = displayRadius || CoolClock.config.defaultRadius;
 		this.skinId = skinId || CoolClock.config.defaultSkin;
 		this.showSecondHand = typeof showSecondHand == "boolean" ? showSecondHand : true;
 		this.tickDelay = CoolClock.config[ this.showSecondHand ? "tickDelay" : "longTickDelay"];
 
 		this.canvas = document.getElementById(canvasId);
-
-		this.canvas.setAttribute("width",this.displayRadius*2);
-		this.canvas.setAttribute("height",this.displayRadius*2);
-
-		this.canvas.style.width = this.displayRadius*2 + "px";
-		this.canvas.style.height = this.displayRadius*2 + "px";
-
-		this.renderRadius = CoolClock.config.renderRadius; 
-
-		this.scale = this.displayRadius / this.renderRadius;
 		this.ctx = this.canvas.getContext("2d");
-		this.ctx.scale(this.scale,this.scale);
-
+		this.renderRadius = CoolClock.config.renderRadius;
+		this.setRadius(displayRadius);
+		
 		this.gmtOffset = gmtOffset != null ? parseFloat(gmtOffset) : gmtOffset;
 
 		CoolClock.config.clockTracker[canvasId] = this;
 		this.tick();
 		return this;
+	},
+	
+	setOffset: function(gmtOffset) {
+		this.gmtOffset = gmtOffset;
+	},
+	
+	setRadius: function(displayRadius) {
+		this.displayRadius = displayRadius || CoolClock.config.defaultRadius;
+		this.canvas.setAttribute("width",this.displayRadius*2);
+		this.canvas.setAttribute("height",this.displayRadius*2);
+		this.canvas.style.width = this.displayRadius*2 + "px";
+		this.canvas.style.height = this.displayRadius*2 + "px";
+		this.scale = this.displayRadius / this.renderRadius;
+		this.ctx.scale(this.scale,this.scale);
 	},
 
 	fullCircle: function(skin) {

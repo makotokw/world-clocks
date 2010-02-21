@@ -52,11 +52,11 @@ Blz.Util.extend(Blz.Widget, {
 		} catch (e) {
 		}
 	},
-	getPref: function(key) {
-		var value = "";
+	getPref: function(key, defaultValue) {
+		var value = defaultValue;
 		try {
 			if (window.localStorage) {
-				value = localStorage[key];
+				value = localStorage[key] || defaultValue;
 			} else {
 				value = this.cookie.getCookie(key);
 			}
