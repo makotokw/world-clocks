@@ -102,10 +102,10 @@
 		<property name="contents" value="${dist}/${long}/${projectname}"/>
 		
 		<java jar="${yuicompressor}" fork="true">
-			<arg line="${contents}/calendar.js -o ${contents}/calendar.js --type js"/>
+			<arg line="${contents}/bullseye.js -o ${contents}/bullseye.js --type js"/>
 		</java>
 		<java jar="${yuicompressor}" fork="true">
-			<arg line="${contents}/calendar.js -o ${contents}/calendar.js --type js --nomunge"/>
+			<arg line="${contents}/bullseye.js -o ${contents}/bullseye.js --type js --nomunge"/>
 		</java>
 		<delete>
 			<fileset dir="${dist}">
