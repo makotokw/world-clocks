@@ -198,34 +198,12 @@ ul.edit_mode li.clock .close {
 				}).blur(function(){submit();}).focus();
 			});
 		},
-		editTimezone:function(l) {
-			var $self = $(this);
-			$self.click(function(e){
-				if (l.editing || !$list.hasClass('edit_mode')) return;
-				var revert = $self.html(), $select = $timezone.clone();
-				l.editing = true;
-				function cancel() {
-					return; // blur dose not work in Windows
-					l.editing = false;
-					$self.html(revert);
-				}
-				function submit() {
-					l.editing = false;
-					l.offset = $select.val();
-					l.coolClock.setOffset(l.offset);
-					$self.html(revert);
-					saveLocales();
-				}
-				$self.empty().append($select.change(submit).blur(cancel).val(l.offset));
-				$select.focus();
-			});
-		},
-		editTimezone2:function() {
+		editTimezone:function() {
 			var $self = $(this), id = $self.parent().attr('id'), cbxid = id+'_dst', l = locales[id];
 			var $select = $timezone.clone();
 			var $check = $('<input id="'+cbxid+'" class="dst" type="checkbox"/>').attr('checked',l.dst==1);
 			function submit() {
-				l.offset = parseInt($select.val());
+				l.offset = parseFloat($select.val());
 				l.dst = $check.attr('checked') ? 1 : 0;
 				l.coolClock.setOffset(l.offset + l.dst);
 				saveLocales();
@@ -244,7 +222,7 @@ ul.edit_mode li.clock .close {
 		var $li = newClock().hide().fadeIn();
 		var id = $li.attr('id'), l = locales[id];
 		l.editing = true;
-		$('.digital_clock',$li).editTimezone2();
+		$('.digital_clock',$li).editTimezone();
 		saveLocales();
 	});
 	$('#column_text').editColumn();
@@ -269,7 +247,7 @@ ul.edit_mode li.clock .close {
 		$('li',$list).each(function(i){
 			var id = $(this).attr('id'), l = locales[id];
 			l.editing = true;
-			$('.digital_clock',$(this)).editTimezone2();
+			$('.digital_clock',$(this)).editTimezone();
 		});
 	},function(){
 		$list.removeClass('edit_mode').sortable('destroy');
@@ -295,7 +273,7 @@ ul.edit_mode li.clock .close {
 		var $li = $('<li/>').attr({id:id}).addClass('clock').css({margin:margin,width:width})
 			.html('<img class="close" src="images/close.png"/><span class="label">'+l.label+'</span><canvas id="'+canvasId+'"/><span class="digital_clock"></span>');
 		$list.append($li);
-		l.coolClock = new CoolClock(canvasId, radius, skin, showSecondHand, parseInt(l.offset) + l.dst);
+		l.coolClock = new CoolClock(canvasId, radius, skin, showSecondHand, parseFloat(l.offset) + l.dst);
 		locales[id] = l;
 		$('.close').attr({title:w.getResourceString('CLOSE_HELP')}).click(function() {
 			$(this).parent().fadeOut('fast', function() {
@@ -304,7 +282,6 @@ ul.edit_mode li.clock .close {
 			});
 		});
 		$('.label', $li).editLabel(l);
-		//$('.digital_clock', $li).editTimezone(l);
 		return $li;
 	}
 	
