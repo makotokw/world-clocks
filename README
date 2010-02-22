@@ -1,31 +1,17 @@
+World Clocks
 
-My Google Calendar / Google Calendar for Today
-
-Copyright (c) 2009-2010, makoto_kw (http://www.makotokw.com)
+Copyright (c) 2006-2010, makoto_kw (http://www.makotokw.com)
 All rights reserved.
+
+Chrome Extension includes CoolClock:
+	CoolClock by Simon Baird (simon dot baird at gmail dot com)
+	Version 1.0.6 (08-Jul-2008)
+	See http://simonbaird.com/coolclock/
 
 Release Notes
 
-* v1.1.2 at 2010/02/09(Chrome Extension)
- - Chrome: Fixed Option page problems
+* v0.3 at 2010/02/22(Chrome Extension)
+ - Chrome: Initial Release for Yahoo Widget Engine
 
-* v1.1.1 at 2010/02/08(Chrome Extension)
- - Supported to work with browser session (without Client Login)
- - Supported Google Apps Account
- - Chrome: Added to draw badge like "Google Calendar Checker"
-
-* v1.1 at 2010/02/07(Chrome Extension)
- - Chrome: Initial Release for Google Chrome Extension
-
-* v1.0.2 at 2009/07/06(Yahoo Widget)
- - YWE: Moved to all image files to theme folder
- - YWE: Supported custom theme
- - YWE: Added to open Google Calendar on browser
- - YWE: Added to filter of calendar
- - YWE: Update new themes by John
- - YWE: Fixed to display events of unselected calendar
- - YWE: Fixed to display a "All Day Event" for two days
- - YWE: Fixed to move window (likes dock)
-
-* v1.0.0 at 2009/05/01(Yahoo Widget)
+* v0.1 at 2006/11/06(Yahoo Widget)
  - YWE: Initial Release for Yahoo Widget Engine
