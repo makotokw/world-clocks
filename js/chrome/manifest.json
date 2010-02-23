@@ -7,7 +7,7 @@
       "128": "icon_128.png"
    },
    "default_locale": "en",
-   "description": "This extension displays multiple world clocks that you can add, remote and edit.",
+   "description": "World Clock. It displays multiple world clocks that you can add, remove and edit.",
    "name": "World Clocks",
    "version": "@VERSION"
 }
