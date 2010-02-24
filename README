@@ -10,6 +10,12 @@ Chrome Extension includes CoolClock:
 
 Release Notes
 
+
+
+* v0.3.1 at 2010/02/22(Chrome Extension)
+ - Chrome: Fixed typo
+ - Chrome: Fixed that dose not work on half-hour. Use parseFloat instead of parseInt.
+
 * v0.3 at 2010/02/22(Chrome Extension)
  - Chrome: Initial Release for Yahoo Widget Engine
 
