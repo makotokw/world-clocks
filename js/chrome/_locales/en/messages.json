@@ -7,6 +7,7 @@
 	"ADD_HELP": {"message":"Add a clock"},
 	"CLOSE_HELP": {"message":"Remove the clock"},
 	"EDIT_HELP": {"message":"Edit clocks"},
+	"DST_LABEL": {"message":"DST"},
 	"SIZE_LABEL": {"message":"Size:"},
 	"SKIN_LABEL": {"message":"Skin:"},
 	"COLUMN_LABEL": {"message":"Column:"},

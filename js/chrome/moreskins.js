@@ -19,7 +19,7 @@ CoolClock.config.skins = {
 		secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: "red", alpha: 1 },
 		secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: "red", color: "red", alpha: 1 }
 	},
-
+/*
 	chunkySwissOnBlack: {
 		outerBorder: { lineWidth: 4, radius:97, color: "white", alpha: 1 },
 		smallIndicator: { lineWidth: 4, startAt: 89, endAt: 93, color: "white", alpha: 1 },
@@ -29,6 +29,7 @@ CoolClock.config.skins = {
 		secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: "red", alpha: 1 },
 		secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: "red", color: "red", alpha: 1 }
 	},
+*/
 
 	fancy: {
 		outerBorder: { lineWidth: 5, radius:95, color: "green", alpha: 0.7 },

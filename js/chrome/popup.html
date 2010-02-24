@@ -1,6 +1,8 @@
 <meta charset="utf-8"/>
 <style>
 body  {
+	background-color:#fff;
+	color: #333;
 	font-size:0.7em;
 	font-style:normal;
 	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', "Segoe UI", Verdana, Geneva, Arial, Helvetica, sans-serif;
@@ -209,7 +211,7 @@ ul.edit_mode li.clock .close {
 				saveLocales();
 			}
 			$self.empty().append($select.change(submit).val(l.offset));
-			$self.append($check.change(submit)).append('<label for="'+cbxid+'">DST</label>');
+			$self.append($check.change(submit)).append('<label for="'+cbxid+'">'+w.getResourceString('DST_LABEL')+'</label>');
 		}
 	});
 	
@@ -291,6 +293,7 @@ ul.edit_mode li.clock .close {
 		w.setPref('radius',radius);
 		updateClockSize();
 	}
+	
 	function updateClockSize() {
 		var width = radius*2, listWidth = column*(margin*2 + radius*2);
 		$list.css({width:listWidth});
@@ -310,7 +313,7 @@ ul.edit_mode li.clock .close {
 		$('li',$list).each(function(i){
 			var id = $(this).attr('id'), l = locales[id]
 			if (l.editing) return;
-			var t = new Date(now.valueOf() + (l.offset * 1000 * 60 * 60)), lt = toLocalTime.apply(t);
+			var t = new Date(now.valueOf() + ((parseFloat(l.offset) + parseFloat(l.dst)) * 1000 * 60 * 60)), lt = toLocalTime.apply(t);
 			$(this).find('.digital_clock').html(days[lt.getDay()]+' '+lt.toLocaleTimeString());
 		});
 	}

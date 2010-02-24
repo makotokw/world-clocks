@@ -10,7 +10,9 @@ Chrome Extension includes CoolClock:
 
 Release Notes
 
-
+* v0.3.2
+ - Chrome: Fixed that text is invisible on somes theme. Remove a skin for black as backgounrd-color.
+ - Chrome: Fixed that digital clock dose not work in DST
 
 * v0.3.1 at 2010/02/22(Chrome Extension)
  - Chrome: Fixed typo
