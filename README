@@ -3,6 +3,8 @@ World Clocks
 Copyright (c) 2006-2010, makoto_kw (http://www.makotokw.com)
 All rights reserved.
 
+Chrome Extension: https://chrome.google.com/extensions/detail/innfmeekncjandlanpgdmmogkcimekgo
+
 Chrome Extension includes CoolClock:
 	CoolClock by Simon Baird (simon dot baird at gmail dot com)
 	Version 1.0.6 (08-Jul-2008)
@@ -10,7 +12,7 @@ Chrome Extension includes CoolClock:
 
 Release Notes
 
-* v0.3.2
+* v0.3.2 at 2010/02/24(Chrome Extension)
  - Chrome: Fixed that text is invisible on somes theme. Remove a skin for black as backgounrd-color.
  - Chrome: Fixed that digital clock dose not work in DST
 
