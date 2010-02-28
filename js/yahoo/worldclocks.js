@@ -14,7 +14,7 @@ function WorldClocks()
 	var menuIndex = 0;
 	items[menuIndex] = new MenuItem();
 	items[menuIndex].title = "New City...";
-	items[menuIndex].onSelect = "_worldclocks.addNewClock();";	
+	items[menuIndex].onSelect = function() { _worldclocks.addNewClock(); }
 	this.window.contextMenuItems = items;
 		
 	ClockItem.prototype.width			= 300;
@@ -110,7 +110,7 @@ function WorldClocks()
 		this.titlebarImg.vOffset = 4;
 		
 		this.copyright = new Text();
-		this.copyright.data = copyright;
+		this.copyright.data = "World Clocks @VERSION. Copyright(c) 2006-2010 makoto_kw.";
 		this.copyright.size = 9;
 		this.copyright.color = "#FFFFFF";
 		this.copyright.alignment = "center";
@@ -322,10 +322,7 @@ function ClockItem(parent, id, displayName, cityName, locationCode, timezoneOffs
 	this.timezoneOffset = timezoneOffset;
 	this.useDst = useDst;
 	this.weather = new CityWeather(cityName, locationCode);
-	
-	// cache
-	eval("_citem" + id + "= this;");
-	
+		
 	this.shadow = new Shadow();
 	this.shadow.color='#000000';
 	this.shadow.vOffset=1;
@@ -346,19 +343,20 @@ function ClockItem(parent, id, displayName, cityName, locationCode, timezoneOffs
 	var menuIndex = 0;
 	//items[menuIndex] = new MenuItem();
 	//items[menuIndex].title = "New City...";
-	//items[menuIndex].onSelect = "_citem" + id + ".parent.addNewClock();";	
+	//items[menuIndex].onSelect = function() { _worldclocks.addNewClock(); }
 	items[menuIndex] = new MenuItem();
-	items[menuIndex].onSelect = "_citem" + id + ".parent.editClock('" + id + "');";
+	items[menuIndex]._id = id;
+	items[menuIndex].onSelect = function() { _worldclocks.editClock(this._id); }
 	this.editMenuIndex = menuIndex;
 	items[++menuIndex] = new MenuItem();
-	items[menuIndex].onSelect = "_citem" + id + ".parent.removeClock('" + id + "');";
+	items[menuIndex].onSelect = function() { _worldclocks.removeClock(this._id); }
 	this.removeMenuIndex = menuIndex;
 	items[++menuIndex] = new MenuItem();
 	items[menuIndex].title = "Up";
-	items[menuIndex].onSelect = "_citem" + id + ".parent.moveUpClock('" + id + "');";
+	items[menuIndex].onSelect = function() { _worldclocks.moveUpClock(this._id); }
 	items[++menuIndex] = new MenuItem();
 	items[menuIndex].title = "Down";
-	items[menuIndex].onSelect = "_citem" + id + ".parent.moveDownClock('" + id + "');";
+	items[menuIndex].onSelect = function() { _worldclocks.moveDownClock(this._id); }
 	items[++menuIndex] = new MenuItem();
 	items[menuIndex].title = wal.system.getMenuSeparatorTitle();
 	this.bg.contextMenuItems = items;

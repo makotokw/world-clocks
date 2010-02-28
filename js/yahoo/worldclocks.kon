@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget version="@VERSION">
+	<settings>
+		<setting name="allowCustomObjectAttributes" value="true"/>
+		<setting name="defaultTracking" value="rectangle"/>
+	</settings>
 	<action trigger="onLoad">
-	<!--
+	<![CDATA[
 		include("wal.js");
 		include("weather.js");
 		include("worldclocks.js");
-		copyright = "World Clocks " + widget.version +  ". Copyright(c) 2006 kw."; 
 		wc = new WorldClocks();
 		wc.loadPreference(true);
 		onUpdateClock.ticking = true;
 		onUpdateWeather.ticking = true;
-	-->
+	]]>
 	</action>
 	
 	<action trigger="onUnload">
-	<!--
+	<![CDATA[
 		wc.savePreference();
-	-->
+	]]>
 	</action>
 	
 	<action trigger="onPreferencesChanged">
-	<!--
+	<![CDATA[
 		wc.loadPreference();
-	-->
+	]]>
 	</action>
 
 	<timer name="onUpdateClock" interval="1" ticking="false">
 		<onTimerFired>
-			<!--
+			<![CDATA[
 			wc.updateClock();
-			//-->
+			]]>
 		</onTimerFired>
 	</timer>
 	
@@ -40,19 +43,19 @@
 
 	<timer name="onUpdateWeather" interval="300" ticking="false">
 		<onTimerFired>
-			<!--
+			<![CDATA[
 				wc.updateWeather(true);
-			-->
+			]]>
 		</onTimerFired>
 	</timer>
 
 	<timer name="onSleepPause" interval="10" ticking="false">
 		<onTimerFired>
-			<!--
+			<![CDATA[
 				wc.updateWeather(false);
 				onUpdateWeather.ticking = true;
 				onSleepPause.ticking = false;
-			-->
+			]]>
 		</onTimerFired>
 	</timer>
 	
@@ -140,7 +143,4 @@
 		<type>checkbox</type>
 		<defaultValue>1</defaultValue>
 	</preference>
-	
-		
 </widget>
-
