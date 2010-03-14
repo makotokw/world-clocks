@@ -69,19 +69,22 @@ ul.edit_mode li.clock .close {
 	clear:both;
 }
 </style>
+<div>
 <ul id="clocks"></ul>
 <div id="footer">
 	<img id="option_button" src="images/clock_edit.png"/>
 	<div id="option_content">
 		<img id="add" src="images/add.png"/>
-		<label id="colmun_label">Column:</label>
+		<label id="column_label">Column:</label>
 		<input id="column_text" type="text" pattern="[0-9]+" size="4" required="required" value="3"/>
 		<label id="skin_label">Skin:</label>
 		<select id="skin_select"></select>
 		<label id="size_label">Size:</label>
 		<input id="size_range" type="range" step="5" min="30" max="60"/>
+		<input id="show_second_hand" type="checkbox"/><label id="show_second_hand_label" for="show_second_hand">Show Secound Hand</label>
 	</div>
 	<div style="clear:both;"></div>
+</div>
 </div>
 <script src="bullseye.js"></script>
 <script src="coolclock.js"></script>
@@ -134,21 +137,22 @@ ul.edit_mode li.clock .close {
 	var messages = {
 		'size_label':'SIZE_LABEL',
 		'skin_label':'SKIN_LABEL',
-		'colmun_label':'COLUMN_LABEL',
+		'column_label':'COLUMN_LABEL',
+		'show_second_hand_label':'SECOND_HAND_LABEL',
 	};
 	$.each(messages,function(key,value){
 		$('#' + key).html(w.getResourceString(value));
 	});
 	
-	var radius = w.getPref('radius',40), skin = w.getPref('skin','chunkySwiss'), showSecondHand = true;
+	var radius = w.getPref('radius',40), skin = w.getPref('skin','chunkySwiss'), showSecondHand = ("false" != w.getPref('showSecondHand',"true"));
 	var column = w.getPref('column',4), margin = 5, width = radius*2, listWidth = column*(margin*2 + radius*2);
 	var $list = $('#clocks').css({width:listWidth}).disableSelection();
 	var localeTime = new Date(), localeOffset = (localeTime.getTimezoneOffset()/(-60.0));
 	var locales = {_length:0}, user_locales = w.getPref('locales'), default_locales = [
 		{label:w.getResourceString('LOCAL_TIME'),offset:localeOffset, dst:0},
 		{label:w.getResourceString('LONDON'),offset:'0', dst:0},
-		{label:w.getResourceString('VANCOUVER'),offset:'-8', dst:0},
-		//{label:w.getResourceString('SANJOSE'),offset:'-8', dst:0},
+		//{label:w.getResourceString('VANCOUVER'),offset:'-8', dst:0},
+		{label:w.getResourceString('SANJOSE'),offset:'-8', dst:0},
 		{label:w.getResourceString('TOKYO'), offset:'9', dst:0}
 	];
 	//$('#clocks').before(user_locales);
@@ -167,7 +171,7 @@ ul.edit_mode li.clock .close {
 				if (c > 0 && c <= 10) {
 					column = c;
 					w.setPref('column',column);
-					updateClockSize();
+					updateCoolClock();
 				} else {
 					$edit.val(column);
 				}
@@ -242,6 +246,9 @@ ul.edit_mode li.clock .close {
 	$('#size_range').change(function(){
 		changeClockSize($(this).val());
 	}).val(radius);
+	$('#show_second_hand').change(function(){
+		changeSecoundHand($(this).attr('checked'));
+	}).attr({checked:showSecondHand});
 	var $option_content = $('#option_content');
 	$('#option_button').attr({title:w.getResourceString('EDIT_HELP')}).toggle(function(){
 		$list.addClass('edit_mode').sortable({update:function(){saveLocales();}});
@@ -291,16 +298,21 @@ ul.edit_mode li.clock .close {
 		if (!parseInt(r)) return;
 		radius = r;
 		w.setPref('radius',radius);
-		updateClockSize();
+		updateCoolClock();
 	}
-	
-	function updateClockSize() {
+	function changeSecoundHand(show) {
+		showSecondHand = show;
+		w.setPref('showSecondHand',show);
+		updateCoolClock();
+	}
+	function updateCoolClock() {
 		var width = radius*2, listWidth = column*(margin*2 + radius*2);
 		$list.css({width:listWidth});
 		$('li',$list).each(function(i){
 			$(this).css({margin:margin,width:width});
 			var id = $(this).attr('id');
 			locales[id].coolClock.setRadius(radius);
+			locales[id].coolClock.setSecondHand(showSecondHand);
 		});
 	}
 	function toLocalTime() {

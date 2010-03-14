@@ -138,6 +138,9 @@ CoolClock.prototype = {
 		this.scale = this.displayRadius / this.renderRadius;
 		this.ctx.scale(this.scale,this.scale);
 	},
+	setSecondHand:function(enable) {
+		this.showSecondHand = enable;
+	},
 
 	fullCircle: function(skin) {
 		this.fullCircleAt(this.renderRadius,this.renderRadius,skin);

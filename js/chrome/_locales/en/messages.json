@@ -11,5 +11,6 @@
 	"SIZE_LABEL": {"message":"Size:"},
 	"SKIN_LABEL": {"message":"Skin:"},
 	"COLUMN_LABEL": {"message":"Column:"},
+	"SECOND_HAND_LABEL": {"message":"Show Secound Hand"},
 	"SHORTDAY_NAMES": {"message":"Sun,Mon,Tue,Wed,Thu,Fri,Sat"}
 }
