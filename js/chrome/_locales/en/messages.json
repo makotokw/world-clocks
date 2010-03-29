@@ -1,4 +1,6 @@
 {
+	"APP_TITLE": {"message":"World Clocks"},
+	"APP_DESCRIPTION": {"message":"World Clock. It displays multiple world clocks that you can add, remove, sort and edit."},
 	"LOCAL_TIME": {"message":"Local Time"},
 	"LONDON": {"message":"London"},
 	"VANCOUVER": {"message":"Vancouver"},

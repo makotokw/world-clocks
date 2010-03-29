@@ -1,4 +1,6 @@
 {
+	"APP_TITLE": {"message":"世界時計"},
+	"APP_DESCRIPTION": {"message":"世界時計を表示します。任意の時差の時計を複数並べることができます。"},
 	"LOCAL_TIME": {"message":"ローカル時刻"},
 	"LONDON": {"message":"ロンドン"},
 	"VANCOUVER": {"message":"バンクーバー"},

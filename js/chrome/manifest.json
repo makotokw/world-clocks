@@ -1,13 +1,13 @@
 {
-   "browser_action": {
-      "default_icon": "icon.png",
-      "popup": "popup.html"
-   },
-   "icons": {
-      "128": "icon_128.png"
-   },
-   "default_locale": "en",
-   "description": "World Clock. It displays multiple world clocks that you can add, remove, sort and edit.",
-   "name": "World Clocks",
-   "version": "@VERSION"
+  "name": "__MSG_APP_TITLE__",
+  "description": "__MSG_APP_DESCRIPTION__",
+  "version": "@VERSION",
+  "default_locale": "en",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup": "popup.html"
+  },
+  "icons": {
+    "128": "icon_128.png"
+  }
 }
