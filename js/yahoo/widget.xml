@@ -3,10 +3,13 @@
 	<name>World Clocks</name>
 	<version>@VERSION</version>
 	<identifier>com.makotkw.widget.worldclocks</identifier>
-	<image usage="dock" src="Resources/images/yahoo/dock.png"/>
-	<image usage="security" src="Resources/images/yahoo/dock_active.png"/>
+	<image usage="dock" src="Resources/images/DocDefault.png"/>
+	<image usage="security" src="Resources/images/DocActive.png"/>
 	<author name="makoto_kw" href="http://www.makotokw.com"/>
-	<copyright>(c) 2009-2010 makoto_kw. (makoto.kw@gmail.com) </copyright>
+	<copyright>(c) 2006-2010 makoto_kw. (makoto.kw@gmail.com) </copyright>
 	<description>Display multiple clocks.</description>
 	<platform minVersion="4.5"/>
+	<security>
+		<http name="yahoo.com">all</http>
+	</security>
 </metadata>

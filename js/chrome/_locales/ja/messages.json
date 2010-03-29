@@ -13,5 +13,6 @@
 	"SIZE_LABEL": {"message":"サイズ:"},
 	"SKIN_LABEL": {"message":"スキン:"},
 	"COLUMN_LABEL": {"message":"列数:"},
+	"SECOND_HAND_LABEL": {"message":"秒針の表示"},
 	"SHORTDAY_NAMES": {"message":"日,月,火,水,木,金,土"}
 }
