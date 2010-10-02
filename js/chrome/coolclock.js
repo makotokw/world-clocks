@@ -140,6 +140,8 @@ CoolClock.prototype = {
 	},
 	setSecondHand:function(enable) {
 		this.showSecondHand = enable;
+		this.tickDelay = CoolClock.config[ this.showSecondHand ? "tickDelay" : "longTickDelay"];
+		this.tick();
 	},
 
 	fullCircle: function(skin) {

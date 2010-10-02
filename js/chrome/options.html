@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="popup.css"/>
+</head>
+<body>
+<div>
+<h1 id="title"></h1>
+<h3 id="option_group_icon">Icon</h3>
+<ul class="option_content">
+	<li>
+		<label id="skin_label">Skin:</label>
+		<select id="skin_select"></select>
+	</li>
+</ul>
+
+<h3 id="option_group_popup">Popup</h3>
+<ul class="option_content">
+	<li>
+		<label></label>
+		<input id="show_footer" type="checkbox"/>
+		<label id="show_footer_label" for="show_footer">Show Footer</label>
+	</li>
+</ul>
+
+</div>
+<script src="bullseye.js"></script>
+<script src="coolclock.js"></script>
+<script src="moreskins.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js" type="text/javascript"></script>
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
+<script>
+(function($){
+	var crx = chrome.extension, bg = crx.getBackgroundPage(), w = Blz.Widget;
+	
+	// localize
+	var messages = {
+		'option_group_icon':'ICON_GROUP',
+		'option_group_popup':'POPUP_GROUP',
+		'skin_label':'SKIN_LABEL',
+		'show_footer_label':'SHOW_FOOTER_LABEL',
+	};
+	$.each(messages,function(key,value){
+		$('#' + key).html(w.getResourceString(value));
+	});
+	$('#title').html(w.getResourceString('APP_TITLE') + ' for Chrome Extension Settings');
+
+	// skin
+	var skin = w.getPref('ba_skin'),
+		$skin_select = $('#skin_select'); $.each(CoolClock.config.skins,function(attr){
+		$skin_select.append('<option value="'+attr+'">'+attr+'</option>')
+	});
+	$skin_select.change(function(){
+		skin = $(this).val();
+		bg.setSkin(skin);
+		w.setPref('ba_skin',skin);
+	}).val(skin);
+	
+	// footer
+	var showFooter = ("false" != w.getPref('showFooter',"true"));
+	$('#show_footer').change(function(){
+		var show = $(this).attr('checked');
+		w.setPref('showFooter',show);
+	}).attr({checked:showFooter});
+	
+})(jQuery);
+</script>
+</body></html>

@@ -94,6 +94,10 @@
 		<copy todir="${resources}/images">
 		 	<fileset dir="${res}/images/chrome" excludes="icon*.png"/>
 		</copy>
+		<property name="desktop" value="C:/Users/makoto_kw/Desktop"/> 
+		<copy todir="${desktop}/${projectname}.crx" overwrite="true">
+			<fileset dir="${contents}"/>
+		</copy>
 	</target>
 	
 	<target name="package_chrome" depends="unpacked_chrome" description="make package for Chrome">
