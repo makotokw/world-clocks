@@ -12,6 +12,13 @@ Chrome Extension includes CoolClock:
 
 Release Notes
 
+* Next
+ - Chrome: Added a locale date string to footer of popup
+
+* V0.4 at 2010/10/01(Chrome Extension)
+ - Chrome: Displays anolog clock as browser icon
+ - Chrome: Fixed an option UI
+
 * v0.3.2 at 2010/02/24(Chrome Extension)
  - Chrome: Fixed that text is invisible on somes theme. Remove a skin for black as backgounrd-color.
  - Chrome: Fixed that digital clock dose not work in DST

@@ -10,6 +10,7 @@
 <div id="footer">
 	<div id="option_header">
 		<span id="copyright">Word Clocks</span>
+		<span id="today"></span>
 		<a id="option_label" href="#"></a>
 	</div>
 	<ul id="option_content" class="option_content" style="display:none;">
@@ -87,9 +88,8 @@
 		{value:"12",label:"(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka"},
 		{value:"13",label:"(GMT +13:00) Nuku'alofa"}
 	];
-	var $timezone = $('<select/>');
+	var $today = $('#today'), $timezone = $('<select/>');
 	$.each(timeZones,function(i,t){ $timezone.append('<option value="'+t.value+'">'+t.label+'</option>'); });
-	
 	
 	$('#copyright').html(w.getResourceString('APP_TITLE') + ' ' + background.getVersion());
 	
@@ -358,6 +358,7 @@
 			var t = new Date(now.valueOf() + ((parseFloat(l.offset) + parseFloat(l.dst)) * 1000 * 60 * 60)), lt = toLocalTime.apply(t);
 			$(this).find('.digital_clock').html(days[lt.getDay()]+' '+ background.toLocaleShortTimeString.call(lt, showSecondHand  && radius > 30));
 		});
+		$today.html(now.toLocaleDateString());
 	}
 })(jQuery);
 </script>
