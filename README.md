@@ -14,6 +14,7 @@ Release Notes
 
 * Next
  - Chrome: Added a locale date string to footer of popup
+ - YWE: Removed files of Yahoo Widget!
 
 * V0.4 at 2010/10/01(Chrome Extension)
  - Chrome: Displays anolog clock as browser icon

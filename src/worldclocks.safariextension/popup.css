@@ -1,0 +1,121 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color:#fff;
+	color: #333;
+	font-size:0.7em;
+	font-style:normal;
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', "Segoe UI", Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+input, select, label {
+	font-size:1em;
+}
+ul#clocks {
+	list-style:none; padding:0; margin:0;
+}
+
+ul.analog {
+	padding-right:2px;
+}
+
+li.clock {
+	position:relative;
+	display: inline-block;
+}
+li.clock span {
+	display:block;
+	text-align: center;
+	height:1.1em; line-height:1.1em;
+}
+li.clock span.city {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom:2px;
+}
+li.clock span.digital_clock {
+	margin-top:2px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+li.clock input, li.clock select {
+	line-height:1em; width:100%;
+	margin:0; padding:0;
+	border:1px solid #ddd;
+	outline:none;
+}
+li.clock input.dst {
+	display:inline; width:auto;
+	margin:2px;
+}
+li.clock .close {
+	position:absolute; top:-8px; right:-12px;
+	display:none;
+}
+
+ul.edit_mode li.clock .close {
+	display:inline;
+}
+
+/* options */
+#option_header {
+	display:box;
+	background-color:#eee;
+	border:1px solid #ddd;
+	padding:2px;
+	-webkit-border-radius: 4px;
+	text-align:center;
+	
+}
+#option_header a,
+.option_content a {
+  outline:none;
+  text-decoration:none;
+}
+#option_label {
+	mergin:0 auto;
+}
+
+#option_content {
+	margin-top:1em;
+	display:none;
+}
+
+#add {
+	background: transparent url("images/add.png") no-repeat left center;
+	padding-left: 20px;
+}
+
+.indicator {
+	background: transparent url("images/loading.gif") no-repeat left center;
+	padding-left: 20px;
+}
+
+ul#option_content {
+	list-style:none;
+	padding:0.5em;
+	border:1px solid #999;
+}
+.option_content {
+	
+}
+.option_content input[type="number"] {
+	width:60px;
+}
+.option_content > li {
+	position: relative;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-border-radius: 0;
+}
+.option_content > li > label:first-child {
+	font-weight: bold;
+	min-width:50px;
+	text-align:right;
+	display:inline-block;
+}
+
+
+#footer {
+	clear:both;
+}

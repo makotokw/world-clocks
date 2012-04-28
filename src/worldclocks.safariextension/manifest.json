@@ -1,0 +1,15 @@
+{
+  "name": "__MSG_APP_TITLE__",
+  "description": "__MSG_APP_DESCRIPTION__",
+  "version": "0.4",
+  "default_locale": "en",
+  "background_page": "background.html",
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "popup": "popup.html"
+  },
+  "icons": {
+    "128": "icon_128.png"
+  }
+}
