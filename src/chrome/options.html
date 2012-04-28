@@ -25,7 +25,7 @@
 </ul>
 
 </div>
-<script src="bullseye.js"></script>
+<script src="worldclocks.js"></script>
 <script src="coolclock.js"></script>
 <script src="moreskins.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
@@ -33,7 +33,7 @@
 <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" />
 <script>
 (function($){
-	var crx = chrome.extension, bg = crx.getBackgroundPage(), w = Blz.Widget;
+	var crx = chrome.extension, bg = crx.getBackgroundPage(), w = WorldClocks;
 	
 	// localize
 	var messages = {
@@ -43,26 +43,26 @@
 		'show_footer_label':'SHOW_FOOTER_LABEL',
 	};
 	$.each(messages,function(key,value){
-		$('#' + key).html(w.getResourceString(value));
+		$('#' + key).html(w.msg(value));
 	});
-	$('#title').html(w.getResourceString('APP_TITLE') + ' for Chrome Extension Settings');
+	$('#title').html(w.msg('OPTION_TITLE'));
 
 	// skin
-	var skin = w.getPref('ba_skin'),
+	var skin = w.pref.get('ba_skin'),
 		$skin_select = $('#skin_select'); $.each(CoolClock.config.skins,function(attr){
 		$skin_select.append('<option value="'+attr+'">'+attr+'</option>')
 	});
 	$skin_select.change(function(){
 		skin = $(this).val();
 		bg.setSkin(skin);
-		w.setPref('ba_skin',skin);
+		w.pref.set('ba_skin',skin);
 	}).val(skin);
 	
 	// footer
-	var showFooter = ("false" != w.getPref('showFooter',"true"));
+	var showFooter = ("false" != w.pref.get('showFooter',"true"));
 	$('#show_footer').change(function(){
 		var show = $(this).attr('checked');
-		w.setPref('showFooter',show);
+		w.pref.set('showFooter',show);
 	}).attr({checked:showFooter});
 	
 })(jQuery);

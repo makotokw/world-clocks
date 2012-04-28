@@ -1,63 +1,42 @@
 <?xml version="1.0" ?>
 <project default="package_chrome">
-	<property name="projectname" value="WorldClocks"/>
-	<loadfile property="version" srcfile="version.txt"/>
-	<property name="dist" value="dist"/>
-	<property name="yuicompressor" value="tools/yuicompressor/yuicompressor-2.4.2.jar"/>
-	<property name="src" value="src"/>
-	<property name="res" value="resource"/>
-	
-	
-	<target name="unpacked_chrome" description="unpacked for Chrome">
-		<property name="long" value="chrome"/>
-		<property name="contents" value="${dist}/${long}/${projectname}"/>
-		<property name="resources" value="${contents}"/>
-		
-		<mkdir dir="${dist}"/>
-		<delete dir="${dist}/${long}"/>
-		<mkdir dir="${contents}"/>
-		
-		<copy todir="${contents}">
-			<fileset dir="${src}/${long}"/>
-			<fileset file="${src}/bullseye/ext-core.js"/>
-		</copy>
-		<concat destfile="${contents}/bullseye.js">
-			<fileset file="${src}/bullseye/Blz.js"/>
-			<fileset file="${src}/bullseye/BlzWidget.js"/>
-			<fileset file="${src}/bullseye/BlzWidgetBrowser.js"/>
-		</concat>
-		<replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true" file="${contents}/manifest.json"/>
-		<mkdir dir="${resources}"/>
-		<copy todir="${resources}">
-		 	<fileset dir="${res}/images/chrome" includes="icon*.png"/>
-		</copy>
-		<copy todir="${resources}/images">
-		 	<fileset dir="${res}/images/chrome" excludes="icon*.png"/>
-		</copy>
-		<property name="desktop" value="C:/Users/makoto_kw/Desktop"/> 
-		<copy todir="${desktop}/${projectname}.crx" overwrite="true">
-			<fileset dir="${contents}"/>
-		</copy>
-	</target>
-	
-	<target name="package_chrome" depends="unpacked_chrome" description="make package for Chrome">
-		<property name="long" value="chrome"/>
-		<property name="short" value="crx"/>
-		<property name="contents" value="${dist}/${long}/${projectname}"/>
-		
-		<java jar="${yuicompressor}" fork="true">
-			<arg line="${contents}/bullseye.js -o ${contents}/bullseye.js --type js"/>
-		</java>
-		<java jar="${yuicompressor}" fork="true">
-			<arg line="${contents}/bullseye.js -o ${contents}/bullseye.js --type js --nomunge"/>
-		</java>
-		<delete>
-			<fileset dir="${dist}">
-				<include name="${projectname}_${short}_${version}.zip"/>
-			</fileset>
-		</delete>
-		<zip destfile="${dist}/${projectname}_${short}_${version}.zip">
-			<fileset dir="${dist}/${long}/${projectname}" includes="**"/>
-		</zip>
-	</target>
+    <property environment="env" />
+    <property name="projectname" value="WorldClocks"/>
+    <loadfile property="version" srcfile="version.txt"/>
+    <property name="dist" value="dist"/>
+    <property name="yuicompressor" value="tools/yuicompressor/yuicompressor-2.4.2.jar"/>
+    <property name="src" value="src"/>
+    
+    <target name="unpacked_chrome" description="unpacked for Chrome">
+        <property name="long" value="chrome"/>
+        <property name="contents" value="${dist}/${long}/${projectname}"/>
+        <property name="resources" value="${contents}"/>
+        
+        <mkdir dir="${dist}"/>
+        <delete dir="${dist}/${long}"/>
+        <mkdir dir="${contents}"/>
+        
+        <copy todir="${contents}">
+            <fileset dir="${src}/${long}"/>
+        </copy>
+        <replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true" file="${contents}/manifest.json"/>
+        <property name="desktop" value="${env.HOME}/Desktop"/> 
+        <copy todir="${desktop}/${projectname}.crx" overwrite="true">
+            <fileset dir="${contents}"/>
+        </copy>
+    </target>
+    
+    <target name="package_chrome" depends="unpacked_chrome" description="make package for Chrome">
+        <property name="long" value="chrome"/>
+        <property name="short" value="crx"/>
+        <property name="contents" value="${dist}/${long}/${projectname}"/>
+        <delete>
+            <fileset dir="${dist}">
+                <include name="${projectname}_${short}_${version}.zip"/>
+            </fileset>
+        </delete>
+        <zip destfile="${dist}/${projectname}_${short}_${version}.zip">
+            <fileset dir="${dist}/${long}/${projectname}" includes="**"/>
+        </zip>
+    </target>
 </project>
