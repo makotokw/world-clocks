@@ -1,72 +1,12 @@
 <?xml version="1.0" ?>
-<project default="deploy_yahoo">
+<project default="package_chrome">
 	<property name="projectname" value="WorldClocks"/>
 	<loadfile property="version" srcfile="version.txt"/>
 	<property name="dist" value="dist"/>
-	<property name="tools" value="tools"/>
 	<property name="yuicompressor" value="tools/yuicompressor/yuicompressor-2.4.2.jar"/>
-	<property name="js" value="js"/>
+	<property name="src" value="src"/>
 	<property name="res" value="resource"/>
 	
-	<target name="package_yahoo" description="make package for yahoo! widget">
-		<property name="long" value="yahoo"/>
-		<property name="short" value="yw"/>
-		<property name="contents" value="${dist}/${long}/${projectname}.widget/Contents"/>
-		<property name="resources" value="${contents}/Resources"/>
-		
-		<mkdir dir="${dist}"/>
-		<delete dir="${dist}/${long}"/>
-		<mkdir dir="${contents}"/>
-		
-		<copy todir="${contents}">
-		 	<fileset dir="${js}/${long}" includes="*.kon,*.xml,*.js"/>
-			<fileset file="${js}/bullseye/ext-core.js"/>
-		</copy>
-		<concat destfile="${contents}/bullseye.js">
-			<fileset file="${js}/bullseye/BlzBrowserYahoo.js"/>
-			<fileset file="${js}/bullseye/Blz.js"/>
-			<fileset file="${js}/bullseye/BlzWidget.js"/>
-			<fileset file="${js}/bullseye/BlzWidgetYahoo.js"/>
-		</concat>
-		<replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true" file="${contents}/worldclocks.kon"/>
-		<replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true" file="${contents}/widget.xml"/>
-		
-		<mkdir dir="${resources}"/>
-		<copy todir="${resources}">
-			<fileset dir="${js}/${long}/Resources"/>
-		</copy>
-		<copy todir="${resources}/Images">
-		 	<fileset dir="${res}/Images" includes="weather/**"/>
-			<fileset dir="${res}/Images/yahoo"/>
-		</copy>
-		
-		<delete>
-			<fileset dir="${dist}">
-				<include name="${projectname}_${short}_${version}.widget"/>
-				<include name="${projectname}_${short}_${version}.zip"/>
-			</fileset>
-		</delete>
-		<!--
-		<zip destfile="${dist}/${projectname}_${short}_${version}.widget">
-			<fileset dir="${tmp}/${long}/" includes="Contents.widget/**"/>
-		</zip>
-		-->
-		<exec os="Windows XP,Windows Vista,Windows 7" dir="." executable="${tools}/yahoo/Win_Converter.exe">
-		  <arg line="-flat '${dist}/${long}/${projectname}.widget' -o '${dist}/${projectname}_${short}_${version}.widget'"/>
-		</exec>
-		<exec os="Mac OS X" dir="." executable="${tools}/yahoo/Mac_Converter">
-		  <arg line="-flat '${dist}/${long}/${projectname}.widget' -o '${dist}/${projectname}_${short}_${version}.widget'"/>
-		</exec>
-		<zip destfile="${dist}/${projectname}_${short}_${version}.zip">
-			<fileset dir="${dist}" includes="${projectname}_${short}_${version}.widget"/>
-		</zip>
-	</target>
-	
-	<target name="deploy_yahoo" description="deploy for yahoo! widget" depends="package_yahoo">
-		<copy todir="${arcadia.yahoo_my_widgets}">
-			<fileset dir="${dist}" includes="*.widget"/>
-		</copy>
-	</target>
 	
 	<target name="unpacked_chrome" description="unpacked for Chrome">
 		<property name="long" value="chrome"/>
@@ -78,13 +18,13 @@
 		<mkdir dir="${contents}"/>
 		
 		<copy todir="${contents}">
-			<fileset dir="${js}/${long}"/>
-			<fileset file="${js}/bullseye/ext-core.js"/>
+			<fileset dir="${src}/${long}"/>
+			<fileset file="${src}/bullseye/ext-core.js"/>
 		</copy>
 		<concat destfile="${contents}/bullseye.js">
-			<fileset file="${js}/bullseye/Blz.js"/>
-			<fileset file="${js}/bullseye/BlzWidget.js"/>
-			<fileset file="${js}/bullseye/BlzWidgetBrowser.js"/>
+			<fileset file="${src}/bullseye/Blz.js"/>
+			<fileset file="${src}/bullseye/BlzWidget.js"/>
+			<fileset file="${src}/bullseye/BlzWidgetBrowser.js"/>
 		</concat>
 		<replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true" file="${contents}/manifest.json"/>
 		<mkdir dir="${resources}"/>

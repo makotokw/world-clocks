@@ -1,6 +1,6 @@
 World Clocks
 
-Copyright (c) 2006-2010, makoto_kw (http://www.makotokw.com)
+Copyright (c) 2006-2012, makoto_kw (http://www.makotokw.com)
 All rights reserved.
 
 Chrome Extension: https://chrome.google.com/extensions/detail/innfmeekncjandlanpgdmmogkcimekgo
