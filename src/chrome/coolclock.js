@@ -1,81 +1,37 @@
-/*
-CoolClock by Simon Baird (simon dot baird at gmail dot com)
-Version 1.0.6 (08-Jul-2008)
-See http://simonbaird.com/coolclock/
+/**
+ * CoolClock 2.1.4
+ * Copyright 2010, Simon Baird
+ * Released under the BSD License.
+ *
+ * Display an analog clock using canvas.
+ * http://randomibis.com/coolclock/
+ *
+ */
 
-Copyright (c) Simon Baird 2006-2008
-
-Redistribution and use in source and binary forms, with or without modification,
-are permitted provided that the following conditions are met:
-
-Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.
-
-Redistributions in binary form must reproduce the above copyright notice, this
-list of conditions and the following disclaimer in the documentation and/or other
-materials provided with the distribution.
-
-Neither the name of the Simon Baird nor the names of other contributors may be
-used to endorse or promote products derived from this software without specific
-prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
-EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
-SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
-TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
-DAMAGE.
-*/
-
-window.CoolClock = function(canvasId,displayRadius,skinId,showSecondHand,gmtOffset) {
-	return this.init(canvasId,displayRadius,skinId,showSecondHand,gmtOffset);
+// Constructor for CoolClock objects
+window.CoolClock = function(options) {
+	return this.init(options);
 }
 
-CoolClock.findAndCreateClocks = function() {
-	var canvases = document.getElementsByTagName("canvas");
-	for (var i=0;i<canvases.length;i++) {
-		var fields = canvases[i].className.split(" ")[0].split(":");
-		if (fields[0] == "CoolClock") {
-			new CoolClock(canvases[i].id,fields[2],fields[1],fields[3]!="noSeconds",fields[4]);
-		}
-	}
-}
-
-// borrowed from behaviour.js
-// actually doesn't work right unless it's at the end of html document
-// hence can't have a body onload
-// this is a bug. FIXME
-// maybe have a setTimeout hack??
-CoolClock.addLoadEvent = function(func){
-	var oldonload = window.onload;
-	if (typeof window.onload != 'function')
-		window.onload = func;
-	else
-		window.onload = function() {
-			oldonload();
-			func();
-		}
-}
-
+// Config contains some defaults, and clock skins
 CoolClock.config = {
-	clockTracker: {},
 	tickDelay: 1000,
 	longTickDelay: 15000,
 	defaultRadius: 85,
 	renderRadius: 100,
-	defaultSkin: "swissRail",
-	skins:	{
-		// more skins in moreskins.js
-		// try making your own...
+	defaultSkin: "chunkySwiss",
+	// Should be in skin probably...
+	// (TODO: allow skinning of digital display)
+	showSecs: true,
+	showAmPm: true,
 
+	skins:	{
+		// There are more skins in moreskins.js
+		// Try making your own skin by copy/pasting one of these and tweaking it
 		swissRail: {
-			outerBorder: { lineWidth: 1, radius:95, color: "black", alpha: 1 },
-			smallIndicator: { lineWidth: 2, startAt: 89, endAt: 93, color: "black", alpha: 1 },
-			largeIndicator: { lineWidth: 4, startAt: 80, endAt: 93, color: "black", alpha: 1 },
+			outerBorder: { lineWidth: 2, radius:95, color: "black", alpha: 1 },
+			smallIndicator: { lineWidth: 2, startAt: 88, endAt: 92, color: "black", alpha: 1 },
+			largeIndicator: { lineWidth: 4, startAt: 79, endAt: 92, color: "black", alpha: 1 },
 			hourHand: { lineWidth: 8, startAt: -15, endAt: 50, color: "black", alpha: 1 },
 			minuteHand: { lineWidth: 7, startAt: -15, endAt: 75, color: "black", alpha: 1 },
 			secondHand: { lineWidth: 1, startAt: -20, endAt: 85, color: "red", alpha: 1 },
@@ -100,153 +56,263 @@ CoolClock.config = {
 			secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: "red", color: "red", alpha: 1 }
 		}
 
-	}
+	},
+
+	// Test for IE so we can nurse excanvas in a couple of places
+	isIE: !!document.all,
+
+	// Will store (a reference to) each clock here, indexed by the id of the canvas element
+	clockTracker: {},
+
+	// For giving a unique id to coolclock canvases with no id
+	noIdCount: 0
 };
 
+// Define the CoolClock object's methods
 CoolClock.prototype = {
-	init: function(canvasId,displayRadius,skinId,showSecondHand,gmtOffset) {
-		this.canvasId = canvasId;
-		this.skinId = skinId || CoolClock.config.defaultSkin;
-		this.showSecondHand = typeof showSecondHand == "boolean" ? showSecondHand : true;
-		this.tickDelay = CoolClock.config[ this.showSecondHand ? "tickDelay" : "longTickDelay"];
 
-		this.canvas = document.getElementById(canvasId);
-		this.ctx = this.canvas.getContext("2d");
-		this.renderRadius = CoolClock.config.renderRadius;
-		this.setRadius(displayRadius);
-		
-		this.gmtOffset = gmtOffset != null ? parseFloat(gmtOffset) : gmtOffset;
+	// Initialise using the parameters parsed from the colon delimited class
+	init: function(options) {
+		// Parse and store the options
+		this.canvasId       = options.canvasId;
+		this.skinId         = options.skinId || CoolClock.config.defaultSkin;
+		this.displayRadius  = options.displayRadius || CoolClock.config.defaultRadius;
+		this.showSecondHand = typeof options.showSecondHand == "boolean" ? options.showSecondHand : true;
+		this.gmtOffset      = (options.gmtOffset != null && options.gmtOffset != '') ? parseFloat(options.gmtOffset) : null;
+		this.showDigital    = typeof options.showDigital == "boolean" ? options.showDigital : false;
+		this.logClock       = typeof options.logClock == "boolean" ? options.logClock : false;
+		this.logClockRev    = typeof options.logClock == "boolean" ? options.logClockRev : false;
 
-		CoolClock.config.clockTracker[canvasId] = this;
-		this.tick();
-		return this;
-	},
-	
-	setSkin: function(skinId) {
-		this.skinId = skinId || CoolClock.config.defaultSkin;
-	},
-	setOffset: function(gmtOffset) {
-		this.gmtOffset = gmtOffset;
-	},
-	
-	setRadius: function(displayRadius) {
-		this.displayRadius = displayRadius || CoolClock.config.defaultRadius;
+		this.tickDelay      = CoolClock.config[ this.showSecondHand ? "tickDelay" : "longTickDelay" ];
+
+		// Get the canvas element
+		this.canvas = document.getElementById(this.canvasId);
+
+		// Make the canvas the requested size. It's always square.
 		this.canvas.setAttribute("width",this.displayRadius*2);
 		this.canvas.setAttribute("height",this.displayRadius*2);
 		this.canvas.style.width = this.displayRadius*2 + "px";
 		this.canvas.style.height = this.displayRadius*2 + "px";
+
+		// Explain me please...?
+		this.renderRadius = CoolClock.config.renderRadius;
 		this.scale = this.displayRadius / this.renderRadius;
+
+		// Initialise canvas context
+		this.ctx = this.canvas.getContext("2d");
 		this.ctx.scale(this.scale,this.scale);
-	},
-	setSecondHand:function(enable) {
-		this.showSecondHand = enable;
-		this.tickDelay = CoolClock.config[ this.showSecondHand ? "tickDelay" : "longTickDelay"];
+
+		// Keep track of this object
+		CoolClock.config.clockTracker[this.canvasId] = this;
+
+		// Start the clock going
 		this.tick();
+
+		return this;
 	},
 
-	fullCircle: function(skin) {
-		this.fullCircleAt(this.renderRadius,this.renderRadius,skin);
-	},
-
+	// Draw a circle at point x,y with params as defined in skin
 	fullCircleAt: function(x,y,skin) {
-		with (this.ctx) {
-			save();
-			globalAlpha = skin.alpha;
-			lineWidth = skin.lineWidth;
-			if (!document.all)
-				beginPath();
-			if (document.all)
-				// excanvas doesn't scale line width so we will do it here
-				lineWidth = lineWidth * this.scale;
-			arc(x, y, skin.radius, 0, 2*Math.PI, false);
-			if (document.all)
-				// excanvas doesn't close the circle so let's color in the gap
-				arc(x, y, skin.radius, -0.1, 0.1, false);
-			if (skin.fillColor) {
-				fillStyle = skin.fillColor
-				fill();
-			}
-			else {
-				// XXX why not stroke and fill
-				strokeStyle = skin.color;
-				stroke();
-			}
-			restore();
+		this.ctx.save();
+		this.ctx.globalAlpha = skin.alpha;
+		this.ctx.lineWidth = skin.lineWidth;
+
+		if (!CoolClock.config.isIE) {
+			this.ctx.beginPath();
+		}
+
+		if (CoolClock.config.isIE) {
+			// excanvas doesn't scale line width so we will do it here
+			this.ctx.lineWidth = this.ctx.lineWidth * this.scale;
+		}
+
+		this.ctx.arc(x, y, skin.radius, 0, 2*Math.PI, false);
+
+		if (CoolClock.config.isIE) {
+			// excanvas doesn't close the circle so let's fill in the tiny gap
+			this.ctx.arc(x, y, skin.radius, -0.1, 0.1, false);
+		}
+
+		if (skin.fillColor) {
+			this.ctx.fillStyle = skin.fillColor
+			this.ctx.fill();
+		}
+		else {
+			// XXX why not stroke and fill
+			this.ctx.strokeStyle = skin.color;
+			this.ctx.stroke();
+		}
+		this.ctx.restore();
+	},
+
+	// Draw some text centered vertically and horizontally
+	drawTextAt: function(theText,x,y) {
+		this.ctx.save();
+		this.ctx.font = '15px sans-serif';
+		var tSize = this.ctx.measureText(theText);
+		if (!tSize.height) tSize.height = 15; // no height in firefox.. :(
+		this.ctx.fillText(theText,x - tSize.width/2,y - tSize.height/2);
+		this.ctx.restore();
+	},
+
+	lpad2: function(num) {
+		return (num < 10 ? '0' : '') + num;
+	},
+
+	tickAngle: function(second) {
+		// Log algorithm by David Bradshaw
+		var tweak = 3; // If it's lower the one second mark looks wrong (?)
+		if (this.logClock) {
+			return second == 0 ? 0 : (Math.log(second*tweak) / Math.log(60*tweak));
+		}
+		else if (this.logClockRev) {
+			// Flip the seconds then flip the angle (trickiness)
+			second = (60 - second) % 60;
+			return 1.0 - (second == 0 ? 0 : (Math.log(second*tweak) / Math.log(60*tweak)));
+		}
+		else {
+			return second/60.0;
 		}
 	},
 
+	timeText: function(hour,min,sec) {
+		var c = CoolClock.config;
+		return '' +
+			(c.showAmPm ? ((hour%12)==0 ? 12 : (hour%12)) : hour) + ':' +
+			this.lpad2(min) +
+			(c.showSecs ? ':' + this.lpad2(sec) : '') +
+			(c.showAmPm ? (hour < 12 ? ' am' : ' pm') : '')
+		;
+	},
+
+	// Draw a radial line by rotating then drawing a straight line
+	// Ha ha, I think I've accidentally used Taus, (see http://tauday.com/)
 	radialLineAtAngle: function(angleFraction,skin) {
-		with (this.ctx) {
-			save();
-			translate(this.renderRadius,this.renderRadius);
-			rotate(Math.PI * (2 * angleFraction - 0.5));
-			globalAlpha = skin.alpha;
-			strokeStyle = skin.color;
-			lineWidth = skin.lineWidth;
-			if (document.all)
-				// excanvas doesn't scale line width so we will do it here
-				lineWidth = lineWidth * this.scale;
-			if (skin.radius) {
-				this.fullCircleAt(skin.startAt,0,skin)
-			}
-			else {
-				beginPath();
-				moveTo(skin.startAt,0)
-				lineTo(skin.endAt,0);
-				stroke();
-			}
-			restore();
+		this.ctx.save();
+		this.ctx.translate(this.renderRadius,this.renderRadius);
+		this.ctx.rotate(Math.PI * (2.0 * angleFraction - 0.5));
+		this.ctx.globalAlpha = skin.alpha;
+		this.ctx.strokeStyle = skin.color;
+		this.ctx.lineWidth = skin.lineWidth;
+
+		if (CoolClock.config.isIE)
+			// excanvas doesn't scale line width so we will do it here
+			this.ctx.lineWidth = this.ctx.lineWidth * this.scale;
+
+		if (skin.radius) {
+			this.fullCircleAt(skin.startAt,0,skin)
 		}
+		else {
+			this.ctx.beginPath();
+			this.ctx.moveTo(skin.startAt,0)
+			this.ctx.lineTo(skin.endAt,0);
+			this.ctx.stroke();
+		}
+		this.ctx.restore();
 	},
 
 	render: function(hour,min,sec) {
+		// Get the skin
 		var skin = CoolClock.config.skins[this.skinId];
+		if (!skin) skin = CoolClock.config.skins[CoolClock.config.defaultSkin];
+
+		// Clear
 		this.ctx.clearRect(0,0,this.renderRadius*2,this.renderRadius*2);
 
-		this.fullCircle(skin.outerBorder);
+		// Draw the outer edge of the clock
+		if (skin.outerBorder)
+			this.fullCircleAt(this.renderRadius,this.renderRadius,skin.outerBorder);
 
-		for (var i=0;i<60;i++)
-			this.radialLineAtAngle(i/60,skin[ i%5 ? "smallIndicator" : "largeIndicator"]);
-				
-		this.radialLineAtAngle((hour+min/60)/12,skin.hourHand);
-		this.radialLineAtAngle((min+sec/60)/60,skin.minuteHand);
-		if (this.showSecondHand) {
-			this.radialLineAtAngle(sec/60,skin.secondHand);
-			if (!document.all)
-				// decoration doesn't render right in IE so lets turn it off
-				this.radialLineAtAngle(sec/60,skin.secondDecoration);
+		// Draw the tick marks. Every 5th one is a big one
+		for (var i=0;i<60;i++) {
+			(i%5)  && skin.smallIndicator && this.radialLineAtAngle(this.tickAngle(i),skin.smallIndicator);
+			!(i%5) && skin.largeIndicator && this.radialLineAtAngle(this.tickAngle(i),skin.largeIndicator);
 		}
+
+		// Write the time
+		if (this.showDigital) {
+			this.drawTextAt(
+				this.timeText(hour,min,sec),
+				this.renderRadius,
+				this.renderRadius+this.renderRadius/2
+			);
+		}
+
+		// Draw the hands
+		if (skin.hourHand)
+			this.radialLineAtAngle(this.tickAngle(((hour%12)*5 + min/12.0)),skin.hourHand);
+
+		if (skin.minuteHand)
+			this.radialLineAtAngle(this.tickAngle((min + sec/60.0)),skin.minuteHand);
+
+		if (this.showSecondHand && skin.secondHand)
+			this.radialLineAtAngle(this.tickAngle(sec),skin.secondHand);
+
+		// Second hand decoration doesn't render right in IE so lets turn it off
+		if (!CoolClock.config.isIE && this.showSecondHand && skin.secondDecoration)
+			this.radialLineAtAngle(this.tickAngle(sec),skin.secondDecoration);
 	},
 
-
-	nextTick: function() {
-		setTimeout("CoolClock.config.clockTracker['"+this.canvasId+"'].tick()",this.tickDelay);
-	},
-
-	stillHere: function() {
-		return document.getElementById(this.canvasId) != null;
-	},
-
+	// Check the time and display the clock
 	refreshDisplay: function() {
 		var now = new Date();
 		if (this.gmtOffset != null) {
-			// use GMT + gmtOffset
+			// Use GMT + gmtOffset
 			var offsetNow = new Date(now.valueOf() + (this.gmtOffset * 1000 * 60 * 60));
 			this.render(offsetNow.getUTCHours(),offsetNow.getUTCMinutes(),offsetNow.getUTCSeconds());
 		}
 		else {
-			// use local time
+			// Use local time
 			this.render(now.getHours(),now.getMinutes(),now.getSeconds());
 		}
 	},
 
+	// Set timeout to trigger a tick in the future
+	nextTick: function() {
+		setTimeout("CoolClock.config.clockTracker['"+this.canvasId+"'].tick()",this.tickDelay);
+	},
+
+	// Check the canvas element hasn't been removed
+	stillHere: function() {
+		return document.getElementById(this.canvasId) != null;
+	},
+
+	// Main tick handler. Refresh the clock then setup the next tick
 	tick: function() {
 		if (this.stillHere()) {
 			this.refreshDisplay()
 			this.nextTick();
 		}
 	}
-}
+};
 
-CoolClock.addLoadEvent(CoolClock.findAndCreateClocks);
+// Find all canvas elements that have the CoolClock class and turns them into clocks
+CoolClock.findAndCreateClocks = function() {
+	// (Let's not use a jQuery selector here so it's easier to use frameworks other than jQuery)
+	var canvases = document.getElementsByTagName("canvas");
+	for (var i=0;i<canvases.length;i++) {
+		// Pull out the fields from the class. Example "CoolClock:chunkySwissOnBlack:1000"
+		var fields = canvases[i].className.split(" ")[0].split(":");
+		if (fields[0] == "CoolClock") {
+			if (!canvases[i].id) {
+				// If there's no id on this canvas element then give it one
+				canvases[i].id = '_coolclock_auto_id_' + CoolClock.config.noIdCount++;
+			}
+			// Create a clock object for this element
+			new CoolClock({
+				canvasId:       canvases[i].id,
+				skinId:         fields[1],
+				displayRadius:  fields[2],
+				showSecondHand: fields[3]!='noSeconds',
+				gmtOffset:      fields[4],
+				showDigital:    fields[5]=='showDigital',
+				logClock:       fields[6]=='logClock',
+				logClockRev:    fields[6]=='logClockRev'
+			});
+		}
+	}
+};
 
+// If you don't have jQuery then you need a body onload like this: <body onload="CoolClock.findAndCreateClocks()">
+// If you do have jQuery and it's loaded already then we can do it right now
+if (window.jQuery) jQuery(document).ready(CoolClock.findAndCreateClocks);

@@ -4,13 +4,16 @@
             canvasId = 'canvas',
             canvas = document.getElementById(canvasId),
             canvasContext = canvas.getContext('2d'),
-            radius = 9,
-            skin = localStorage['ba_skin'] || 'fancy',
-            showSecondHand = false,
-            coolClock = new CoolClock(canvasId, radius, skin, showSecondHand)
+            coolClock = new CoolClock({
+                canvasId:canvasId,
+                displayRadius:9,
+                skinId:localStorage['ba_skin'] || 'fancy',
+                showSecondHand:false,
+                showDigital:false})
         ;
-        function setSkin(skin) {
-            coolClock.setSkin(skin);
+
+        function setSkin(skinId) {
+            coolClock.setSkin(skinId);
             coolClock.tick();
             update();
         }

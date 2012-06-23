@@ -225,6 +225,7 @@
                 $list.find('.digital_clock').hide();
             }
             w.pref.set('showDigitalClock',showDigitalClock);
+            updateCoolClock();
         }).attr({checked:showDigitalClock});
     }
     
@@ -267,7 +268,15 @@
         var $li = $('<li/>').attr({id:id}).addClass('clock');
         $li.html('<img class="close" src="images/close.png"/><span class="city">'+l.label+'</span><canvas id="'+canvasId+'"/><span class="digital_clock"></span>');
         $list.append($li);
-        l.coolClock = new CoolClock(canvasId, radius, skin, showSecondHand, parseFloat(l.offset) + l.dst);
+        
+        l.coolClock = new CoolClock({
+            canvasId:canvasId,
+            displayRadius:radius,
+            skinId:skin,
+            gmtOffset:parseFloat(l.offset) + l.dst,
+            showSecondHand:showSecondHand,
+            showDigital:false});
+        
         locales[id] = l;
         $('.close', $li).attr({title:w.msg('CLOSE_HELP')}).click(function() {
             $(this).parent().fadeOut('fast', function() {
@@ -294,9 +303,11 @@
     function updateCoolClock() {
         $('li',$list).each(function(i){
             var id = $(this).attr('id'), cc = locales[id].coolClock;
-            cc.setRadius(radius);
-            cc.setSecondHand(showSecondHand);
+            cc.setRadius(radius).setSecondHand(showSecondHand);
+            // Digital Clock of CoolClock is too small, so show it by own
+            //cc.setShowDigital(showDigitalClock);
             cc.refreshDisplay();
+            cc.tick();
         });
     }    
     function updateDigitalClock() {
