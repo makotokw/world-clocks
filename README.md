@@ -15,6 +15,7 @@ Release Notes
 * Next
  - Chrome: Added a locale date string to footer of popup
  - YWE: Removed files of Yahoo Widget!
+ -- Yahoo! Desktop Widgets Gallery Website Discontinued on April 11, 2012
 
 * V0.4 at 2010/10/01(Chrome Extension)
  - Chrome: Displays anolog clock as browser icon

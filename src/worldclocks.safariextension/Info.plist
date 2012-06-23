@@ -26,7 +26,7 @@
 				<key>Filename</key>
 				<string>popup.html</string>
 				<key>Height</key>
-				<real>10</real>
+				<real>300</real>
 				<key>Identifier</key>
 				<string>clocksPopover</string>
 				<key>Width</key>
