@@ -4,7 +4,7 @@
   "version": "@VERSION",
   "manifest_version": 2,
   "default_locale": "en",
-  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
   "background": {
     "page": "background.html"
   },

@@ -1,8 +1,9 @@
 var WorldClocks = {};
 (function(w) {
     function empty() {};
+    var log = (typeof(console) != 'undefined' && typeof(console.log) != 'undefined') ? console.log : empty;
     function msg(key, args) {
-        if (typeof(chrome) != "undefined" && typeof(chrome.i18n) != "undefined") {
+        if (typeof(chrome) != 'undefined' && typeof(chrome.i18n) != 'undefined') {
             return chrome.i18n.getMessage(key, args);
         }
         return key;
@@ -13,6 +14,7 @@ var WorldClocks = {};
                 localStorage[key] = value;
             }
         } catch (e) {
+            log(e);
         }
     }
     function getPref(key, defaultValue) {
@@ -22,13 +24,14 @@ var WorldClocks = {};
                 value = localStorage[key] || defaultValue;
             }
         } catch (e) {
+            log(e);
         }
         return value;
     }
     
     w.msg = msg;
     w.pref = {get:getPref, set:setPref};
-    w.log = (typeof(console) != "undefined" && typeof(console.log) != "undefined") ? console.log : empty;
+    w.log = log;
     
 })(WorldClocks);
 
