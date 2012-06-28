@@ -18,9 +18,9 @@
     "ICON_GROUP": {"message":"Icon"},
     "POPUP_GROUP": {"message":"Popup"},
     "COLUMN_LABEL": {"message":"Column:"},
-    "SECOND_HAND_LABEL": {"message":"Show Secound Hand"},
+    "SECOND_HAND_LABEL": {"message":"Show Second Hand"},
     "SECOND_DIGITAL_CLOCK_LABEL": {"message":"Show Digital Clock"},
-    "CHANGE_TITLE_HELP": {"message":"Hint: Edit title of a clock when click it"},
+    "CHANGE_TITLE_HELP": {"message":"Hint: Click clock title to edit"},
     "CHANGE_ORDER_HELP": {"message":"Hint: Drag &amp; Drop to change order"},
     "SHOW_FOOTER_LABEL": {"message":"Show Footer. (Please checked if you need to change clocks on the popup page)"},
     "SHORTDAY_NAMES": {"message":"Sun,Mon,Tue,Wed,Thu,Fri,Sat"}

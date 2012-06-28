@@ -6,14 +6,15 @@ All rights reserved.
 Chrome Extension: https://chrome.google.com/extensions/detail/innfmeekncjandlanpgdmmogkcimekgo
 
 Chrome Extension includes CoolClock:
-	CoolClock by Simon Baird (simon dot baird at gmail dot com)
-	Version 1.0.6 (08-Jul-2008)
-	See http://simonbaird.com/coolclock/
+	CoolClock by Simon Baird 
+	https://github.com/simonbaird/CoolClock/
 
 Release Notes
 
 * Next
  - Chrome: Added a locale date string to footer of popup
+ - Chrome: Updated to manifest version 2
+ - Chrome: Updated to CoolClock 2.1.4
  - YWE: Removed files of Yahoo Widget!
  -- Yahoo! Desktop Widgets Gallery Website Discontinued on April 11, 2012
 
