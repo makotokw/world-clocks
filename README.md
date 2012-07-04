@@ -12,9 +12,13 @@ Chrome Extension includes CoolClock:
 Release Notes
 
 * Next
- - Chrome: Added a locale date string to footer of popup
+ - Chrome: Added a locale date via clock
+ - Chrome: Added an option to hide analog clocks
+ - Chrome: Added an option to change font-size of digital clocks
  - Chrome: Updated to manifest version 2
  - Chrome: Updated to CoolClock 2.1.4
+ - Chrome: Fixed some spelling errors in English
+ - Chrome: Fixed that checkbox dose not work
  - YWE: Removed files of Yahoo Widget!
  -- Yahoo! Desktop Widgets Gallery Website Discontinued on April 11, 2012
 
@@ -23,7 +27,7 @@ Release Notes
  - Chrome: Fixed an option UI
 
 * v0.3.2 at 2010/02/24(Chrome Extension)
- - Chrome: Fixed that text is invisible on somes theme. Remove a skin for black as backgounrd-color.
+ - Chrome: Fixed that text is invisible on some themes. Remove a skin for black as background-color.
  - Chrome: Fixed that digital clock dose not work in DST
 
 * v0.3.1 at 2010/02/22(Chrome Extension)

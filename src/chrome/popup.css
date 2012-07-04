@@ -5,11 +5,11 @@ body {
 	color: #333;
 	font-size:0.7em;
 	font-style:normal;
-	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', "Segoe UI", Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
-input, select, label {
-	font-size:1em;
+
+ul#clocks, div#option_header {
 }
+
 ul#clocks {
 	list-style:none; padding:0; margin:0;
 }
@@ -32,20 +32,37 @@ li.clock span.city {
 	text-overflow: ellipsis;
 	margin-bottom:2px;
 }
-li.clock span.digital_clock {
+li.clock span.digital_clock,
+li.clock span.date {
 	margin-top:2px;
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	font-family: "Bank Gothic", "Futura", "Arial";
 }
-li.clock input, li.clock select {
-	line-height:1em; width:100%;
+
+li.clock span.digital_clock {
+    font-weight: bold;
+    font-size: 10px;
+}
+
+li.clock input {
+	line-height:1em;
+	width:100%;
 	margin:0; padding:0;
-	border:1px solid #ddd;
+	border:none;
 	outline:none;
+	box-shadow: none;
+}
+li.clock select {
+    line-height:1em;
+    font-size:0.7em;
+    padding:0;
+    width:100%;
+    margin:2px;
 }
 li.clock input.dst {
-	display:inline; width:auto;
+	display:inline;
+	width:auto;
 	margin:2px;
 }
 li.clock .close {
@@ -53,19 +70,29 @@ li.clock .close {
 	display:none;
 }
 
-ul.edit_mode li.clock .close {
-	display:inline;
+li.clock .remove {
+    display:none;
+}
+
+ul.edit_mode .city {
+	border: 1px solid #CCC;
+    -webkit-border-radius: 3px;
+	padding:4px;
+	margin:2px 2px 2px 2px;
+}
+
+ul.edit_mode li.clock .remove {
+	display:block;
+	margin-top:4px;
+	margin-bottom:4px;
 }
 
 /* options */
 #option_header {
-	display:box;
-	background-color:#eee;
-	border:1px solid #ddd;
-	padding:2px;
-	-webkit-border-radius: 4px;
+	min-height: 0;
+	padding:4px;
 	text-align:center;
-	
+	margin-bottom: 0;
 }
 #option_header a,
 .option_content a {
@@ -77,44 +104,32 @@ ul.edit_mode li.clock .close {
 }
 
 #option_content {
+	min-height: 0;
 	margin-top:1em;
+	margin-bottom:0;
+	padding:5px;
 	display:none;
 }
 
-#add {
-	background: transparent url("images/add.png") no-repeat left center;
-	padding-left: 20px;
+.control_group > label:first-child {
+    width: 50px;
 }
 
-.indicator {
-	background: transparent url("images/loading.gif") no-repeat left center;
-	padding-left: 20px;
+.control_group .controls {
+    margin-left: 60px;
 }
 
-ul#option_content {
-	list-style:none;
-	padding:0.5em;
-	border:1px solid #999;
-}
-.option_content {
-	
-}
-.option_content input[type="number"] {
-	width:60px;
-}
-.option_content > li {
-	position: relative;
-	display: -webkit-box;
-	-webkit-box-align: center;
-	-webkit-border-radius: 0;
-}
-.option_content > li > label:first-child {
-	font-weight: bold;
-	min-width:50px;
-	text-align:right;
-	display:inline-block;
+.option_content input[type="number"],
+.option_content select {
+    width:95%;
+    display: inline-table;
 }
 
+#add { 
+    width: 100%;
+    margin-bottom: 10px;
+    display: inline-table;
+}
 
 #footer {
 	clear:both;

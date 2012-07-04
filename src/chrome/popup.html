@@ -1,45 +1,58 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="common.css">
 <link rel="stylesheet" type="text/css" href="popup.css"/>
 </head>
 <body>
 <div>
 <ul id="clocks"></ul>
 <div id="footer">
-    <div id="option_header">
+    <div id="option_header" class="well">
         <span id="copyright">Word Clocks</span>
-        <span id="today"></span>
         <a id="option_label" href="#"></a>
     </div>
-    <ul id="option_content" class="option_content" style="display:none;">
-        <li><a id="add" href="#"></a></li>
-        <li>
-            <label id="column_label">Column:</label>
-            <input id="column_text" type="number" min="1" max="100" required="required" value="3"/>
-        </li>
-        <li>
-            <label id="skin_label">Skin:</label>
-            <select id="skin_select"></select>
-        </li>
-        <li>
-            <label id="size_label">Size:</label>
-            <input id="size_range" type="number" min="20" max="100" required="required" step="5"/>
-        </li>
-        <li>
-            <label></label>
-            <input id="show_second_hand" type="checkbox"/>
-            <label id="show_second_hand_label" for="show_second_hand">Show Secound Hand</label>
-        </li>
-        <li>
-            <label></label>
-            <input id="show_digital_clock" type="checkbox"/>
-            <label id="show_digital_clock_label" for="show_digital_clock">Show Digital Clock</label>
-        </li>
-        <li id="set_title_label"></li>
-        <li id="order_label"></li>
-    </ul>
+    <div id="option_content" class="option_content well" style="display:none;">
+        <div><a id="add" class="btn" href="#"></a></div>
+        <div class="control_group">
+            <label id="column_label">Column</label>
+            <div class="controls">
+                <input id="column_text" type="number" min="1" max="100" required="required" value="3"/>
+            </div>
+        </div>
+        <div class="control_group">
+            <label id="skin_label">Skin</label>
+            <div class="controls">
+                <select id="skin_select"></select>
+            </div>
+        </div>
+        <div class="control_group">
+            <label id="size_label">Size</label>
+            <div class="controls">
+                <input id="size_range" type="number" min="20" max="100" required="required" step="5"/>
+            </div>
+        </div>
+        <div class="control_group">
+            <label id="digital_clock_font_size_label">FontSize</label>
+            <div class="controls">
+                <input id="digital_clock_font_size_range" type="number" min="10" max="40" required="required" step="1"/>
+            </div>
+        </div>
+        <div class="control_group">
+            <label id="detail_label">Detail</label>
+            <div class="controls">
+                <input id="show_analog_clock" type="checkbox" value="true"/>
+                <label id="show_analog_clock_label" for="show_analog_clock">Show Analog Clock</label><br/>
+                <input id="show_second_hand" type="checkbox" value="true"/>
+                <label id="show_second_hand_label" for="show_second_hand">Show Second Hand</label><br/>
+                <input id="show_digital_clock" type="checkbox" value="true"/>
+                <label id="show_digital_clock_label" for="show_digital_clock">Show Digital Clock</label><br/>
+                <input id="show_date" type="checkbox" value="true"/>
+                <label id="show_date_label" for="show_date">Show Date String</label><br/>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 <script src="jquery.min.js"></script>

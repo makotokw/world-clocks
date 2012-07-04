@@ -27,7 +27,7 @@
     // footer
     var showFooter = ("false" != w.pref.get('showFooter',"true"));
     $('#show_footer').change(function(){
-        var show = $(this).attr('checked');
+        var show = $(this).is(':checked');
         w.pref.set('showFooter',show);
     }).attr({checked:showFooter});
     
