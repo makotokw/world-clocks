@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+@font-face {
+  font-family: 'digitalclock';
+  src: url('/Days.otf');
+}
+
 body {
 	background-color:#fff;
 	color: #333;
@@ -37,7 +42,7 @@ li.clock span.date {
 	margin-top:2px;
 	white-space: nowrap;
 	overflow: hidden;
-	font-family: "Bank Gothic", "Futura", "Arial";
+	font-family: digitalclock;
 }
 
 li.clock span.digital_clock {
@@ -88,6 +93,19 @@ ul.edit_mode li.clock .remove {
 }
 
 /* options */
+
+legend {
+  font-size: 12px;
+  line-height: 2em;
+  margin-bottom: 6px;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
 #option_header {
 	min-height: 0;
 	padding:4px;

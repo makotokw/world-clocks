@@ -47,8 +47,12 @@
         'size_label':'SIZE_LABEL',
         'skin_label':'SKIN_LABEL',
         'column_label':'COLUMN_LABEL',
-        'detail_label':'DETAIL_LABEL',
+        'analog_detail_label':'DETAIL_LABEL',
+        'show_analog_clock_label':'SHOW_ANALOG_CLOCK_LABEL',
         'show_second_hand_label':'SHOW_SECOND_HAND_LABEL',
+        'digital_detail_label':'DETAIL_LABEL',
+        'digital_clock_font_size_label':'FONT_SIZE_LABEL',
+        'digital_clock_24h_label':'DIGITAL_CLOCK_24H',
         'show_digital_clock_label':'SHOW_DIGITAL_CLOCK_LABEL',
         'show_date_label':'SHOW_DATE_LABEL'
         //'set_title_label':'CHANGE_TITLE_HELP',
@@ -73,6 +77,7 @@
         showAnalogClock = ("false" != w.pref.get('showAnalogClock','true')),
         showSecondHand = ("false" != w.pref.get('showSecondHand','true')),
         showDigitalClock = ("false" != w.pref.get('showDigitalClock','true')),
+        useDigitalClock24h = ("false" != w.pref.get('useDigitalClock24h','true')),
         showDate = ("false" != w.pref.get('showDate','true')),
         showFooter = ("false" != w.pref.get('showFooter',"true")),
         column = w.pref.get('column',4),
@@ -259,6 +264,14 @@
             updateDigitalClock();
         }).attr({checked:showDigitalClock});
         
+        // digital clock 24h
+        $('#digital_clock_24h').change(function(){
+            useDigitalClock24h = $(this).is(':checked');
+            w.pref.set('useDigitalClock24h',useDigitalClock24h);
+            updateDigitalClock();
+        }).attr({checked:useDigitalClock24h});
+
+
         // date string
         $('#show_date').change(function(){
             showDate = $(this).is(':checked');
@@ -380,7 +393,7 @@
             if (!l) return;
             var t = new Date(now.valueOf() + ((parseFloat(l.offset) + parseFloat(l.dst)) * 1000 * 60 * 60)), lt = toLocalTime.apply(t);
             //$(this).find('.digital_clock').html(days[lt.getDay()]+' '+ background.toLocaleShortTimeString.call(lt, showSecondHand  && radius > 30));
-            $(this).find('.digital_clock').html(background.toLocaleShortTimeString.call(lt, false));
+            $(this).find('.digital_clock').html(background.toLocaleShortTimeString.call(lt, false, useDigitalClock24h));
             $(this).find('.date').html(toShortDateString.apply(lt));
             
         });

@@ -1,5 +1,15 @@
 @CHARSET "UTF-8";
 
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: #333;
+  border: 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+
 select,
 input[type="text"],
 input[type="number"]{

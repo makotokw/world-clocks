@@ -2,30 +2,51 @@
 <html>
 <head>
 <meta charset="utf-8"/>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="common.css"/>
 <link rel="stylesheet" type="text/css" href="popup.css"/>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
 </head>
 <body>
-<div>
-<h1 id="title"></h1>
-<h3 id="option_group_icon">Icon</h3>
-<ul class="option_content">
-	<li>
-		<label id="skin_label">Skin:</label>
-		<select id="skin_select"></select>
-	</li>
-</ul>
-
-<h3 id="option_group_popup">Popup</h3>
-<ul class="option_content">
-	<li>
-		<label></label>
-		<input id="show_footer" type="checkbox"/>
-		<label id="show_footer_label" for="show_footer">Show Footer</label>
-	</li>
-</ul>
+<div class="container">
+  <div class="page-header">
+    <header>
+      <h1 id="title">Settings</h1>    
+    </header>
+  </div>
+<form class="well">
+  <fieldset>
+    <legend id="option_group_icon">Icon</legend>
+    <div class="control-group">
+      <label id="skin_label" class="control-label" for="skin_select">Skin:</label>
+      <div class="controls">
+        <select id="skin_select" class="input-xlarge"></select>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend id="option_group_popup">Popup</legend>
+    <div class="control-group">
+      <div class="controls">
+        <label id="show_footer_label"for="show_footer">
+          <input id="show_footer" type="checkbox"/> <span id="show_footer_label_text">Show Footer</span>
+        </label>
+        <p id="show_footer_help" class="help-block">Supporting help text</p>
+      </div>
+    </div>
+  </fieldset>
+</form>
+<footer class="footer">
+  <p id="copyright"></p>
+</footer>
 </div>
 <script src="jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="coolclock.js"></script>
 <script src="moreskins.js"></script>
 <script src="worldclocks.js"></script>

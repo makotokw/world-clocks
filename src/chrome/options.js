@@ -6,12 +6,15 @@
         'option_group_icon':'ICON_GROUP',
         'option_group_popup':'POPUP_GROUP',
         'skin_label':'SKIN_LABEL',
-        'show_footer_label':'SHOW_FOOTER_LABEL',
+        'show_footer_label_text':'SHOW_FOOTER_LABEL',
+        'show_footer_help':'SHOW_FOOTER_HELP'
     };
     $.each(messages,function(key,value){
         $('#' + key).html(w.msg(value));
     });
     $('#title').html(w.msg('OPTION_TITLE'));
+
+    $('#copyright').html(w.msg('APP_TITLE') + ' ' + bg.getVersion());
 
     // skin
     var skin = w.pref.get('ba_skin'),

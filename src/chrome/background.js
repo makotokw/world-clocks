@@ -17,12 +17,20 @@
             coolClock.tick();
             update();
         }
-        function toLocaleShortTimeString(showScound) {
+        function toLocaleShortTimeString(showScound, use24h) {
             var h = this.getHours(), m = this.getMinutes(), s = this.getSeconds();
-            if (h<10) h = '0'+h;
+            var prefix = '', suffix = '';
+            if (use24h) {
+                if (h<10) h = '0'+h;
+            } else {
+                suffix = (h<12) ? ' AM' : ' PM';             
+                if (h>=12) h -= 12;
+                // if (h<10) h = '0'+h;
+            }
             if (m<10) m = '0'+m;
             if (s<10) s = '0'+s;
-            return (showScound) ?  h+':'+m+':'+s : h+':'+m;
+            var time = (showScound) ? h+':'+m+':'+s : h+':'+m;
+            return prefix + time + suffix;
         }
         function update() {
             var timeString = toLocaleShortTimeString.call(new Date());

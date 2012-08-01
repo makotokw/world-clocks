@@ -15,6 +15,7 @@
     "EDIT_HELP": {"message":"Edit clocks"},
     "DST_LABEL": {"message":"DST"},
     "SIZE_LABEL": {"message":"Size"},
+    "FONT_SIZE_LABEL": {"message":"Font"},
     "SKIN_LABEL": {"message":"Skin"},
     "ICON_GROUP": {"message":"Icon"},
     "POPUP_GROUP": {"message":"Popup"},
@@ -23,9 +24,11 @@
     "SHOW_SECOND_HAND_LABEL": {"message":"Show Second Hand"},
     "SHOW_ANALOG_CLOCK_LABEL": {"message":"Show Analog Clock"},
     "SHOW_DIGITAL_CLOCK_LABEL": {"message":"Show Digital Clock"},
+    "DIGITAL_CLOCK_24H": {"message":"Use 24h"},
     "SHOW_DATE_LABEL": {"message":"Show Date"},
     "CHANGE_TITLE_HELP": {"message":"Hint: Click clock title to edit"},
     "CHANGE_ORDER_HELP": {"message":"Hint: Drag &amp; Drop to change order"},
-    "SHOW_FOOTER_LABEL": {"message":"Show Footer. (Please checked if you need to change clocks on the popup page)"},
+    "SHOW_FOOTER_LABEL": {"message":"Show Footer"},
+    "SHOW_FOOTER_HELP": {"message":"Please checked if you need to change clocks on the popup page"},
     "SHORTDAY_NAMES": {"message":"Sun,Mon,Tue,Wed,Thu,Fri,Sat"}
 }

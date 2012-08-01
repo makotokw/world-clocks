@@ -15,6 +15,7 @@
     "EDIT_HELP": {"message":"時計を編集します"},
     "DST_LABEL": {"message":"夏時間"},
     "SIZE_LABEL": {"message":"サイズ"},
+    "FONT_SIZE_LABEL": {"message":"フォント"},
     "SKIN_LABEL": {"message":"スキン"},
     "ICON_GROUP": {"message":"アイコン"},
     "POPUP_GROUP": {"message":"ポップアップ"},
@@ -23,9 +24,11 @@
     "SHOW_SECOND_HAND_LABEL": {"message":"秒針の表示"},
     "SHOW_ANALOG_CLOCK_LABEL": {"message":"アナログ時計の表示"},
     "SHOW_DIGITAL_CLOCK_LABEL": {"message":"デジタル時計の表示"},
+    "DIGITAL_CLOCK_24H": {"message":"24時間表記にする"},
     "SHOW_DATE_LABEL": {"message":" 日付の表示"},
     "CHANGE_TITLE_HELP": {"message":"ヒント: 時計のタイトルをクリックで編集"},
     "CHANGE_ORDER_HELP": {"message":"ヒント: 時計のドラック＆ドロップで並び替え"},
-    "SHOW_FOOTER_LABEL": {"message":"フッターを表示 (ポップアップの時計を変更する場合はチェックを入れてください)"},
+    "SHOW_FOOTER_LABEL": {"message":"フッターを表示"},
+    "SHOW_FOOTER_HELP": {"message":"ポップアップの時計を変更する場合はチェックを入れてください"},
     "SHORTDAY_NAMES": {"message":"日,月,火,水,木,金,土"}
 }

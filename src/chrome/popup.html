@@ -22,36 +22,50 @@
             </div>
         </div>
         <div class="control_group">
-            <label id="skin_label">Skin</label>
-            <div class="controls">
-                <select id="skin_select"></select>
-            </div>
-        </div>
-        <div class="control_group">
             <label id="size_label">Size</label>
             <div class="controls">
                 <input id="size_range" type="number" min="20" max="100" required="required" step="5"/>
             </div>
         </div>
-        <div class="control_group">
-            <label id="digital_clock_font_size_label">FontSize</label>
-            <div class="controls">
-                <input id="digital_clock_font_size_range" type="number" min="10" max="40" required="required" step="1"/>
+
+        <fieldset>
+            <legend>Analog</legend>
+            <div class="control_group">
+                <label id="skin_label">Skin</label>
+                <div class="controls">
+                    <select id="skin_select"></select>
+                </div>
             </div>
-        </div>
-        <div class="control_group">
-            <label id="detail_label">Detail</label>
-            <div class="controls">
-                <input id="show_analog_clock" type="checkbox" value="true"/>
-                <label id="show_analog_clock_label" for="show_analog_clock">Show Analog Clock</label><br/>
-                <input id="show_second_hand" type="checkbox" value="true"/>
-                <label id="show_second_hand_label" for="show_second_hand">Show Second Hand</label><br/>
-                <input id="show_digital_clock" type="checkbox" value="true"/>
-                <label id="show_digital_clock_label" for="show_digital_clock">Show Digital Clock</label><br/>
-                <input id="show_date" type="checkbox" value="true"/>
-                <label id="show_date_label" for="show_date">Show Date String</label><br/>
+            <div class="control_group">
+                <label id="analog_detail_label2"></label>
+                <div class="controls">
+                    <input id="show_analog_clock" type="checkbox" value="true"/>
+                    <label id="show_analog_clock_label" for="show_analog_clock">Show Analog Clock</label><br/>
+                    <input id="show_second_hand" type="checkbox" value="true"/>
+                    <label id="show_second_hand_label" for="show_second_hand">Show Second Hand</label><br/>
+                </div>
             </div>
-        </div>
+        </fieldset>
+        <fieldset>
+            <legend>Digital and Date</legend>
+            <div class="control_group">
+                <label id="digital_clock_font_size_label">FontSize</label>
+                <div class="controls">
+                    <input id="digital_clock_font_size_range" type="number" min="10" max="40" required="required" step="1"/>
+                </div>
+            </div>
+            <div class="control_group">
+                <label id="digital_detail_label2"></label>
+                <div class="controls">
+                    <input id="show_digital_clock" type="checkbox" value="true"/>
+                    <label id="show_digital_clock_label" for="show_digital_clock">Show Digital Clock</label><br/> 
+                    <input id="digital_clock_24h" type="checkbox" value="true"/>
+                    <label id="digital_clock_24h_label" for="digital_clock_24h">Use 24h</label><br/>
+                    <input id="show_date" type="checkbox" value="true"/>
+                    <label id="show_date_label" for="show_date">Show Date String</label><br/>              
+                </div>
+        </fieldset>
+
     </div>
 </div>
 </div>
