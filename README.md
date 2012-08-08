@@ -11,10 +11,11 @@ Chrome Extension includes CoolClock:
 
 Release Notes
 
-* Next
+* V0.5 at 2012/08/09(Chrome Extension)
  - Chrome: Added a locale date via clock
  - Chrome: Added an option to hide analog clocks
  - Chrome: Added an option to change font-size of digital clocks
+ - Chrome: Added an option to select 24h or 12h for digital clocks
  - Chrome: Updated to manifest version 2
  - Chrome: Updated to CoolClock 2.1.4
  - Chrome: Fixed some spelling errors in English
