@@ -19,6 +19,8 @@
     "SKIN_LABEL": {"message":"Skin"},
     "ICON_GROUP": {"message":"Icon"},
     "POPUP_GROUP": {"message":"Popup"},
+    "ANALOG_SECTION": {"message":"Analog"},
+    "DIGITAL_SECTION": {"message":"Digital and Date"},
     "COLUMN_LABEL": {"message":"Column"},
     "DETAIL_LABEL": {"message":"Detail"},
     "SHOW_SECOND_HAND_LABEL": {"message":"Show Second Hand"},

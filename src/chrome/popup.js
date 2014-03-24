@@ -46,6 +46,8 @@
     var messages = {
         'size_label':'SIZE_LABEL',
         'skin_label':'SKIN_LABEL',
+        'analog_section':'ANALOG_SECTION',
+        'digital_section':'DIGITAL_SECTION',
         'column_label':'COLUMN_LABEL',
         'analog_detail_label':'DETAIL_LABEL',
         'show_analog_clock_label':'SHOW_ANALOG_CLOCK_LABEL',
@@ -398,6 +400,12 @@
             
         });
         //$today.html(now.toLocaleDateString());
+    }
+
+    function changeDigitalFont(fontname) {
+        fontname = fontname.replace(/ /gi, "+");
+        $('head').append('<link href="http://fonts.googleapis.com/css?family='+fontname+'" rel="stylesheet" type="text/css">');
+        $('.digital_clock').css('font-family',options.fontname);
     }
     
 })(jQuery);

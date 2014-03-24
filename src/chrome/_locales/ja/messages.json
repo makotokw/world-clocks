@@ -19,6 +19,8 @@
     "SKIN_LABEL": {"message":"スキン"},
     "ICON_GROUP": {"message":"アイコン"},
     "POPUP_GROUP": {"message":"ポップアップ"},
+    "ANALOG_SECTION": {"message":"アナログ時計"},
+    "DIGITAL_SECTION": {"message":"デジタル時計と日付"},
     "COLUMN_LABEL": {"message":"列数"},
     "DETAIL_LABEL": {"message":"詳細"},
     "SHOW_SECOND_HAND_LABEL": {"message":"秒針の表示"},
