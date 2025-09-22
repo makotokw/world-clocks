@@ -4,28 +4,27 @@
     <property name="projectname" value="WorldClocks"/>
     <loadfile property="version" srcfile="version.txt"/>
     <property name="dist" value="dist"/>
-    <property name="yuicompressor" value="tools/yuicompressor/yuicompressor-2.4.2.jar"/>
     <property name="src" value="src"/>
-    
+
     <target name="unpacked_chrome" description="unpacked for Chrome">
         <property name="long" value="chrome"/>
         <property name="contents" value="${dist}/${long}/${projectname}"/>
         <property name="resources" value="${contents}"/>
-        
+
         <mkdir dir="${dist}"/>
         <delete dir="${dist}/${long}"/>
         <mkdir dir="${contents}"/>
-        
+
         <copy todir="${contents}">
             <fileset dir="${src}/${long}"/>
         </copy>
         <replaceregexp match="@VERSION" replace="${version}" flags="g" byline="true" file="${contents}/manifest.json"/>
-        <property name="desktop" value="${env.HOME}/Desktop"/> 
+        <property name="desktop" value="${env.HOME}/Desktop"/>
         <copy todir="${desktop}/${projectname}.crx" overwrite="true">
             <fileset dir="${contents}"/>
         </copy>
     </target>
-    
+
     <target name="package_chrome" depends="unpacked_chrome" description="make package for Chrome">
         <property name="long" value="chrome"/>
         <property name="short" value="crx"/>
