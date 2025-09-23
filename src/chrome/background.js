@@ -1,6 +1,6 @@
 (function($){
     $(document).ready(function() {
-        var ba = chrome.browserAction,
+        var ba = chrome.action,
             canvasId = 'canvas',
             canvas = document.getElementById(canvasId),
             canvasContext = canvas.getContext('2d'),
@@ -17,13 +17,14 @@
             coolClock.tick();
             update();
         }
+        // TODO: module
         function toLocaleShortTimeString(showScound, use24h) {
             var h = this.getHours(), m = this.getMinutes(), s = this.getSeconds();
             var prefix = '', suffix = '';
             if (use24h) {
                 if (h<10) h = '0'+h;
             } else {
-                suffix = (h<12) ? ' AM' : ' PM';             
+                suffix = (h<12) ? ' AM' : ' PM';
                 if (h>=12) h -= 12;
                 // if (h<10) h = '0'+h;
             }
@@ -35,13 +36,21 @@
         function update() {
             var timeString = toLocaleShortTimeString.call(new Date());
             ba.setTitle({title:timeString});
-            //ba.setBadgeText({text:timeString});
             ba.setIcon({imageData:canvasContext.getImageData(0, 0,canvas.width,canvas.height)});
         }
-        //ba.setBadgeBackgroundColor({color:[0,230,138,115]});
         setInterval(update,CoolClock.config.longTickDelay);
         update();
-        window.setSkin = setSkin;
-        window.toLocaleShortTimeString = toLocaleShortTimeString;
+
+        chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
+            if (msg && msg.type === 'setSkin' && msg.skinId) {
+                try {
+                    setSkin(msg.skinId);
+                    sendResponse && sendResponse({ ok: true });
+                } catch (e) {
+                    sendResponse && sendResponse({ ok: false, error: String(e) });
+                }
+                return true;
+            }
+        });
     });
 })(jQuery);

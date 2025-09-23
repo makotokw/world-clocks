@@ -1,6 +1,6 @@
 (function($){
-    var crx = chrome.extension, bg = crx.getBackgroundPage(), w = WorldClocks;
-    
+    var w = WorldClocks;
+
     // localize
     var messages = {
         'option_group_icon':'ICON_GROUP',
@@ -14,7 +14,8 @@
     });
     $('#title').html(w.msg('OPTION_TITLE'));
 
-    $('#copyright').html(w.msg('APP_TITLE') + ' ' + bg.getVersion());
+    var version = chrome.runtime.getManifest().version;
+    $('#copyright').html(w.msg('APP_TITLE') + ' ' + version);
 
     // skin
     var skin = w.pref.get('ba_skin'),
@@ -23,15 +24,18 @@
     });
     $skin_select.change(function(){
         skin = $(this).val();
-        bg.setSkin(skin);
+        try {
+            chrome.runtime.sendMessage({ type: 'setSkin', skinId: skin });
+        } catch (e) {
+        }
         w.pref.set('ba_skin',skin);
     }).val(skin);
-    
+
     // footer
     var showFooter = ("false" != w.pref.get('showFooter',"true"));
     $('#show_footer').change(function(){
         var show = $(this).is(':checked');
         w.pref.set('showFooter',show);
     }).attr({checked:showFooter});
-    
+
 })(jQuery);

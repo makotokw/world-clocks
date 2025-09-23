@@ -1,5 +1,5 @@
 (function($){
-    var crx = chrome.extension, background = crx.getBackgroundPage(), w = WorldClocks, extension_id = w.msg('@@extension_id');
+    var w = WorldClocks, extension_id = w.msg('@@extension_id');
     //localStorage.clear();
     var timeZones = [
         {value:"-12",label:"(GMT -12:00) Eniwetok, Kwajalein"},
@@ -39,9 +39,10 @@
     ];
     var $today = $('#today'), $timezone = $('<select/>');
     $.each(timeZones,function(i,t){ $timezone.append('<option value="'+t.value+'">'+t.label+'</option>'); });
-    
-    $('#copyright').html(w.msg('APP_TITLE') + ' ' + background.getVersion());
-    
+
+    var __version = chrome.runtime.getManifest().version;
+    $('#copyright').html(w.msg('APP_TITLE') + ' ' + __version);
+
     // localize
     var messages = {
         'size_label':'SIZE_LABEL',
@@ -60,7 +61,7 @@
         //'set_title_label':'CHANGE_TITLE_HELP',
         //'order_label':'CHANGE_ORDER_HELP'
     };
-    
+
     $('head').append('<link/>');
     var $localStyles = $('<link/>').attr({
         rel: 'stylesheet',
@@ -68,11 +69,11 @@
         href: '_locales/'+chrome.i18n.getMessage('APP_LOCALE')+'/locale.css'
     });
     $('head').append($localStyles);
-    
+
     $.each(messages,function(key,value){
         $('#' + key).html(w.msg(value));
     });
-    
+
     var radius = w.pref.get('radius',40),
         digitalClockFontSize = w.pref.get('digitalClockFontSize',10),
         skin = w.pref.get('skin','chunkySwiss'),
@@ -95,13 +96,13 @@
         {label:w.msg('SANJOSE'),offset:'-8', dst:0},
         {label:w.msg('TOKYO'), offset:'9', dst:0}
     ];
-    
+
     if (!showFooter) {
         $('#footer').remove();
     }
-    
+
     { // optoins
-    
+
         $.fn.extend({
             editColumn: function() {
                 var $edit = $(this).val(column);
@@ -164,7 +165,7 @@
                 $self.after($tz);
             }
         });
-    
+
         var $option_header = $('#option_header'),
             $option_label = $('#option_label'),
             $option_content = $('#option_content'),
@@ -190,12 +191,12 @@
                     var id = $(this).attr('id'), l = locales[id];
                     l.editing = false;
                 });
-                
+
                 $('.timezone',$list).remove();
                 updateDigitalClock();
                 $(this).html(option_open_label);
         }).html(option_open_label);
-        
+
         // add new Clock
         $('#add').attr({title:w.msg('ADD_HELP')}).html(w.msg('ADD_HELP')).click(function(){
             var $li = addClock().hide().fadeIn();
@@ -205,10 +206,10 @@
             saveLocales();
             resize();
         });
-        
+
         // column
         $('#column_text').editColumn();
-        
+
         // skin
         var $skin_select = $('#skin_select'); $.each(CoolClock.config.skins,function(attr){
             $skin_select.append('<option value="'+attr+'">'+attr+'</option>')
@@ -220,27 +221,26 @@
                 cc.setSkin(skin);
                 cc.refreshDisplay();
             });
-            //background.setSkin(skin);
             w.pref.set('skin',skin);
         }).val(skin);
-        
+
         // size(radius)
         $('#size_range').change(function(){
             changeClockSize($(this).val());
         }).val(radius);
-        
+
         // fontsize
         $('#digital_clock_font_size_range').change(function(){
             changeDigitalClockFontSize($(this).val());
         }).val(digitalClockFontSize);
-        
+
         // second hand
         $('#show_second_hand').change(function(){
             showSecondHand = $(this).is(':checked');
             w.pref.set('showSecondHand',showSecondHand);
             updateCoolClock();
         }).attr({checked:showSecondHand});
-        
+
         // analog clock
         $('#show_analog_clock').change(function(){
             showAnalogClock = $(this).is(':checked');
@@ -253,7 +253,7 @@
             w.pref.set('showAnalogClock',showAnalogClock);
             updateCoolClock();
         }).attr({checked:showAnalogClock});
-        
+
         // digital clock
         $('#show_digital_clock').change(function(){
             showDigitalClock = $(this).is(':checked');
@@ -265,7 +265,7 @@
             w.pref.set('showDigitalClock',showDigitalClock);
             updateDigitalClock();
         }).attr({checked:showDigitalClock});
-        
+
         // digital clock 24h
         $('#digital_clock_24h').change(function(){
             useDigitalClock24h = $(this).is(':checked');
@@ -286,12 +286,12 @@
             updateDigitalClock();
         }).attr({checked:showDate});
     }
-    
+
     update();
     resize();
     updateDigitalClock();
     setInterval(updateDigitalClock,1000);
-    
+
     function update() {
         var locales = w.pref.get('locales');
         if (locales) locales = JSON.parse(locales);
@@ -299,7 +299,7 @@
         $list.empty();
         $.each(locales,function(i,l){addClock(l);});
     }
-    
+
     function resize() {
         var $items = $('li',$list),
             count = $items.length,
@@ -311,7 +311,7 @@
             $(this).css({margin:margin,width:itemWidth});
         });
     }
-    
+
     function saveLocales() {
         var al = [];
         $('li',$list).each(function(i){
@@ -324,16 +324,16 @@
         var i = locales._length++, l = locale || {label:w.msg('LOCAL_TIME'),offset:localeOffset, dst:0};
         var id = 'locale'+i, canvasId = 'clock'+i+'_'+(new Date().valueOf());
         var $li = $('<li/>').attr({id:id}).addClass('clock');
-        
+
         var html = '<span class="city">'+l.label+'</span>'
             + '<canvas id="'+canvasId+'" class="analog_clock"' + ((showAnalogClock) ? '' : ' style="display:none;"')  + '/>'
             + '<span class="digital_clock"' + ((showDigitalClock) ? '' : ' style="display:none;"') + '></span>'
             + '<span class="date"' + ((showDate) ? '' : ' style="display:none;"') + '></span>'
             +'<a href="#" class="remove btn btn-danger">'+w.msg('REMOVE_CLOCK_LABEL')+'</a>';
-        
+
         $li.html(html);
         $('.digital_clock', $li).css({'font-size':digitalClockFontSize+'px'});
-        
+
         // Don't use hide function for autosizing
         //if (!showAnalogClock) $('.analog_clock', $li).hide();
         //if (!showDigitalClock) $('.digital_clock', $li).hide();
@@ -354,16 +354,31 @@
             gmtOffset:parseFloat(l.offset) + l.dst,
             showSecondHand:showSecondHand,
             showDigital:false});
-        
+
         locales[id] = l;
         return $li;
     }
     function toLocalTime() {
-        return new Date(this.getUTCFullYear(),this.getUTCMonth(), this.getUTCDate(), this.getUTCHours(), 
+        return new Date(this.getUTCFullYear(),this.getUTCMonth(), this.getUTCDate(), this.getUTCHours(),
             this.getUTCMinutes(), this.getUTCSeconds(), this.getUTCMilliseconds());
     }
     function toShortDateString() {
         return this.toDateString().replace(/\s?[0-9]{4}\s?/,'');
+    }
+    function toLocaleShortTimeString(showSecond, use24h) {
+        var d = this instanceof Date ? this : new Date();
+        var h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
+        var prefix = '', suffix = '';
+        if (use24h) {
+            if (h<10) h = '0'+h;
+        } else {
+            suffix = (h<12) ? ' AM' : ' PM';
+            if (h>=12) h -= 12;
+        }
+        if (m<10) m = '0'+m;
+        if (s<10) s = '0'+s;
+        var time = (showSecond) ? h+':'+m+':'+s : h+':'+m;
+        return prefix + time + suffix;
     }
     function changeClockSize(r) {
         if (!parseInt(r)) return;
@@ -394,10 +409,10 @@
             var id = $(this).attr('id'), l = locales[id];
             if (!l) return;
             var t = new Date(now.valueOf() + ((parseFloat(l.offset) + parseFloat(l.dst)) * 1000 * 60 * 60)), lt = toLocalTime.apply(t);
-            //$(this).find('.digital_clock').html(days[lt.getDay()]+' '+ background.toLocaleShortTimeString.call(lt, showSecondHand  && radius > 30));
-            $(this).find('.digital_clock').html(background.toLocaleShortTimeString.call(lt, false, useDigitalClock24h));
+            //$(this).find('.digital_clock').html(days[lt.getDay()]+' '+ toLocaleShortTimeString.call(lt, showSecondHand  && radius > 30));
+            $(this).find('.digital_clock').html(toLocaleShortTimeString.call(lt, false, useDigitalClock24h));
             $(this).find('.date').html(toShortDateString.apply(lt));
-            
+
         });
         //$today.html(now.toLocaleDateString());
     }
@@ -407,5 +422,5 @@
         $('head').append('<link href="http://fonts.googleapis.com/css?family='+fontname+'" rel="stylesheet" type="text/css">');
         $('.digital_clock').css('font-family',options.fontname);
     }
-    
+
 })(jQuery);
