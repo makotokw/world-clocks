@@ -9,7 +9,7 @@ async function ensureOffscreenDocument() {
   try {
     // https://developer.chrome.com/docs/extensions/reference/api/offscreen
     await chrome.offscreen.createDocument({
-      url: 'background.html',
+      url: 'src/background.html',
       reasons: [chrome.offscreen.Reason.BLOBS],
       justification: 'Render a canvas clock in an offscreen document and update the action icon periodically.'
     });

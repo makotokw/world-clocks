@@ -1,0 +1,154 @@
+@CHARSET "UTF-8";
+
+@font-face {
+  font-family: 'digitalclock';
+  src: url('/Days.otf');
+}
+
+body {
+	background-color:#fff;
+	color: #333;
+	font-size:0.7em;
+	font-style:normal;
+}
+
+ul#clocks, div#option_header {
+}
+
+ul#clocks {
+	list-style:none; padding:0; margin:0;
+}
+
+ul.analog {
+	padding-right:2px;
+}
+
+li.clock {
+	position:relative;
+	display: inline-block;
+}
+li.clock span {
+	display:block;
+	text-align: center;
+	height:1.1em; line-height:1.1em;
+}
+li.clock span.city {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin-bottom:2px;
+}
+li.clock span.digital_clock,
+li.clock span.date {
+	margin-top:2px;
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: digitalclock;
+}
+
+li.clock span.digital_clock {
+    font-weight: bold;
+    font-size: 10px;
+}
+
+li.clock input {
+	line-height:1em;
+	width:100%;
+	margin:0; padding:0;
+	border:none;
+	outline:none;
+	box-shadow: none;
+}
+li.clock select {
+    line-height:1em;
+    font-size:0.7em;
+    padding:0;
+    width:100%;
+    margin:2px;
+}
+li.clock input.dst {
+	display:inline;
+	width:auto;
+	margin:2px;
+}
+li.clock .close {
+	position:absolute; top:-8px; right:-12px;
+	display:none;
+}
+
+li.clock .remove {
+    display:none;
+}
+
+ul.edit_mode .city {
+	border: 1px solid #CCC;
+    -webkit-border-radius: 3px;
+	padding:4px;
+	margin:2px 2px 2px 2px;
+}
+
+ul.edit_mode li.clock .remove {
+	display:block;
+	margin-top:4px;
+	margin-bottom:4px;
+}
+
+/* options */
+
+legend {
+  font-size: 12px;
+  line-height: 2em;
+  margin-bottom: 6px;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#option_header {
+	min-height: 0;
+	padding:4px;
+	text-align:center;
+	margin-bottom: 0;
+}
+#option_header a,
+.option_content a {
+  outline:none;
+  text-decoration:none;
+}
+#option_label {
+	mergin:0 auto;
+}
+
+#option_content {
+	min-height: 0;
+	margin-top:1em;
+	margin-bottom:0;
+	padding:5px;
+	display:none;
+}
+
+.control_group > label:first-child {
+    width: 50px;
+}
+
+.control_group .controls {
+    margin-left: 60px;
+}
+
+.option_content input[type="number"],
+.option_content select {
+    width:95%;
+    display: inline-table;
+}
+
+#add { 
+    width: 100%;
+    margin-bottom: 10px;
+    display: inline-table;
+}
+
+#footer {
+	clear:both;
+}
