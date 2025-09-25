@@ -1,6 +1,6 @@
-import './coolclock.js';
-import './coolclock_patch.js';
-import './moreskins.js';
+import './coolclock';
+import './coolclock_patch';
+import './coolclock_moreskins';
 
 document.addEventListener('DOMContentLoaded', () => {
   const ba = chrome.action;
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // TODO: module
-  function toLocaleShortTimeString(showScound, use24h) {
+  function toLocaleShortTimeString(showSecond, use24h) {
     let h = this.getHours(), m = this.getMinutes(), s = this.getSeconds();
     const prefix = '';
     let suffix = '';
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (m < 10) m = '0' + m;
     if (s < 10) s = '0' + s;
-    const time = showScound ? h + ':' + m + ':' + s : h + ':' + m;
+    const time = showSecond ? h + ':' + m + ':' + s : h + ':' + m;
     return prefix + time + suffix;
   }
 
