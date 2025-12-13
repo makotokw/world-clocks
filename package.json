@@ -19,9 +19,10 @@
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.2.0",
-    "rimraf": "^6.0.1",
-    "vite": "^7.1.7",
+    "rimraf": "^6.1.2",
+    "vite": "^7.2.7",
     "vite-plugin-zip-pack": "^1.2.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "yarn@4.12.0"
 }
