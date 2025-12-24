@@ -7,6 +7,10 @@ export default defineManifest({
   version: pkg.version,
   manifest_version: 3,
   default_locale: 'en',
+  permissions: [
+    'alarms',
+    'offscreen'
+  ],
   background: {
     service_worker: 'src/service-worker.js',
     type: 'module',
@@ -31,6 +35,5 @@ export default defineManifest({
       resources: ['src/background.html'],
       matches: ['<all_urls>']
     }
-  ],
-  permissions: ['offscreen'],
+  ]
 });

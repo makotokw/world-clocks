@@ -35,7 +35,11 @@ import { WorldClocks } from './worldclocks';
   $skin_select.change(function () {
     skin = $(this).val();
     try {
-      chrome.runtime.sendMessage({ type: 'setSkin', skinId: skin });
+      chrome.runtime.sendMessage({
+        type: 'setSkin',
+        target: 'offscreen',
+        skinId: skin
+      }).then(() => {});
     } catch (e) {
     }
     w.pref.set('ba_skin', skin);
