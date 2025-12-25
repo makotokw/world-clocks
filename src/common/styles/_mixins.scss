@@ -1,0 +1,32 @@
+@use "sass:color";
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+@mixin button-variant($bg-start, $bg-end, $border-color) {
+  background-color: $bg-end;
+  background-image: -webkit-linear-gradient(top, $bg-start, $bg-end);
+  background-image: linear-gradient(to bottom, $bg-start, $bg-end);
+  background-repeat: repeat-x;
+  border-color: rgba($border-color, 0.1) rgba($border-color, 0.1) rgba($border-color, 0.25);
+
+  &:hover, &:active, &.active, &.disabled, &[disabled] {
+    background-color: $bg-end;
+  }
+
+  &:active, &.active {
+    background-color: color.adjust($bg-end, $lightness: -10%);
+  }
+}

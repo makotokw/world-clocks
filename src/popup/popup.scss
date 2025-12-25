@@ -1,95 +1,107 @@
-@CHARSET "UTF-8";
+@use "../common/styles/variables" as *;
+@use "../common/styles/mixins" as *;
 
 @font-face {
-  font-family: 'digitalclock';
+  font-family: $font-family-digital;
   src: url('/src/common/fonts/Days.otf');
 }
 
 body {
-	background-color:#fff;
-	color: #333;
-	font-size:0.7em;
-	font-style:normal;
-}
-
-ul#clocks, div#option_header {
+  background-color: #fff;
+  color: $color-text;
+  font-size: 0.7em;
+  font-style: normal;
 }
 
 ul#clocks {
-	list-style:none; padding:0; margin:0;
-}
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-ul.analog {
-	padding-right:2px;
+  &.analog {
+    padding-right: 2px;
+  }
+
+  &.edit_mode {
+    .city {
+      border: 1px solid $color-border;
+      @include border-radius(3px);
+      padding: 4px;
+      margin: 2px;
+    }
+
+    li.clock .remove {
+      display: block;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+  }
 }
 
 li.clock {
-	position:relative;
-	display: inline-block;
-}
-li.clock span {
-	display:block;
-	text-align: center;
-	height:1.1em; line-height:1.1em;
-}
-li.clock span.city {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	margin-bottom:2px;
-}
-li.clock span.digital_clock,
-li.clock span.date {
-	margin-top:2px;
-	white-space: nowrap;
-	overflow: hidden;
-	font-family: digitalclock;
-}
+  position: relative;
+  display: inline-block;
 
-li.clock span.digital_clock {
-    font-weight: bold;
-    font-size: 10px;
-}
+  span {
+    display: block;
+    text-align: center;
+    height: 1.1em;
+    line-height: 1.1em;
 
-li.clock input {
-	line-height:1em;
-	width:100%;
-	margin:0; padding:0;
-	border:none;
-	outline:none;
-	box-shadow: none;
-}
-li.clock select {
-    line-height:1em;
-    font-size:0.7em;
-    padding:0;
-    width:100%;
-    margin:2px;
-}
-li.clock input.dst {
-	display:inline;
-	width:auto;
-	margin:2px;
-}
-li.clock .close {
-	position:absolute; top:-8px; right:-12px;
-	display:none;
-}
+    &.city {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 2px;
+    }
 
-li.clock .remove {
-    display:none;
-}
+    &.digital_clock,
+    &.date {
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      font-family: $font-family-digital;
+    }
 
-ul.edit_mode .city {
-	border: 1px solid #CCC;
-    -webkit-border-radius: 3px;
-	padding:4px;
-	margin:2px 2px 2px 2px;
-}
+    &.digital_clock {
+      font-weight: bold;
+      font-size: 10px;
+    }
+  }
 
-ul.edit_mode li.clock .remove {
-	display:block;
-	margin-top:4px;
-	margin-bottom:4px;
+  input {
+    line-height: 1em;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    &.dst {
+      display: inline;
+      width: auto;
+      margin: 2px;
+    }
+  }
+
+  select {
+    line-height: 1em;
+    font-size: 0.7em;
+    padding: 0;
+    width: 100%;
+    margin: 2px;
+  }
+
+  .close {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    display: none;
+  }
+
+  .remove {
+    display: none;
+  }
 }
 
 /* options */
@@ -107,48 +119,56 @@ fieldset {
 }
 
 #option_header {
-	min-height: 0;
-	padding:4px;
-	text-align:center;
-	margin-bottom: 0;
+  min-height: 0;
+  padding: 4px;
+  text-align: center;
+  margin-bottom: 0;
+
+  a {
+    outline: none;
+    text-decoration: none;
+  }
 }
-#option_header a,
-.option_content a {
-  outline:none;
-  text-decoration:none;
-}
+
 #option_label {
-	margin:0 auto;
+  margin: 0 auto;
 }
 
-#option_content {
-	min-height: 0;
-	margin-top:1em;
-	margin-bottom:0;
-	padding:5px;
-	display:none;
-}
+.option_content {
+  min-height: 0;
+  margin-top: 1em;
+  margin-bottom: 0;
+  padding: 5px;
+  display: none;
 
-.control_group > label:first-child {
-    width: 50px;
-}
+  a {
+    outline: none;
+    text-decoration: none;
+  }
 
-.control_group .controls {
-    margin-left: 60px;
-}
-
-.option_content input[type="number"],
-.option_content select {
-    width:95%;
+  input[type="number"],
+  select {
+    width: 95%;
     display: inline-table;
+  }
+}
+
+.control_group {
+  & > label:first-child {
+    width: 50px;
+  }
+
+  .controls {
+    margin-left: 60px;
+  }
 }
 
 #add {
-    width: 100%;
-    margin-bottom: 10px;
-    display: inline-table;
+  width: 100%;
+  margin-bottom: 10px;
+  display: inline-table;
 }
 
 #footer {
-	clear:both;
+  clear: both;
 }

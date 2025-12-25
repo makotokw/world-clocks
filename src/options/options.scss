@@ -1,0 +1,32 @@
+@use "../common/styles/variables" as *;
+@use "../common/styles/mixins" as *;
+@use "../common/styles/common";
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: $spacing-base 0 30px;
+  border-bottom: 1px solid $color-border-light;
+}
+
+.footer {
+  margin-top: $spacing-base;
+  padding-top: $spacing-tiny;
+  border-top: 1px solid $color-border-light;
+}
+
+.help-block {
+  display: block;
+  margin-bottom: $spacing-small;
+  color: $color-text-muted;
+}
