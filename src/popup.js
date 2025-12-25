@@ -365,7 +365,7 @@ import { WorldClocks } from './worldclocks';
 
     const html = '<span class="city">' + l.label + '</span>'
       + '<canvas id="' + canvasId + '" class="analog_clock"' +
-      ((showAnalogClock) ? '' : ' style="display:none;"') + '/>'
+      ((showAnalogClock) ? '' : ' style="display:none;"') + '></canvas>'
       + '<span class="digital_clock"' +
       ((showDigitalClock) ? '' : ' style="display:none;"') + '></span>'
       + '<span class="date"' + ((showDate) ? '' : ' style="display:none;"') +
