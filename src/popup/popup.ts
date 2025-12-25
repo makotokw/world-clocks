@@ -2,56 +2,20 @@ import $ from 'jquery';
 window.jQuery = window.$ = $;
 // Load jQuery UI after jQuery is exposed on window to satisfy its global dependency
 await import('jquery-ui-dist/jquery-ui');
-import '@/common/scripts/coolclock';
-import '@/common/scripts/coolclock_patch';
-import '@/common/scripts/coolclock_moreskins';
-import { WorldClocks } from '@/common/scripts/worldclocks';
+import CoolClock from '@/common/scripts/coolclock-more-skins';
+import WorldClocks from '@/common/scripts/world-clocks';
+import timeZones from '@/common/scripts/time-zones';
+import { toLocalTime, toShortDateString, toLocaleShortTimeString } from '@/common/scripts/time-utils';
 
 (function ($) {
-  const w: any = WorldClocks;
-  const timeZones = [
-    { value: '-12', label: '(GMT -12:00) Eniwetok, Kwajalein' },
-    { value: '-11', label: '(GMT -11:00) Midway Island, Samoa' },
-    { value: '-10', label: '(GMT -10:00) Hawaii' },
-    { value: '-9', label: '(GMT -9:00) Alaska' },
-    { value: '-8', label: '(GMT -8:00) Pacific Time (US &amp; Canada)' },
-    { value: '-7', label: '(GMT -7:00) Mountain Time (US &amp; Canada)' },
-    { value: '-6', label: '(GMT -6:00) Central Time (US &amp; Canada), Mexico City' },
-    { value: '-5', label: '(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima' },
-    { value: '-4.5', label: '(GMT -4:30) Caracas' },
-    { value: '-4', label: '(GMT -4:00) Atlantic Time (Canada), La Paz' },
-    { value: '-3.5', label: '(GMT -3:30) Newfoundland' },
-    { value: '-3', label: '(GMT -3:00) Brazil, Buenos Aires, Georgetown' },
-    { value: '-2', label: '(GMT -2:00) Mid-Atlantic' },
-    { value: '-1', label: '(GMT -1:00) Azores, Cape Verde Islands' },
-    { value: '0', label: '(GMT) Western Europe Time, London, Lisbon, Casablanca' },
-    { value: '1', label: '(GMT +1:00) Brussels, Copenhagen, Madrid, Paris' },
-    { value: '2', label: '(GMT +2:00) Kaliningrad, South Africa' },
-    { value: '3', label: '(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg' },
-    { value: '3.5', label: '(GMT +3:30) Tehran' },
-    { value: '4', label: '(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi' },
-    { value: '4.5', label: '(GMT +4:30) Kabul' },
-    { value: '5', label: '(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent' },
-    { value: '5.5', label: '(GMT +5:30) Bombay, Calcutta, Madras, New Delhi' },
-    { value: '5.75', label: '(GMT +5:45) Kathmandu' },
-    { value: '6', label: '(GMT +6:00) Almaty, Dhaka, Colombo' },
-    { value: '6.5', label: '(GMT +6:30) Rangoon' },
-    { value: '7', label: '(GMT +7:00) Bangkok, Hanoi, Jakarta' },
-    { value: '8', label: '(GMT +8:00) Beijing, Perth, Singapore, Hong Kong' },
-    { value: '9', label: '(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk' },
-    { value: '9.5', label: '(GMT +9:30) Adelaide, Darwin' },
-    { value: '10', label: '(GMT +10:00) Eastern Australia, Guam, Vladivostok' },
-    { value: '11', label: '(GMT +11:00) Magadan, Solomon Islands, New Caledonia' },
-    { value: '12', label: '(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka' },
-    { value: '13', label: '(GMT +13:00) Nuku\'alofa' },
-  ];
+  document.documentElement.lang = chrome.i18n.getUILanguage();
   const $timezone = $('<select/>');
   $.each(timeZones, function (i, t) {
     $timezone.append(`<option value="${t.value}">${t.label}</option>`);
   });
 
   const version = chrome.runtime.getManifest().version;
-  $('#copyright').html(w.msg('APP_TITLE') + ' ' + version);
+  $('#copyright').html(WorldClocks.msg('APP_TITLE') + ' ' + version);
 
   // localize
   const messages = {
@@ -68,50 +32,40 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
     'digital_clock_24h_label': 'DIGITAL_CLOCK_24H',
     'show_digital_clock_label': 'SHOW_DIGITAL_CLOCK_LABEL',
     'show_date_label': 'SHOW_DATE_LABEL',
-    //'set_title_label':'CHANGE_TITLE_HELP',
-    //'order_label':'CHANGE_ORDER_HELP',
   };
 
-  const $head = $('head');
-  const $localStyles = $('<link/>').attr({
-    rel: 'stylesheet',
-    type: 'text/css',
-    href: '_locales/' + chrome.i18n.getMessage('APP_LOCALE') + '/locale.css',
-  });
-  $head.append($localStyles);
-
   $.each(messages, function (key, value) {
-    $('#' + key).html(w.msg(value));
+    $('#' + key).html(WorldClocks.msg(value));
   });
 
   // noinspection EqualityComparisonWithCoercionJS
-  let radius = w.pref.get('radius', 40),
-    digitalClockFontSize = w.pref.get('digitalClockFontSize', 10),
-    skin = w.pref.get('skin', 'chunkySwiss'),
-    showAnalogClock = ('false' != w.pref.get('showAnalogClock', 'true')),
-    showSecondHand = ('false' != w.pref.get('showSecondHand', 'true')),
-    showDigitalClock = ('false' != w.pref.get('showDigitalClock', 'true')),
-    useDigitalClock24h = ('false' != w.pref.get('useDigitalClock24h', 'true')),
-    showDate = ('false' != w.pref.get('showDate', 'true')),
-    showFooter = ('false' != w.pref.get('showFooter', 'true')),
-    column = w.pref.get('column', 4),
+  let radius = WorldClocks.pref.get('radius', 40),
+    digitalClockFontSize = WorldClocks.pref.get('digitalClockFontSize', 10),
+    skin = WorldClocks.pref.get('skin', 'chunkySwiss'),
+    showAnalogClock = ('false' != WorldClocks.pref.get('showAnalogClock', 'true')),
+    showSecondHand = ('false' != WorldClocks.pref.get('showSecondHand', 'true')),
+    showDigitalClock = ('false' != WorldClocks.pref.get('showDigitalClock', 'true')),
+    useDigitalClock24h = ('false' != WorldClocks.pref.get('useDigitalClock24h', 'true')),
+    showDate = ('false' != WorldClocks.pref.get('showDate', 'true')),
+    showFooter = ('false' != WorldClocks.pref.get('showFooter', 'true')),
+    column = WorldClocks.pref.get('column', 4),
     margin = 5
   ;
   const $list = $('#clocks').disableSelection();
   const localeTime = new Date(),
     localeOffset = (localeTime.getTimezoneOffset() / (-60.0));
   const locales = { _length: 0 }, default_locales = [
-    { label: w.msg('LOCAL_TIME'), offset: localeOffset, dst: 0 },
-    { label: w.msg('LONDON'), offset: '0', dst: 0 },
-    { label: w.msg('SANJOSE'), offset: '-8', dst: 0 },
-    { label: w.msg('TOKYO'), offset: '9', dst: 0 },
+    { label: WorldClocks.msg('LOCAL_TIME'), offset: localeOffset, dst: 0 },
+    { label: WorldClocks.msg('LONDON'), offset: '0', dst: 0 },
+    { label: WorldClocks.msg('SANJOSE'), offset: '-8', dst: 0 },
+    { label: WorldClocks.msg('TOKYO'), offset: '9', dst: 0 },
   ];
 
   if (!showFooter) {
     $('#footer').remove();
   }
 
-  { // optoins
+  { // options
 
     $.fn.extend({
       editColumn: function () {
@@ -126,7 +80,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
           c = parseInt(c);
           if (c > 0 && c <= 10) {
             column = c;
-            w.pref.set('column', column);
+            WorldClocks.pref.set('column', column);
             resize();
           } else {
             $edit.val(column);
@@ -184,7 +138,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
 
         $tz.append($select.change(onTimezoneChanged).val(l.offset));
         $tz.append($check.change(onTimezoneChanged)).
-          append(`<label for="${cbxid}">${w.msg('DST_LABEL')}</label>`);
+          append(`<label for="${cbxid}">${WorldClocks.msg('DST_LABEL')}</label>`);
         $self.after($tz);
       },
     });
@@ -192,10 +146,10 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
     const $option_label = $('#option_label'),
       $option_content = $('#option_content'),
       $option_button = $('#option_button'),
-      option_open_label = w.msg('POPUP_OPTION_OPEN'),
-      option_close_label = w.msg('POPUP_OPTION_CLOSE')
+      option_open_label = WorldClocks.msg('POPUP_OPTION_OPEN'),
+      option_close_label = WorldClocks.msg('POPUP_OPTION_CLOSE')
     ;
-    $option_button.attr({ title: w.msg('EDIT_HELP') });
+    $option_button.attr({ title: WorldClocks.msg('EDIT_HELP') });
     let isOptionOpen = false;
     $option_label.on('click', function (e) {
       e.preventDefault();
@@ -231,8 +185,8 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
 
     // add new Clock
     $('#add').
-      attr({ title: w.msg('ADD_HELP') }).
-      html(w.msg('ADD_HELP')).
+      attr({ title: WorldClocks.msg('ADD_HELP') }).
+      html(WorldClocks.msg('ADD_HELP')).
       click(function () {
         const $li = addClock(undefined).hide().fadeIn();
         const id = $li.attr('id'), l = locales[id];
@@ -257,7 +211,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
         cc.setSkin(skin);
         cc.refreshDisplay();
       });
-      w.pref.set('skin', skin);
+      WorldClocks.pref.set('skin', skin);
     }).val(skin);
 
     // size(radius)
@@ -273,7 +227,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
     // second hand
     $('#show_second_hand').change(function () {
       showSecondHand = $(this).is(':checked');
-      w.pref.set('showSecondHand', showSecondHand);
+      WorldClocks.pref.set('showSecondHand', showSecondHand);
       updateCoolClock();
     }).attr({ checked: showSecondHand });
 
@@ -285,8 +239,8 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
       } else {
         $list.find('.analog_clock').hide();
       }
-      console.log('set showAnalogClock', showAnalogClock);
-      w.pref.set('showAnalogClock', showAnalogClock);
+      console.debug('set showAnalogClock', showAnalogClock);
+      WorldClocks.pref.set('showAnalogClock', showAnalogClock);
       updateCoolClock();
     }).attr({ checked: showAnalogClock });
 
@@ -298,14 +252,14 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
       } else {
         $list.find('.digital_clock').hide();
       }
-      w.pref.set('showDigitalClock', showDigitalClock);
+      WorldClocks.pref.set('showDigitalClock', showDigitalClock);
       updateDigitalClock();
     }).attr({ checked: showDigitalClock });
 
     // digital clock 24h
     $('#digital_clock_24h').change(function () {
       useDigitalClock24h = $(this).is(':checked');
-      w.pref.set('useDigitalClock24h', useDigitalClock24h);
+      WorldClocks.pref.set('useDigitalClock24h', useDigitalClock24h);
       updateDigitalClock();
     }).attr({ checked: useDigitalClock24h });
 
@@ -317,7 +271,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
       } else {
         $list.find('.date').hide();
       }
-      w.pref.set('showDate', showDate);
+      WorldClocks.pref.set('showDate', showDate);
       updateDigitalClock();
     }).attr({ checked: showDate });
   }
@@ -328,7 +282,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
   setInterval(updateDigitalClock, 1000);
 
   function update () {
-    let locales = w.pref.get('locales');
+    let locales = WorldClocks.pref.get('locales');
     if (locales) locales = JSON.parse(locales);
     if (!locales || locales.length === 0) locales = default_locales;
     $list.empty();
@@ -353,12 +307,12 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
       const id = $(this).attr('id'), l = locales[id];
       al.push({ label: l.label, offset: l.offset, dst: l.dst });
     });
-    w.pref.set('locales', JSON.stringify(al));
+    WorldClocks.pref.set('locales', JSON.stringify(al));
   }
 
   function addClock (locale) {
     const i = locales._length++, l = locale ||
-      { label: w.msg('LOCAL_TIME'), offset: localeOffset, dst: 0 };
+      { label: WorldClocks.msg('LOCAL_TIME'), offset: localeOffset, dst: 0 };
     const id = `locale${i}`,
       canvasId = `clock${i}_${new Date().valueOf()}`;
     const $li = $('<li/>').attr({ id: id }).addClass('clock');
@@ -371,7 +325,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
       + '<span class="date"' + ((showDate) ? '' : ' style="display:none;"') +
       '></span>'
       + '<a href="#" class="remove btn btn-danger">' +
-      w.msg('REMOVE_CLOCK_LABEL') + '</a>';
+      WorldClocks.msg('REMOVE_CLOCK_LABEL') + '</a>';
 
     $li.html(html);
     $('.digital_clock', $li).css({ 'font-size': digitalClockFontSize + 'px' });
@@ -392,7 +346,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
     l.coolClock = new CoolClock({
       canvasId: canvasId,
       displayRadius: radius,
-      skinId: skin,
+      skin: skin,
       gmtOffset: l.offset + l.dst,
       showSecondHand: showSecondHand,
       showDigital: false,
@@ -402,36 +356,11 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
     return $li;
   }
 
-  function toLocalTime () {
-    return new Date(this.getUTCFullYear(), this.getUTCMonth(),
-      this.getUTCDate(), this.getUTCHours(),
-      this.getUTCMinutes(), this.getUTCSeconds(), this.getUTCMilliseconds());
-  }
-
-  function toShortDateString () {
-    return this.toDateString().replace(/\s?[0-9]{4}\s?/, '');
-  }
-
-  function toLocaleShortTimeString (showSecond, use24h) {
-    const d = this instanceof Date ? this : new Date();
-    let h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
-    let prefix = '', suffix = '';
-    if (use24h) {
-      if (h < 10) h = `0${h}`;
-    } else {
-      suffix = (h < 12) ? ' AM' : ' PM';
-      if (h >= 12) h -= 12;
-    }
-    if (m < 10) m = `0${m}`;
-    if (s < 10) s = `0${s}`;
-    const time = (showSecond) ? `${h}:${m}:${s}` : `${h}:${m}`;
-    return prefix + time + suffix;
-  }
 
   function changeClockSize (r) {
     if (!parseInt(r)) return;
     radius = r;
-    w.pref.set('radius', radius);
+    WorldClocks.pref.set('radius', radius);
     updateCoolClock();
     resize();
   }
@@ -450,7 +379,7 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
   function changeDigitalClockFontSize (fontSize) {
     if (!parseInt(fontSize)) return;
     digitalClockFontSize = fontSize;
-    w.pref.set('digitalClockFontSize', fontSize);
+    WorldClocks.pref.set('digitalClockFontSize', fontSize);
     $list.find('.digital_clock').
       css({ 'font-size': `${digitalClockFontSize}px` });
   }
@@ -462,11 +391,11 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
       if (!l) return;
       const t = new Date(now.valueOf() +
           ((parseFloat(l.offset) + parseFloat(l.dst)) * 1000 * 60 * 60)),
-        lt = toLocalTime.apply(t);
+        lt = toLocalTime(t);
       $(this).
         find('.digital_clock').
-        html(toLocaleShortTimeString.call(lt, false, useDigitalClock24h));
-      $(this).find('.date').html(toShortDateString.apply(lt));
+        html(toLocaleShortTimeString(lt, false, useDigitalClock24h));
+      $(this).find('.date').html(toShortDateString(lt));
 
     });
   }

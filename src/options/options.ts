@@ -1,10 +1,8 @@
-import '@/common/scripts/coolclock';
-import '@/common/scripts/coolclock_patch';
-import '@/common/scripts/coolclock_moreskins';
-import { WorldClocks } from '@/common/scripts/worldclocks';
+import CoolClock from '@/common/scripts/coolclock_moreskins';
+import WorldClocks from '@/common/scripts/world-clocks';
 
 (function () {
-  const w: any = WorldClocks;
+  document.documentElement.lang = chrome.i18n.getUILanguage();
 
   // localize
   const messages: Record<string, string> = {
@@ -18,27 +16,27 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
   for (const [key, value] of Object.entries(messages)) {
     const el = document.getElementById(key);
     if (el) {
-      el.innerHTML = w.msg(value);
+      el.innerHTML = WorldClocks.msg(value);
     }
   }
 
   const titleEl = document.getElementById('title');
   if (titleEl) {
-    titleEl.innerHTML = w.msg('OPTION_TITLE');
+    titleEl.innerHTML = WorldClocks.msg('OPTION_TITLE');
   }
 
   const version = chrome.runtime.getManifest().version;
   const copyrightEl = document.getElementById('copyright');
   if (copyrightEl) {
-    copyrightEl.innerHTML = w.msg('APP_TITLE') + ' ' + version;
+    copyrightEl.innerHTML = WorldClocks.msg('APP_TITLE') + ' ' + version;
   }
 
   // skin
-  let skin = w.pref.get('ba_skin');
+  let skin = WorldClocks.pref.get('ba_skin');
   const skinSelect = document.getElementById('skin_select') as HTMLSelectElement;
 
   if (skinSelect) {
-    for (const attr in (window as any).CoolClock.config.skins) {
+    for (const attr in CoolClock.config.skins) {
       const option = document.createElement('option');
       option.value = attr;
       option.textContent = attr;
@@ -52,22 +50,22 @@ import { WorldClocks } from '@/common/scripts/worldclocks';
         chrome.runtime.sendMessage({
           type: 'setSkin',
           target: 'offscreen',
-          skinId: skin
+          skin
         }).then(() => { });
       } catch (e) {
       }
-      w.pref.set('ba_skin', skin);
+      WorldClocks.pref.set('ba_skin', skin);
     });
   }
 
   // footer
-  const showFooter = ('false' !== w.pref.get('showFooter', 'true'));
+  const showFooter = ('false' !== WorldClocks.pref.get('showFooter', 'true'));
   const showFooterCheckbox = document.getElementById('show_footer') as HTMLInputElement;
   if (showFooterCheckbox) {
     showFooterCheckbox.checked = showFooter;
     showFooterCheckbox.addEventListener('change', () => {
       const show = showFooterCheckbox.checked;
-      w.pref.set('showFooter', show);
+      WorldClocks.pref.set('showFooter', show);
     });
   }
 })();

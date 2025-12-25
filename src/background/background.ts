@@ -1,6 +1,4 @@
-import '@/common/scripts/coolclock';
-import '@/common/scripts/coolclock_patch';
-import '@/common/scripts/coolclock_moreskins';
+import CoolClock from '@/common/scripts/coolclock-more-skins';
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvasId = 'canvas';
@@ -9,15 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const coolClock = new CoolClock({
     canvasId: canvasId,
     displayRadius: 9,
-    skinId: localStorage['ba_skin'] || 'fancy',
+    skin: localStorage['ba_skin'] || 'fancy',
     showSecondHand: false,
     showDigital: false,
   });
-
-  function setSkin(skinId) {
-    coolClock.setSkin(skinId);
-    coolClock.tick();
-  }
 
   chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     if (!message || message.target !== 'offscreen') {
@@ -31,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data: Array.from(imageData.data),
       });
     } else if (message.type === 'setSkin') {
-      setSkin(message.skinId);
+      coolClock.setSkin(message.skinId as string).tick();
     }
   });
 });
