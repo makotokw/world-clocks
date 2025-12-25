@@ -1,6 +1,6 @@
-import './coolclock';
-import './coolclock_patch';
-import './coolclock_moreskins';
+import '@/common/scripts/coolclock';
+import '@/common/scripts/coolclock_patch';
+import '@/common/scripts/coolclock_moreskins';
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvasId = 'canvas';

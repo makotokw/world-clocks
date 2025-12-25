@@ -4,7 +4,7 @@ async function setupOffscreenDocument() {
     console.warn('chrome.offscreen API is not available. The dynamic icon may not update.');
     return;
   }
-  const OFFSCREEN_PATH = 'src/background.html';
+  const OFFSCREEN_PATH = 'src/background/background.html';
   // Check all windows controlled by the service worker to see if one
   // of them is the offscreen document with the given path
   const offscreenUrl = chrome.runtime.getURL(OFFSCREEN_PATH);

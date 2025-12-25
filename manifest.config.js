@@ -12,11 +12,11 @@ export default defineManifest({
     'offscreen'
   ],
   background: {
-    service_worker: 'src/service-worker.ts',
+    service_worker: 'src/background/service-worker.ts',
     type: 'module',
   },
   options_ui: {
-    page: 'src/options.html',
+    page: 'src/options/options.html',
     open_in_tab: false,
   },
   action: {
@@ -24,7 +24,7 @@ export default defineManifest({
       '16': 'public/icon_16.png',
       '128': 'public/icon_128.png',
     },
-    default_popup: 'src/popup.html',
+    default_popup: 'src/popup/popup.html',
   },
   icons: {
     '16': 'public/icon_16.png',
@@ -32,7 +32,7 @@ export default defineManifest({
   },
   web_accessible_resources: [
     {
-      resources: ['src/background.html'],
+      resources: ['src/background/background.html'],
       matches: ['<all_urls>']
     }
   ]

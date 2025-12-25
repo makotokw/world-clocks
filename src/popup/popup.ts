@@ -2,10 +2,10 @@ import $ from 'jquery';
 window.jQuery = window.$ = $;
 // Load jQuery UI after jQuery is exposed on window to satisfy its global dependency
 await import('jquery-ui-dist/jquery-ui');
-import './coolclock';
-import './coolclock_patch';
-import './coolclock_moreskins';
-import { WorldClocks } from './worldclocks';
+import '@/common/scripts/coolclock';
+import '@/common/scripts/coolclock_patch';
+import '@/common/scripts/coolclock_moreskins';
+import { WorldClocks } from '@/common/scripts/worldclocks';
 
 (function ($) {
   const w: any = WorldClocks;

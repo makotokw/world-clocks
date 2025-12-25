@@ -2,10 +2,10 @@ import $ from 'jquery';
 window.jQuery = window.$ = $;
 import 'bootstrap/dist/css/bootstrap.css';
 await import('bootstrap/dist/js/bootstrap');
-import './coolclock';
-import './coolclock_patch';
-import './coolclock_moreskins';
-import { WorldClocks } from './worldclocks';
+import '@/common/scripts/coolclock';
+import '@/common/scripts/coolclock_patch';
+import '@/common/scripts/coolclock_moreskins';
+import { WorldClocks } from '@/common/scripts/worldclocks';
 
 (function ($) {
   const w: any = WorldClocks;
