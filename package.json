@@ -12,14 +12,11 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.8",
     "jquery": "^3.7.1",
     "jquery-ui-dist": "^1.13.2"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.2.0",
-    "@types/bootstrap": "^5.2.10",
     "@types/chrome": "^0.1.32",
     "@types/jquery": "^3.5.33",
     "@types/jqueryui": "^1.12.24",
