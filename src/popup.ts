@@ -8,7 +8,7 @@ import './coolclock_moreskins';
 import { WorldClocks } from './worldclocks';
 
 (function ($) {
-  const w = WorldClocks;
+  const w: any = WorldClocks;
   const timeZones = [
     { value: '-12', label: '(GMT -12:00) Eniwetok, Kwajalein' },
     { value: '-11', label: '(GMT -11:00) Midway Island, Samoa' },
@@ -172,10 +172,10 @@ import { WorldClocks } from './worldclocks';
           cbxid = `${id}_dst`, l = locales[id];
         const $tz = $('<div class="timezone"/>'),
           $select = $timezone.clone(),
-          $check = $(`<input id="${cbxid}" class="dst" type="checkbox"/>`).attr('checked', !!l.dst);
+          $check = $(`<input id="${cbxid}" class="dst" type="checkbox"/>`).attr('checked', (!!l.dst) as any);
 
         function onTimezoneChanged () {
-          l.offset = parseFloat($select.val());
+          l.offset = parseFloat($select.val() as string);
           l.dst = $check.attr('checked') ? 1 : 0;
           l.coolClock.setOffset(l.offset + l.dst);
           l.coolClock.refreshDisplay();
@@ -204,7 +204,7 @@ import { WorldClocks } from './worldclocks';
         if (!$list.data('ui-sortable')) {
           $list.sortable({ update: function () {saveLocales();} });
         }
-        $option_content.show('blind');
+        $option_content.show('blind' as any);
         $('li', $list).each(function () {
           const id = $(this).attr('id'), l = locales[id];
           l.editing = true;
@@ -234,7 +234,7 @@ import { WorldClocks } from './worldclocks';
       attr({ title: w.msg('ADD_HELP') }).
       html(w.msg('ADD_HELP')).
       click(function () {
-        const $li = addClock().hide().fadeIn();
+        const $li = addClock(undefined).hide().fadeIn();
         const id = $li.attr('id'), l = locales[id];
         l.editing = true;
         $('.date', $li).editTimezone();
@@ -247,7 +247,7 @@ import { WorldClocks } from './worldclocks';
 
     // skin
     const $skin_select = $('#skin_select');
-    $.each(CoolClock.config.skins, function (attr) {
+    $.each((CoolClock as any).config.skins, function (attr: any) {
       $skin_select.append(`<option value="${attr}">${attr}</option>`);
     });
     $skin_select.change(function () {

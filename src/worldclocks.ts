@@ -35,7 +35,8 @@ function getPref(key, defaultValue) {
 }
 
 export class WorldClocks {}
-WorldClocks.msg = msg;
-WorldClocks.pref = { get: getPref, set: setPref };
-WorldClocks.log = log;
+const w: any = WorldClocks;
+w.msg = msg;
+w.pref = { get: getPref, set: setPref };
+w.log = log;
 

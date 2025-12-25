@@ -4,8 +4,8 @@ import './coolclock_moreskins';
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvasId = 'canvas';
-  const canvas = document.getElementById(canvasId);
-  const canvasContext = canvas.getContext('2d');
+  const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+  const canvasContext = canvas.getContext('2d')!;
   const coolClock = new CoolClock({
     canvasId: canvasId,
     displayRadius: 9,

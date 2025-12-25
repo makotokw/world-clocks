@@ -19,7 +19,13 @@
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.2.0",
+    "@types/bootstrap": "^5.2.10",
+    "@types/chrome": "^0.1.32",
+    "@types/jquery": "^3.5.33",
+    "@types/jqueryui": "^1.12.24",
     "rimraf": "^6.1.2",
+    "sass": "^1.97.1",
+    "typescript": "^5.9.3",
     "vite": "^7.2.7",
     "vite-plugin-zip-pack": "^1.2.4"
   },

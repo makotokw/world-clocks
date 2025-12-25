@@ -9,9 +9,9 @@
  */
 
 // Constructor for CoolClock objects
-window.CoolClock = function(options) {
-	return this.init(options);
-}
+window.CoolClock = function(options: any): any {
+	return (this as any).init(options);
+} as any;
 
 // Config contains some defaults, and clock skins
 CoolClock.config = {
@@ -72,30 +72,30 @@ CoolClock.config = {
 CoolClock.prototype = {
 
 	// Initialise using the parameters parsed from the colon delimited class
-	init: function(options) {
+	init: function(options: any) {
 		// Parse and store the options
 		this.canvasId       = options.canvasId;
-		this.skinId         = options.skinId || CoolClock.config.defaultSkin;
-		this.displayRadius  = options.displayRadius || CoolClock.config.defaultRadius;
+		this.skinId         = options.skinId || (CoolClock as any).config.defaultSkin;
+		this.displayRadius  = options.displayRadius || (CoolClock as any).config.defaultRadius;
 		this.showSecondHand = typeof options.showSecondHand == "boolean" ? options.showSecondHand : true;
 		this.gmtOffset      = (options.gmtOffset != null && options.gmtOffset != '') ? parseFloat(options.gmtOffset) : null;
 		this.showDigital    = typeof options.showDigital == "boolean" ? options.showDigital : false;
 		this.logClock       = typeof options.logClock == "boolean" ? options.logClock : false;
 		this.logClockRev    = typeof options.logClock == "boolean" ? options.logClockRev : false;
 
-		this.tickDelay      = CoolClock.config[ this.showSecondHand ? "tickDelay" : "longTickDelay" ];
+		this.tickDelay      = (CoolClock as any).config[ this.showSecondHand ? "tickDelay" : "longTickDelay" ];
 
 		// Get the canvas element
-		this.canvas = document.getElementById(this.canvasId);
+		this.canvas = document.getElementById(this.canvasId) as HTMLCanvasElement;
 
 		// Make the canvas the requested size. It's always square.
-		this.canvas.setAttribute("width",this.displayRadius*2);
-		this.canvas.setAttribute("height",this.displayRadius*2);
+		this.canvas.setAttribute("width",(this.displayRadius*2).toString());
+		this.canvas.setAttribute("height",(this.displayRadius*2).toString());
 		this.canvas.style.width = this.displayRadius*2 + "px";
 		this.canvas.style.height = this.displayRadius*2 + "px";
 
 		// Explain me please...?
-		this.renderRadius = CoolClock.config.renderRadius;
+		this.renderRadius = (CoolClock as any).config.renderRadius;
 		this.scale = this.displayRadius / this.renderRadius;
 
 		// Initialise canvas context
@@ -103,10 +103,10 @@ CoolClock.prototype = {
 		this.ctx.scale(this.scale,this.scale);
 
 		// Keep track of this object
-		CoolClock.config.clockTracker[this.canvasId] = this;
+		(CoolClock as any).config.clockTracker[this.canvasId] = this;
 
 		// Start the clock going
-		this.tick();
+		(this as any).tick();
 
 		return this;
 	},

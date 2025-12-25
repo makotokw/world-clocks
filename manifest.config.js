@@ -12,7 +12,7 @@ export default defineManifest({
     'offscreen'
   ],
   background: {
-    service_worker: 'src/service-worker.js',
+    service_worker: 'src/service-worker.ts',
     type: 'module',
   },
   options_ui: {

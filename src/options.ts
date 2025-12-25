@@ -8,7 +8,7 @@ import './coolclock_moreskins';
 import { WorldClocks } from './worldclocks';
 
 (function ($) {
-  const w = WorldClocks;
+  const w: any = WorldClocks;
 
   // localize
   const messages = {
@@ -29,7 +29,7 @@ import { WorldClocks } from './worldclocks';
   // skin
   let skin = w.pref.get('ba_skin'),
     $skin_select = $('#skin_select');
-  $.each(CoolClock.config.skins, function (attr) {
+  $.each((CoolClock as any).config.skins, function (attr: any) {
     $skin_select.append('<option value="' + attr + '">' + attr + '</option>');
   });
   $skin_select.change(function () {
