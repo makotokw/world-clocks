@@ -26,7 +26,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["chrome", "jquery"]
+    "types": ["chrome"]
   },
   "include": [
     "src/**/*.ts",

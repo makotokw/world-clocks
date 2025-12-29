@@ -12,15 +12,14 @@
     "node": ">=18"
   },
   "dependencies": {
-    "jquery": "^3.7.1",
-    "jquery-ui-dist": "^1.13.2",
-    "vue": "^3.5.26"
+    "sortablejs": "^1.15.6",
+    "vue": "^3.5.26",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.2.0",
     "@types/chrome": "^0.1.32",
-    "@types/jquery": "^3.5.33",
-    "@types/jqueryui": "^1.12.24",
+    "@types/sortablejs": "^1",
     "@vitejs/plugin-vue": "^6.0.3",
     "rimraf": "^6.1.2",
     "sass": "^1.97.1",

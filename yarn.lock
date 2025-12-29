@@ -682,28 +682,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jquery@npm:*, @types/jquery@npm:^3.5.33":
-  version: 3.5.33
-  resolution: "@types/jquery@npm:3.5.33"
-  dependencies:
-    "@types/sizzle": "npm:*"
-  checksum: 10c0/d96c42762b7370ddf3b81cdad436a79d275e0ff09e2f4d7fbf2bbd8f97acef4110a11f1c3cb683195a1eba4fd9959e59d73f84d56ce2c010907a2bea696eb057
-  languageName: node
-  linkType: hard
-
-"@types/jqueryui@npm:^1.12.24":
-  version: 1.12.24
-  resolution: "@types/jqueryui@npm:1.12.24"
-  dependencies:
-    "@types/jquery": "npm:*"
-  checksum: 10c0/95afc94bfa4cf31de6b34b7770de849ccb2b5c2c9d8e092e6b9d3a1e0b4ee913659ede75eeebcbf8cb00a59d73da0da648da2be15fea2b94dd8ddeb237027bcf
-  languageName: node
-  linkType: hard
-
-"@types/sizzle@npm:*":
-  version: 2.3.10
-  resolution: "@types/sizzle@npm:2.3.10"
-  checksum: 10c0/d43ec1cd0b5e1f66b1abeaf359608853629cd3d6b8dc8b3b40b85a5ee2ce149a4485ccd7eee5c58b5a2814d384f5a951f1dab5d49041ad83457270cb2bc66fe7
+"@types/sortablejs@npm:^1":
+  version: 1.15.9
+  resolution: "@types/sortablejs@npm:1.15.9"
+  checksum: 10c0/d8ddf3da28a84a023d3003aa64b6495a7112e3945ac05d937afdb7c182b04a1025f126b2977ed8d5a9ede229b4bab85f037efbc97fde8a71128e056ac3122fa9
   languageName: node
   linkType: hard
 
@@ -1435,22 +1417,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery-ui-dist@npm:^1.13.2":
-  version: 1.13.3
-  resolution: "jquery-ui-dist@npm:1.13.3"
-  dependencies:
-    jquery: "npm:>=1.8.0 <4.0.0"
-  checksum: 10c0/d282511e137c6aaf9aac8a33bd06eec5b2e9882c3ceac8b8b59608f808880720238471311cdd34ceaf1557ba2cd7ce31cb4461e56099b54eb07551a53b4ac913
-  languageName: node
-  linkType: hard
-
-"jquery@npm:>=1.8.0 <4.0.0, jquery@npm:^3.7.1":
-  version: 3.7.1
-  resolution: "jquery@npm:3.7.1"
-  checksum: 10c0/808cfbfb758438560224bf26e17fcd5afc7419170230c810dd11f5c1792e2263e2970cca8d659eb84fcd9acc301edb6d310096e450277d54be4f57071b0c82d9
-  languageName: node
-  linkType: hard
-
 "jsesc@npm:^3.0.2":
   version: 3.1.0
   resolution: "jsesc@npm:3.1.0"
@@ -2091,6 +2057,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sortablejs@npm:1.14.0":
+  version: 1.14.0
+  resolution: "sortablejs@npm:1.14.0"
+  checksum: 10c0/b792790286d54af5ebb083300d0cb3f96f5cf840e85f4953aa2074a69c1671a3d6a73f8d5fcc948b27c0573575ff98ec32346f7dcfe6230d517d7a81ea7ad314
+  languageName: node
+  linkType: hard
+
+"sortablejs@npm:^1.15.6":
+  version: 1.15.6
+  resolution: "sortablejs@npm:1.15.6"
+  checksum: 10c0/a75dcf53e5613b4106d46434e40114830f9c6449b3b439bc1925c1fbf0a0c1f044727a8f3d4ae1759fa7beaa33e7eb0c4a413e6aa88d6026577b59f3658ff727
+  languageName: node
+  linkType: hard
+
 "source-map-js@npm:>=0.6.2 <2.0.0, source-map-js@npm:^1.2.1":
   version: 1.2.1
   resolution: "source-map-js@npm:1.2.1"
@@ -2298,6 +2278,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vuedraggable@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "vuedraggable@npm:4.1.0"
+  dependencies:
+    sortablejs: "npm:1.14.0"
+  peerDependencies:
+    vue: ^3.0.1
+  checksum: 10c0/e5121ca53081e63f6a3e1dc4c3c02ae86fd6b896ccf37d9a0f88abb993fd9da3a1b54635541854a2a85b65e30dae00e545a2c208708e7df73424bd64c2e59cbc
+  languageName: node
+  linkType: hard
+
 "whatwg-encoding@npm:^3.1.1":
   version: 3.1.1
   resolution: "whatwg-encoding@npm:3.1.1"
@@ -2331,17 +2322,16 @@ __metadata:
   dependencies:
     "@crxjs/vite-plugin": "npm:^2.2.0"
     "@types/chrome": "npm:^0.1.32"
-    "@types/jquery": "npm:^3.5.33"
-    "@types/jqueryui": "npm:^1.12.24"
+    "@types/sortablejs": "npm:^1"
     "@vitejs/plugin-vue": "npm:^6.0.3"
-    jquery: "npm:^3.7.1"
-    jquery-ui-dist: "npm:^1.13.2"
     rimraf: "npm:^6.1.2"
     sass: "npm:^1.97.1"
+    sortablejs: "npm:^1.15.6"
     typescript: "npm:^5.9.3"
     vite: "npm:^7.2.7"
     vite-plugin-zip-pack: "npm:^1.2.4"
     vue: "npm:^3.5.26"
+    vuedraggable: "npm:^4.1.0"
   languageName: unknown
   linkType: soft
 

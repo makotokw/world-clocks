@@ -7,69 +7,7 @@
   <link rel="stylesheet" type="text/css" href="popup.scss"/>
 </head>
 <body>
-<div>
-<ul id="clocks"></ul>
-<div id="footer">
-    <div id="option_header" class="well">
-        <span id="copyright">Word Clocks</span>
-        <a id="option_label" href="#"></a>
-    </div>
-    <div id="option_content" class="option_content well" style="display:none;">
-        <div><a id="add" class="btn" href="#"></a></div>
-        <div class="control_group">
-            <label id="column_label">Column</label>
-            <div class="controls">
-                <input id="column_text" type="number" min="1" max="100" required="required" value="3"/>
-            </div>
-        </div>
-        <div class="control_group">
-            <label id="size_label">Size</label>
-            <div class="controls">
-                <input id="size_range" type="number" min="20" max="100" required="required" step="5"/>
-            </div>
-        </div>
-
-        <fieldset>
-            <legend id="analog_section">Analog</legend>
-            <div class="control_group">
-                <label id="skin_label">Skin</label>
-                <div class="controls">
-                    <select id="skin_select"></select>
-                </div>
-            </div>
-            <div class="control_group">
-                <label id="analog_detail_label2"></label>
-                <div class="controls">
-                    <input id="show_analog_clock" type="checkbox" value="true"/>
-                    <label id="show_analog_clock_label" for="show_analog_clock">Show Analog Clock</label><br/>
-                    <input id="show_second_hand" type="checkbox" value="true"/>
-                    <label id="show_second_hand_label" for="show_second_hand">Show Second Hand</label><br/>
-                </div>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend id="digital_section">Digital and Date</legend>
-            <div class="control_group">
-                <label id="digital_clock_font_size_label">FontSize</label>
-                <div class="controls">
-                    <input id="digital_clock_font_size_range" type="number" min="10" max="40" required="required" step="1"/>
-                </div>
-            </div>
-            <div class="control_group">
-                <label id="digital_detail_label2"></label>
-                <div class="controls">
-                    <input id="show_digital_clock" type="checkbox" value="true"/>
-                    <label id="show_digital_clock_label" for="show_digital_clock">Show Digital Clock</label><br/>
-                    <input id="digital_clock_24h" type="checkbox" value="true"/>
-                    <label id="digital_clock_24h_label" for="digital_clock_24h">Use 24h</label><br/>
-                    <input id="show_date" type="checkbox" value="true"/>
-                    <label id="show_date_label" for="show_date">Show Date String</label><br/>
-                </div>
-        </fieldset>
-
-    </div>
-</div>
-</div>
+<div></div>
 <script type="module" src="popup.ts"></script>
 </body>
 </html>
