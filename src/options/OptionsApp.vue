@@ -2,29 +2,28 @@
 import { ref, watch, onMounted } from 'vue';
 import CoolClock from '@/common/scripts/coolclock-more-skins';
 import WorldClocks from '@/common/scripts/world-clocks';
+import TheCopyright from '@/common/components/TheCopyright.vue';
 
-const skins = ref<string[]>(Object.keys(CoolClock.config.skins));
 const selectedSkin = ref(WorldClocks.pref.get('ba_skin', 'chunkySwiss'));
 const showFooter = ref(WorldClocks.pref.get('showFooter', 'true') !== 'false');
 
-const version = chrome.runtime.getManifest().version;
-const copyright = `${WorldClocks.msg('APP_TITLE')} ${version}`;
+const skins = Object.keys(CoolClock.config.skins);
 
 onMounted(() => {
   document.documentElement.lang = chrome.i18n.getUILanguage();
 });
 
-watch(selectedSkin, (newSkin) => {
+watch(selectedSkin, (newValue) => {
   try {
     chrome.runtime.sendMessage({
       type: 'setSkin',
       target: 'offscreen',
-      skin: newSkin
+      skin: newValue
     }).then(() => { });
   } catch (e) {
     // ignore
   }
-  WorldClocks.pref.set('ba_skin', newSkin);
+  WorldClocks.pref.set('ba_skin', newValue);
 });
 
 watch(showFooter, (newValue) => {
@@ -40,16 +39,18 @@ function t(key: string): string {
   <div class="container">
     <div class="page-header">
       <header>
-        <h1 id="title">{{ t('OPTION_TITLE') }}</h1>
+        <h1 class="page-title">{{ t('OPTION_TITLE') }}</h1>
       </header>
     </div>
     <form @submit.prevent>
       <fieldset>
-        <legend id="option_group_icon">{{ t('ICON_GROUP') }}</legend>
+        <legend>{{ t('ICON_GROUP') }}</legend>
         <div class="control-group">
-          <label class="control-label" for="skin_select">{{ t('SKIN_LABEL') }}</label>
+          <label class="control-label" for="skinSelect">
+            {{ t('SKIN_LABEL') }}
+          </label>
           <div class="controls">
-            <select id="skin_select" v-model="selectedSkin">
+            <select id="skinSelect" v-model="selectedSkin">
               <option v-for="skin in skins" :key="skin" :value="skin">
                 {{ skin }}
               </option>
@@ -58,11 +59,12 @@ function t(key: string): string {
         </div>
       </fieldset>
       <fieldset>
-        <legend id="option_group_popup">{{ t('POPUP_GROUP') }}</legend>
+        <legend>{{ t('POPUP_GROUP') }}</legend>
         <div class="control-group">
+          <label class="control-label"></label>
           <div class="controls">
-            <label for="show_footer">
-              <input id="show_footer" type="checkbox" v-model="showFooter" />
+            <label class="checkbox-label">
+              <input type="checkbox" v-model="showFooter" />
               <span>{{ t('SHOW_FOOTER_LABEL') }}</span>
             </label>
             <p class="help-block">{{ t('SHOW_FOOTER_HELP') }}</p>
@@ -70,12 +72,39 @@ function t(key: string): string {
         </div>
       </fieldset>
     </form>
-    <footer class="footer">
-      <p id="copyright">{{ copyright }}</p>
-    </footer>
+    <div class="footer">
+      <TheCopyright/>
+    </div>
   </div>
 </template>
 
 <style lang="scss">
-@import "./options.scss";
+@use '@/common/styles/variables' as *;
+@use '@/common/styles/mixins' as *;
+@use '@/common/styles/common';
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-small;
+}
+
+.page-header {
+  margin: 0;
+  padding-bottom: $spacing-tiny;
+  border-bottom: 1px solid $color-border-light;
+}
+
+.page-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.footer {
+  margin-top: $spacing-base;
+  padding-top: $spacing-tiny;
+  border-top: 1px solid $color-border-light;
+  text-align: center;
+}
 </style>

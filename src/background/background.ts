@@ -1,18 +1,17 @@
 import CoolClock from '@/common/scripts/coolclock-more-skins';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const canvasId = 'canvas';
-  const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+  const canvas = document.getElementById('canvas') as HTMLCanvasElement;
   const canvasContext = canvas.getContext('2d')!;
   const coolClock = new CoolClock({
-    canvasId: canvasId,
+    canvasId: canvas.id,
     displayRadius: 9,
     skin: localStorage['ba_skin'] || 'fancy',
     showSecondHand: false,
     showDigital: false,
   });
 
-  chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  chrome.runtime.onMessage.addListener(function (message, _sender, sendResponse) {
     if (!message || message.target !== 'offscreen') {
       return;
     }

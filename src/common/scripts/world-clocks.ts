@@ -1,3 +1,5 @@
+import Locale from './locale.ts';
+
 class WorldClocks {
   msg(key: string, args?: any): string {
     try {
@@ -38,6 +40,47 @@ class WorldClocks {
       console.error(e);
     }
     return value;
+  }
+
+  get localLocale() : Locale {
+    const localeTime = new Date();
+    const localeOffset = (localeTime.getTimezoneOffset() / (-60.0));
+    return { label: this.msg('LOCAL_TIME'), offset: localeOffset, dst: false };
+  }
+
+  get defaultLocales(): Locale[] {
+    const localeTime = new Date();
+    const localeOffset = (localeTime.getTimezoneOffset() / (-60.0));
+    return [
+      this.localLocale,
+      { label: this.msg('LONDON'), offset: 0, dst: false },
+      { label: this.msg('SANJOSE'), offset: -8, dst: false },
+      { label: this.msg('TOKYO'), offset: 9, dst: false },
+    ];
+  }
+
+  loadLocales(): Locale[] {
+    let storedLocales = this.pref.get('locales');
+    if (!storedLocales) {
+      return this.defaultLocales;
+    }
+    try {
+      const parsed = JSON.parse(storedLocales);
+      if (!Array.isArray(parsed)) {
+        return [];
+      }
+      return parsed.map((item: any): Locale => ({
+        label: String(item.label || ''),
+        offset: typeof item.offset === 'string' ? parseFloat(item.offset) : Number(item.offset || 0),
+        dst: !!item.dst
+      }));
+    } catch (e) {
+      return [];
+    }
+  }
+
+  saveLocales(locales: Locale[]) {
+    this.pref.set('locales', JSON.stringify(locales));
   }
 }
 
