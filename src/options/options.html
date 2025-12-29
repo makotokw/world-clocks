@@ -1,43 +1,11 @@
 <!doctype html>
-<html>
 <html lang="en">
+<head>
   <meta charset="utf-8"/>
-  <title>Settings</title>
-  <link rel="stylesheet" type="text/css" href="options.scss"/>
+  <title>Options</title>
 </head>
 <body>
-<div class="container">
-  <div class="page-header">
-    <header>
-      <h1 id="title">Settings</h1>
-    </header>
-  </div>
-<form>
-  <fieldset>
-    <legend id="option_group_icon">Icon</legend>
-    <div class="control-group">
-      <label id="skin_label" class="control-label" for="skin_select">Skin:</label>
-      <div class="controls">
-        <select id="skin_select"></select>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend id="option_group_popup">Popup</legend>
-    <div class="control-group">
-      <div class="controls">
-        <label id="show_footer_label" for="show_footer">
-          <input id="show_footer" type="checkbox"/> <span id="show_footer_label_text">Show Footer</span>
-        </label>
-        <p id="show_footer_help" class="help-block">Supporting help text</p>
-      </div>
-    </div>
-  </fieldset>
-</form>
-<footer class="footer">
-  <p id="copyright"></p>
-</footer>
-</div>
+<div id="app"></div>
 <script type="module" src="options.ts"></script>
 </body>
 </html>
