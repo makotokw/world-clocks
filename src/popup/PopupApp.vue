@@ -45,7 +45,7 @@ const listWidth = computed(() => {
   const margin = 5;
   const count = locales.value.length;
   const col = parseInt(column.value as any) || 1;
-  const num = (count === 0) ? col : Math.min(col, count);
+  const num = count === 0 ? col : Math.min(col, count);
   return num * (margin * 2 + radius.value * 2);
 });
 
@@ -98,7 +98,7 @@ const availableSkins = Object.keys(CoolClock.config.skins);
 
     <div v-if="showFooter" class="footer">
       <div class="option-header well">
-        <TheCopyright/>
+        <TheCopyright />
         <a class="option-label" href="#" @click.prevent="toggleEditMode">
           {{ t(isEditMode ? 'POPUP_OPTION_CLOSE' : 'POPUP_OPTION_OPEN') }}
         </a>
@@ -156,7 +156,14 @@ const availableSkins = Object.keys(CoolClock.config.skins);
             <div class="control-group">
               <label class="control-label">{{ t('FONT_SIZE_LABEL') }}</label>
               <div class="controls">
-                <input v-model.number="digitalClockFontSize" type="number" min="10" max="40" step="1" required />
+                <input
+                  v-model.number="digitalClockFontSize"
+                  type="number"
+                  min="10"
+                  max="40"
+                  step="1"
+                  required
+                />
               </div>
             </div>
             <div class="control-group">
@@ -220,15 +227,17 @@ legend {
 }
 
 /* Vue transition for blind effect */
-.blind-enter-active, .blind-leave-active {
+.blind-enter-active,
+.blind-leave-active {
   transition: max-height 0.3s ease-in-out;
   overflow: hidden;
 }
-.blind-enter-from, .blind-leave-to {
+.blind-enter-from,
+.blind-leave-to {
   max-height: 0;
 }
-.blind-enter-to, .blind-leave-from {
+.blind-enter-to,
+.blind-leave-from {
   max-height: 500px;
 }
-
 </style>

@@ -46,7 +46,14 @@ export const DEFAULT_SKINS: Record<string, Skin> = {
     hourHand: { lineWidth: 8, startAt: -15, endAt: 50, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 7, startAt: -15, endAt: 75, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: -20, endAt: 85, color: 'red', alpha: 1 },
-    secondDecoration: { lineWidth: 1, startAt: 70, radius: 4, fillColor: 'red', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 70,
+      radius: 4,
+      fillColor: 'red',
+      color: 'red',
+      alpha: 1,
+    },
   },
   chunkySwiss: {
     outerBorder: { lineWidth: 4, radius: 97, color: 'black', alpha: 1 },
@@ -55,7 +62,14 @@ export const DEFAULT_SKINS: Record<string, Skin> = {
     hourHand: { lineWidth: 12, startAt: -15, endAt: 60, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 10, startAt: -15, endAt: 85, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: 'red', alpha: 1 },
-    secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: 'red', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 70,
+      radius: 8,
+      fillColor: 'red',
+      color: 'red',
+      alpha: 1,
+    },
   },
   chunkySwissOnBlack: {
     outerBorder: { lineWidth: 4, radius: 97, color: 'white', alpha: 1 },
@@ -64,7 +78,14 @@ export const DEFAULT_SKINS: Record<string, Skin> = {
     hourHand: { lineWidth: 12, startAt: -15, endAt: 60, color: 'white', alpha: 1 },
     minuteHand: { lineWidth: 10, startAt: -15, endAt: 85, color: 'white', alpha: 1 },
     secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: 'red', alpha: 1 },
-    secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: 'red', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 70,
+      radius: 8,
+      fillColor: 'red',
+      color: 'red',
+      alpha: 1,
+    },
   },
 };
 
@@ -189,10 +210,10 @@ export class CoolClock {
     // Log algorithm by David Bradshaw
     const tweak = 3; // If it's lower the one-second mark looks wrong (?)
     if (this.logClock) {
-      return second === 0 ? 0 : (Math.log(second * tweak) / Math.log(60 * tweak));
+      return second === 0 ? 0 : Math.log(second * tweak) / Math.log(60 * tweak);
     } else if (this.logClockRev) {
       const revSecond = (60 - second) % 60;
-      return 1.0 - (revSecond === 0 ? 0 : (Math.log(revSecond * tweak) / Math.log(60 * tweak)));
+      return 1.0 - (revSecond === 0 ? 0 : Math.log(revSecond * tweak) / Math.log(60 * tweak));
     } else {
       return second / 60.0;
     }
@@ -251,7 +272,11 @@ export class CoolClock {
     }
 
     if (this.showDigital) {
-      this.drawTextAt(this.timeText(hour, min, sec), this.renderRadius, this.renderRadius + this.renderRadius / 2);
+      this.drawTextAt(
+        this.timeText(hour, min, sec),
+        this.renderRadius,
+        this.renderRadius + this.renderRadius / 2,
+      );
     }
 
     if (skin.hourHand) {
@@ -274,7 +299,7 @@ export class CoolClock {
   refreshDisplay(): void {
     const now = new Date();
     if (this.gmtOffset !== null) {
-      const offsetNow = new Date(now.getTime() + (this.gmtOffset * 3600 * 1000));
+      const offsetNow = new Date(now.getTime() + this.gmtOffset * 3600 * 1000);
       this.render(offsetNow.getUTCHours(), offsetNow.getUTCMinutes(), offsetNow.getUTCSeconds());
     } else {
       this.render(now.getHours(), now.getMinutes(), now.getSeconds());

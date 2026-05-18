@@ -32,7 +32,7 @@ const timeZones = [
   { value: '10', label: '(GMT +10:00) Eastern Australia, Guam, Vladivostok' },
   { value: '11', label: '(GMT +11:00) Magadan, Solomon Islands, New Caledonia' },
   { value: '12', label: '(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka' },
-  { value: '13', label: '(GMT +13:00) Nuku\'alofa' },
+  { value: '13', label: "(GMT +13:00) Nuku'alofa" },
 ];
 
 export default timeZones;

@@ -10,7 +10,7 @@ export function toLocalTime(date: Date): Date {
     date.getUTCHours(),
     date.getUTCMinutes(),
     date.getUTCSeconds(),
-    date.getUTCMilliseconds()
+    date.getUTCMilliseconds(),
   );
 }
 

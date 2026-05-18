@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WorldClocks from "@/common/scripts/world-clocks";
+import WorldClocks from '@/common/scripts/world-clocks';
 
 const version = chrome.runtime.getManifest().version;
 const copyright = `${WorldClocks.msg('APP_TITLE')} ${version}`;
@@ -11,5 +11,4 @@ const copyright = `${WorldClocks.msg('APP_TITLE')} ${version}`;
   </div>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { crx } from '@crxjs/vite-plugin';
 import zip from 'vite-plugin-zip-pack';
-import manifest from './manifest.config'
+import manifest from './manifest.config';
 
 export default defineConfig({
   resolve: {
@@ -14,9 +14,7 @@ export default defineConfig({
   server: {
     strictPort: true,
     cors: {
-      origin: [
-        /chrome-extension:\/\//,
-      ],
+      origin: [/chrome-extension:\/\//],
     },
   },
   plugins: [

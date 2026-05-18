@@ -10,7 +10,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 8, startAt: -15, endAt: 50, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 7, startAt: -15, endAt: 75, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: -20, endAt: 85, color: 'red', alpha: 1 },
-    secondDecoration: { lineWidth: 1, startAt: 70, radius: 4, fillColor: 'red', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 70,
+      radius: 4,
+      fillColor: 'red',
+      color: 'red',
+      alpha: 1,
+    },
   },
 
   chunkySwiss: {
@@ -20,7 +27,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 12, startAt: -15, endAt: 60, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 10, startAt: -15, endAt: 85, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: 'red', alpha: 1 },
-    secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: 'red', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 70,
+      radius: 8,
+      fillColor: 'red',
+      color: 'red',
+      alpha: 1,
+    },
   },
 
   chunkySwissOnBlack: {
@@ -30,7 +44,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 12, startAt: -15, endAt: 60, color: 'white', alpha: 1 },
     minuteHand: { lineWidth: 10, startAt: -15, endAt: 85, color: 'white', alpha: 1 },
     secondHand: { lineWidth: 4, startAt: -20, endAt: 85, color: 'red', alpha: 1 },
-    secondDecoration: { lineWidth: 2, startAt: 70, radius: 8, fillColor: 'red', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 70,
+      radius: 8,
+      fillColor: 'red',
+      color: 'red',
+      alpha: 1,
+    },
   },
 
   fancy: {
@@ -40,7 +61,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 8, startAt: -15, endAt: 50, color: 'blue', alpha: 0.7 },
     minuteHand: { lineWidth: 7, startAt: -15, endAt: 92, color: 'red', alpha: 0.7 },
     secondHand: { lineWidth: 10, startAt: 80, endAt: 85, color: 'blue', alpha: 0.3 },
-    secondDecoration: { lineWidth: 1, startAt: 30, radius: 50, fillColor: 'blue', color: 'red', alpha: 0.15 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 30,
+      radius: 50,
+      fillColor: 'blue',
+      color: 'red',
+      alpha: 0.15,
+    },
   },
 
   machine: {
@@ -50,44 +78,79 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 18, startAt: -15, endAt: 40, color: 'white', alpha: 1 },
     minuteHand: { lineWidth: 14, startAt: 24, endAt: 100, color: '#771100', alpha: 0.5 },
     secondHand: { lineWidth: 3, startAt: 22, endAt: 83, color: 'green', alpha: 0 },
-    secondDecoration: { lineWidth: 1, startAt: 52, radius: 26, fillColor: '#ffcccc', color: 'red', alpha: 0.5 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 52,
+      radius: 26,
+      fillColor: '#ffcccc',
+      color: 'red',
+      alpha: 0.5,
+    },
   },
 
   simonbaird_com: {
     hourHand: { lineWidth: 80, startAt: -15, endAt: 35, color: 'magenta', alpha: 0.5 },
     minuteHand: { lineWidth: 80, startAt: -15, endAt: 65, color: 'cyan', alpha: 0.5 },
-    secondDecoration: { lineWidth: 1, startAt: 40, radius: 40, color: '#fff', fillColor: 'yellow', alpha: 0.5 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 40,
+      radius: 40,
+      color: '#fff',
+      fillColor: 'yellow',
+      alpha: 0.5,
+    },
   },
 
   // by bonstio, http://bonstio.net
-  classic/*was gIG*/: {
+  classic /*was gIG*/: {
     outerBorder: { lineWidth: 185, radius: 1, color: '#E5ECF9', alpha: 1 },
     smallIndicator: { lineWidth: 2, startAt: 89, endAt: 94, color: '#3366CC', alpha: 1 },
     largeIndicator: { lineWidth: 4, startAt: 83, endAt: 94, color: '#3366CC', alpha: 1 },
     hourHand: { lineWidth: 5, startAt: 0, endAt: 60, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 4, startAt: 0, endAt: 80, color: 'black', alpha: 1 },
-    secondHand: { lineWidth: 1, startAt: -20, endAt: 85, color: 'red', alpha: .85 },
-    secondDecoration: { lineWidth: 3, startAt: 0, radius: 2, fillColor: 'black', color: 'black', alpha: 1 },
+    secondHand: { lineWidth: 1, startAt: -20, endAt: 85, color: 'red', alpha: 0.85 },
+    secondDecoration: {
+      lineWidth: 3,
+      startAt: 0,
+      radius: 2,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
-  modern/*was gIG2*/: {
+  modern /*was gIG2*/: {
     outerBorder: { lineWidth: 185, radius: 1, color: '#E5ECF9', alpha: 1 },
     smallIndicator: { lineWidth: 5, startAt: 88, endAt: 94, color: '#3366CC', alpha: 1 },
     largeIndicator: { lineWidth: 5, startAt: 88, endAt: 94, color: '#3366CC', alpha: 1 },
     hourHand: { lineWidth: 8, startAt: 0, endAt: 60, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 8, startAt: 0, endAt: 80, color: 'black', alpha: 1 },
-    secondHand: { lineWidth: 5, startAt: 80, endAt: 85, color: 'red', alpha: .85 },
-    secondDecoration: { lineWidth: 3, startAt: 0, radius: 4, fillColor: 'black', color: 'black', alpha: 1 },
+    secondHand: { lineWidth: 5, startAt: 80, endAt: 85, color: 'red', alpha: 0.85 },
+    secondDecoration: {
+      lineWidth: 3,
+      startAt: 0,
+      radius: 4,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
-  simple/*was gIG3*/: {
+  simple /*was gIG3*/: {
     outerBorder: { lineWidth: 185, radius: 1, color: '#E5ECF9', alpha: 1 },
     smallIndicator: { lineWidth: 10, startAt: 90, endAt: 94, color: '#3366CC', alpha: 1 },
     largeIndicator: { lineWidth: 10, startAt: 90, endAt: 94, color: '#3366CC', alpha: 1 },
     hourHand: { lineWidth: 8, startAt: 0, endAt: 60, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 8, startAt: 0, endAt: 80, color: 'black', alpha: 1 },
-    secondHand: { lineWidth: 5, startAt: 80, endAt: 85, color: 'red', alpha: .85 },
-    secondDecoration: { lineWidth: 3, startAt: 0, radius: 4, fillColor: 'black', color: 'black', alpha: 1 },
+    secondHand: { lineWidth: 5, startAt: 80, endAt: 85, color: 'red', alpha: 0.85 },
+    secondDecoration: {
+      lineWidth: 3,
+      startAt: 0,
+      radius: 4,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
   // by securephp
@@ -98,7 +161,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 3, startAt: 0, endAt: 60, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 2, startAt: 0, endAt: 75, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: -10, endAt: 80, color: 'blue', alpha: 0.8 },
-    secondDecoration: { lineWidth: 1, startAt: 70, radius: 4, fillColor: 'blue', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 70,
+      radius: 4,
+      fillColor: 'blue',
+      color: 'red',
+      alpha: 1,
+    },
   },
 
   Tes2: {
@@ -108,7 +178,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 5, startAt: -15, endAt: 60, color: 'black', alpha: 0.7 },
     minuteHand: { lineWidth: 3, startAt: -25, endAt: 75, color: 'black', alpha: 0.7 },
     secondHand: { lineWidth: 1.5, startAt: -20, endAt: 88, color: 'red', alpha: 1 },
-    secondDecoration: { lineWidth: 1, startAt: 20, radius: 4, fillColor: 'blue', color: 'red', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 20,
+      radius: 4,
+      fillColor: 'blue',
+      color: 'red',
+      alpha: 1,
+    },
   },
 
   Lev: {
@@ -118,7 +195,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 0.9 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 80, color: 'black', alpha: 0.85 },
     secondHand: { lineWidth: 1, startAt: 0, endAt: 85, color: 'black', alpha: 1 },
-    secondDecoration: { lineWidth: 2, startAt: 5, radius: 10, fillColor: 'black', color: 'black', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 5,
+      radius: 10,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
   Sand: {
@@ -128,7 +212,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 0.9 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 80, color: 'black', alpha: 0.85 },
     secondHand: { lineWidth: 1, startAt: 0, endAt: 85, color: 'black', alpha: 1 },
-    secondDecoration: { lineWidth: 2, startAt: 5, radius: 10, fillColor: 'black', color: 'black', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 5,
+      radius: 10,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
   Sun: {
@@ -138,7 +229,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 0.9 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 80, color: 'black', alpha: 0.85 },
     secondHand: { lineWidth: 1, startAt: 0, endAt: 90, color: 'black', alpha: 1 },
-    secondDecoration: { lineWidth: 2, startAt: 5, radius: 10, fillColor: 'black', color: 'black', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 5,
+      radius: 10,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
   Tor: {
@@ -148,7 +246,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 80, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: -73, endAt: 73, color: 'black', alpha: 0.8 },
-    secondDecoration: { lineWidth: 2, startAt: 5, radius: 10, fillColor: 'black', color: 'black', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 2,
+      startAt: 5,
+      radius: 10,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
   Cold: {
@@ -158,7 +263,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 80, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: 0, endAt: 85, color: 'black', alpha: 0.8 },
-    secondDecoration: { lineWidth: 5, startAt: 30, radius: 10, fillColor: 'black', color: 'black', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 5,
+      startAt: 30,
+      radius: 10,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
   Babosa: {
@@ -168,7 +280,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 60, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 85, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 12, startAt: 75, endAt: 90, color: 'red', alpha: 0.8 },
-    secondDecoration: { lineWidth: 3, startAt: 0, radius: 4, fillColor: 'black', color: 'black', alpha: 1 },
+    secondDecoration: {
+      lineWidth: 3,
+      startAt: 0,
+      radius: 4,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 1,
+    },
   },
 
   Tumb: {
@@ -178,7 +297,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 80, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: 0, endAt: 85, color: 'black', alpha: 0.8 },
-    secondDecoration: { lineWidth: 5, startAt: 50, radius: 90, fillColor: 'black', color: 'black', alpha: 0.05 },
+    secondDecoration: {
+      lineWidth: 5,
+      startAt: 50,
+      radius: 90,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 0.05,
+    },
   },
 
   Stone: {
@@ -188,7 +314,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 75, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: 0, endAt: 85, color: 'black', alpha: 0.8 },
-    secondDecoration: { lineWidth: 5, startAt: 50, radius: 90, fillColor: 'black', color: 'black', alpha: 0.05 },
+    secondDecoration: {
+      lineWidth: 5,
+      startAt: 50,
+      radius: 90,
+      fillColor: 'black',
+      color: 'black',
+      alpha: 0.05,
+    },
   },
 
   Disc: {
@@ -198,7 +331,14 @@ CoolClock.config.skins = {
     hourHand: { lineWidth: 4, startAt: 0, endAt: 65, color: 'black', alpha: 1 },
     minuteHand: { lineWidth: 3, startAt: 0, endAt: 75, color: 'black', alpha: 1 },
     secondHand: { lineWidth: 1, startAt: -75, endAt: 75, color: '#99CC00', alpha: 0.8 },
-    secondDecoration: { lineWidth: 5, startAt: 50, radius: 90, fillColor: '#00FF00', color: 'green', alpha: 0.05 },
+    secondDecoration: {
+      lineWidth: 5,
+      startAt: 50,
+      radius: 90,
+      fillColor: '#00FF00',
+      color: 'green',
+      alpha: 0.05,
+    },
   },
 
   // By Yoo Nhe
@@ -207,9 +347,16 @@ CoolClock.config.skins = {
     smallIndicator: { lineWidth: 2, startAt: 50, endAt: 70, color: '#d93d04', alpha: 5 },
     largeIndicator: { lineWidth: 2, startAt: 45, endAt: 94, color: '#a9bf04', alpha: 1 },
     hourHand: { lineWidth: 5, startAt: -20, endAt: 80, color: '#8c0d17', alpha: 1 },
-    minuteHand: { lineWidth: 2, startAt: -20, endAt: 80, color: '#7c8c03', alpha: .9 },
-    secondHand: { lineWidth: 2, startAt: 70, endAt: 94, color: '#d93d04', alpha: .85 },
-    secondDecoration: { lineWidth: 1, startAt: 70, radius: 3, fillColor: 'red', color: 'black', alpha: .7 },
+    minuteHand: { lineWidth: 2, startAt: -20, endAt: 80, color: '#7c8c03', alpha: 0.9 },
+    secondHand: { lineWidth: 2, startAt: 70, endAt: 94, color: '#d93d04', alpha: 0.85 },
+    secondDecoration: {
+      lineWidth: 1,
+      startAt: 70,
+      radius: 3,
+      fillColor: 'red',
+      color: 'black',
+      alpha: 0.7,
+    },
   },
 };
 

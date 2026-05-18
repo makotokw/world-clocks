@@ -42,15 +42,15 @@ class WorldClocks {
     return value;
   }
 
-  get localLocale() : Locale {
+  get localLocale(): Locale {
     const localeTime = new Date();
-    const localeOffset = (localeTime.getTimezoneOffset() / (-60.0));
+    const localeOffset = localeTime.getTimezoneOffset() / -60.0;
     return { label: this.msg('LOCAL_TIME'), offset: localeOffset, dst: false };
   }
 
   get defaultLocales(): Locale[] {
     const localeTime = new Date();
-    const localeOffset = (localeTime.getTimezoneOffset() / (-60.0));
+    const localeOffset = localeTime.getTimezoneOffset() / -60.0;
     return [
       this.localLocale,
       { label: this.msg('LONDON'), offset: 0, dst: false },
@@ -69,11 +69,14 @@ class WorldClocks {
       if (!Array.isArray(parsed)) {
         return [];
       }
-      return parsed.map((item: any): Locale => ({
-        label: String(item.label || ''),
-        offset: typeof item.offset === 'string' ? parseFloat(item.offset) : Number(item.offset || 0),
-        dst: !!item.dst
-      }));
+      return parsed.map(
+        (item: any): Locale => ({
+          label: String(item.label || ''),
+          offset:
+            typeof item.offset === 'string' ? parseFloat(item.offset) : Number(item.offset || 0),
+          dst: !!item.dst,
+        }),
+      );
     } catch (e) {
       return [];
     }
@@ -85,4 +88,3 @@ class WorldClocks {
 }
 
 export default new WorldClocks();
-

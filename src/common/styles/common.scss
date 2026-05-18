@@ -1,5 +1,5 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use 'variables' as *;
+@use 'mixins' as *;
 
 fieldset {
   border: none;
@@ -19,8 +19,8 @@ legend {
 }
 
 select,
-input[type="text"],
-input[type="number"] {
+input[type='text'],
+input[type='number'] {
   display: inline-block;
   padding: 1px 4px;
   line-height: 18px;
@@ -62,7 +62,7 @@ input[type="number"] {
     select {
       padding: $spacing-tiny;
     }
-    input[type="number"],
+    input[type='number'],
     select {
       width: 95%;
       display: inline-table;
@@ -131,15 +131,25 @@ input[type="number"] {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 
-    &:hover, &:active, &.active {
+    &:hover,
+    &:active,
+    &.active {
       color: #ffffff;
     }
   }
 
-  &-primary, &-warning, &-success, &-info, &-inverse {
+  &-primary,
+  &-warning,
+  &-success,
+  &-info,
+  &-inverse {
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    &:hover { color: #ffffff; }
-    &.active { color: rgba(255, 255, 255, 0.75); }
+    &:hover {
+      color: #ffffff;
+    }
+    &.active {
+      color: rgba(255, 255, 255, 0.75);
+    }
   }
 }

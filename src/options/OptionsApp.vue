@@ -15,11 +15,13 @@ onMounted(() => {
 
 watch(selectedSkin, (newValue) => {
   try {
-    chrome.runtime.sendMessage({
-      type: 'setSkin',
-      target: 'offscreen',
-      skin: newValue
-    }).then(() => { });
+    chrome.runtime
+      .sendMessage({
+        type: 'setSkin',
+        target: 'offscreen',
+        skin: newValue,
+      })
+      .then(() => {});
   } catch (e) {
     // ignore
   }
@@ -73,7 +75,7 @@ function t(key: string): string {
       </fieldset>
     </form>
     <div class="footer">
-      <TheCopyright/>
+      <TheCopyright />
     </div>
   </div>
 </template>

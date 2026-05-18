@@ -28,9 +28,5 @@
     },
     "types": ["chrome"]
   },
-  "include": [
-    "src/**/*.ts",
-    "manifest.config.js",
-    "vite.config.js"
-  ]
+  "include": ["src/**/*.ts", "manifest.config.js", "vite.config.js"]
 }

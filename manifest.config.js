@@ -7,10 +7,7 @@ export default defineManifest({
   version: pkg.version,
   manifest_version: 3,
   default_locale: 'en',
-  permissions: [
-    'alarms',
-    'offscreen'
-  ],
+  permissions: ['alarms', 'offscreen'],
   background: {
     service_worker: 'src/background/service-worker.ts',
     type: 'module',
@@ -21,19 +18,19 @@ export default defineManifest({
   },
   action: {
     default_icon: {
-      '16': 'public/icon_16.png',
-      '128': 'public/icon_128.png',
+      16: 'public/icon_16.png',
+      128: 'public/icon_128.png',
     },
     default_popup: 'src/popup/popup.html',
   },
   icons: {
-    '16': 'public/icon_16.png',
-    '128': 'public/icon_128.png',
+    16: 'public/icon_16.png',
+    128: 'public/icon_128.png',
   },
   web_accessible_resources: [
     {
       resources: ['src/background/background.html'],
-      matches: ['<all_urls>']
-    }
-  ]
+      matches: ['<all_urls>'],
+    },
+  ],
 });

@@ -22,7 +22,8 @@ async function setupOffscreenDocument() {
   await chrome.offscreen.createDocument({
     url: offscreenUrl,
     reasons: [chrome.offscreen.Reason.BLOBS],
-    justification: 'Render a canvas clock in an offscreen document and update the action icon periodically.',
+    justification:
+      'Render a canvas clock in an offscreen document and update the action icon periodically.',
   });
 }
 
@@ -52,7 +53,7 @@ async function updateIcon() {
     const imageData = new ImageData(
       new Uint8ClampedArray(response.data),
       response.width,
-      response.height
+      response.height,
     );
     await chrome.action.setIcon({ imageData });
   }

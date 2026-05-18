@@ -3,7 +3,11 @@ import { ref, onMounted, onUnmounted, watch } from 'vue';
 import CoolClock from '@/common/scripts/coolclock-more-skins';
 import WorldClocks from '@/common/scripts/world-clocks';
 import Locale from '@/common/scripts/locale';
-import { toLocalTime, toShortDateString, toLocaleShortTimeString } from '@/common/scripts/time-utils';
+import {
+  toLocalTime,
+  toShortDateString,
+  toLocaleShortTimeString,
+} from '@/common/scripts/time-utils';
 
 const props = defineProps<{
   locale: Locale;
@@ -38,7 +42,7 @@ let timerId: any = null;
 
 const getDisplayTime = (date: Date) => {
   const offset = props.locale.offset + (props.locale.dst ? 1 : 0);
-  const t = new Date(date.valueOf() + (offset * 1000 * 60 * 60));
+  const t = new Date(date.valueOf() + offset * 1000 * 60 * 60);
   return toLocalTime(t);
 };
 
@@ -73,36 +77,48 @@ onUnmounted(() => {
   }
 });
 
-watch(() => props.radius, (newRadius) => {
-  if (coolClock.value) {
-    coolClock.value.setRadius(newRadius);
-    coolClock.value.refreshDisplay();
-    coolClock.value.tick();
-  }
-});
+watch(
+  () => props.radius,
+  (newRadius) => {
+    if (coolClock.value) {
+      coolClock.value.setRadius(newRadius);
+      coolClock.value.refreshDisplay();
+      coolClock.value.tick();
+    }
+  },
+);
 
-watch(() => props.skin, (newSkin) => {
-  if (coolClock.value) {
-    coolClock.value.setSkin(newSkin);
-    coolClock.value.refreshDisplay();
-  }
-});
+watch(
+  () => props.skin,
+  (newSkin) => {
+    if (coolClock.value) {
+      coolClock.value.setSkin(newSkin);
+      coolClock.value.refreshDisplay();
+    }
+  },
+);
 
-watch(() => props.showSecondHand, (newVal) => {
-  if (coolClock.value) {
-    coolClock.value.setSecondHand(newVal);
-    coolClock.value.refreshDisplay();
-    coolClock.value.tick();
-  }
-});
+watch(
+  () => props.showSecondHand,
+  (newVal) => {
+    if (coolClock.value) {
+      coolClock.value.setSecondHand(newVal);
+      coolClock.value.refreshDisplay();
+      coolClock.value.tick();
+    }
+  },
+);
 
-watch(() => [props.locale.offset, props.locale.dst], () => {
-  if (coolClock.value) {
-    coolClock.value.setOffset(props.locale.offset + (props.locale.dst ? 1 : 0));
-    coolClock.value.refreshDisplay();
-  }
-  updateTime();
-});
+watch(
+  () => [props.locale.offset, props.locale.dst],
+  () => {
+    if (coolClock.value) {
+      coolClock.value.setOffset(props.locale.offset + (props.locale.dst ? 1 : 0));
+      coolClock.value.refreshDisplay();
+    }
+    updateTime();
+  },
+);
 
 const startEditLabel = () => {
   if (props.editMode) {
@@ -136,7 +152,12 @@ const onDstChange = (e: Event) => {
 </script>
 
 <template>
-  <li class="clock" :class="{ 'is-edit-mode': editMode }" :title="`${locale.label} ${digitalTimeStr}`" :style="{ width: (radius * 2) + 'px' }">
+  <li
+    class="clock"
+    :class="{ 'is-edit-mode': editMode }"
+    :title="`${locale.label} ${digitalTimeStr}`"
+    :style="{ width: radius * 2 + 'px' }"
+  >
     <span v-if="!isEditingLabel" class="label" @click="startEditLabel">{{ locale.label }}</span>
     <input
       v-else
@@ -151,7 +172,12 @@ const onDstChange = (e: Event) => {
 
     <canvas ref="canvasRef" class="analog-clock" v-show="showAnalogClock"></canvas>
 
-    <span v-show="showDigitalClock" class="digital-clock" :style="{ fontSize: digitalClockFontSize + 'px' }">{{ digitalTimeStr }}</span>
+    <span
+      v-show="showDigitalClock"
+      class="digital-clock"
+      :style="{ fontSize: digitalClockFontSize + 'px' }"
+      >{{ digitalTimeStr }}</span
+    >
     <span v-show="showDate" class="date">{{ dateStr }}</span>
 
     <div v-if="editMode" class="timezone">
@@ -161,7 +187,7 @@ const onDstChange = (e: Event) => {
         </option>
       </select>
       <label class="checkbox-label">
-        <input class="dst" type="checkbox" :checked="locale.dst" @change="onDstChange"/>
+        <input class="dst" type="checkbox" :checked="locale.dst" @change="onDstChange" />
         {{ WorldClocks.msg('DST_LABEL') }}
       </label>
     </div>
@@ -209,12 +235,12 @@ $font-family-digital: 'digitalclock';
 }
 
 .label,
-input[type="text"].label-input {
+input[type='text'].label-input {
   overflow: hidden;
   margin-bottom: 2px;
 }
 .is-edit-mode .label,
-input[type="text"].label-input {
+input[type='text'].label-input {
   font-size: 1em;
   padding: 3px;
   margin: 0 2px;
@@ -229,7 +255,7 @@ input[type="text"].label-input {
     @include border-radius(3px);
   }
 }
-input[type="text"].label-input {
+input[type='text'].label-input {
   border: 0;
   outline: 0;
   box-shadow: none;

@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -22,11 +22,16 @@
   background-repeat: repeat-x;
   border-color: rgba($border-color, 0.1) rgba($border-color, 0.1) rgba($border-color, 0.25);
 
-  &:hover, &:active, &.active, &.disabled, &[disabled] {
+  &:hover,
+  &:active,
+  &.active,
+  &.disabled,
+  &[disabled] {
     background-color: $bg-end;
   }
 
-  &:active, &.active {
+  &:active,
+  &.active {
     background-color: color.adjust($bg-end, $lightness: -10%);
   }
 }
