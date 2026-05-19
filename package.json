@@ -27,6 +27,7 @@
     "@crxjs/vite-plugin": "^2.4.0",
     "@eslint/js": "^10.0.1",
     "@types/chrome": "^0.1.42",
+    "@types/node": "^24",
     "@types/sortablejs": "^1.15.9",
     "@vitejs/plugin-vue": "^6.0.7",
     "eslint": "^10.4.0",
