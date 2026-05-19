@@ -23,6 +23,9 @@ with Vue 3 and TypeScript, bundled via Vite with the `@crxjs/vite-plugin`.
 - `yarn dev` — start the Vite dev server with HMR
 - `yarn build` — production build into `dist/`, also emits `release/crx-<version>.zip`
 - `yarn clean` — remove the `dist/` directory
+- `yarn lint` — run ESLint over the project; `yarn lint:fix` to auto-fix
+- `yarn format` — format the project with Prettier; `yarn format:check`
+  to verify without writing
 
 ## Project structure
 
@@ -40,6 +43,8 @@ with Vue 3 and TypeScript, bundled via Vite with the `@crxjs/vite-plugin`.
 - `public/` — static assets and `_locales/` i18n messages (en, ja)
 - `manifest.config.js` — MV3 manifest definition
 - `vite.config.js` — Vite, Vue, CRX, zip-pack, and `@/` alias configuration
+- `eslint.config.js` — ESLint flat config
+- `prettier.config.js` — Prettier configuration
 
 ## Conventions
 
@@ -48,6 +53,14 @@ with Vue 3 and TypeScript, bundled via Vite with the `@crxjs/vite-plugin`.
 - Use the `@/` path alias for imports from `src/`
 - `tsconfig.json` has `strict: false` — type checking is lenient
 - `.yarnrc.yml` uses `nodeLinker: node-modules`
+- `package.json` has `"type": "module"` — all `.js` files are ESM
+- Linting: ESLint 10 flat config with `@eslint/js`, `typescript-eslint`,
+  and `eslint-plugin-vue` recommended rule sets; `eslint-config-prettier`
+  disables formatting rules so ESLint and Prettier do not conflict
+- Formatting: Prettier owns code style; run `yarn format` before committing
+- Avoid `any`; prefer precise types. An unused binding kept intentionally
+  should be prefixed with `_` or annotated with an `eslint-disable` comment
+  explaining why
 
 ## Internationalization
 
