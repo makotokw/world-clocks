@@ -44,7 +44,7 @@ watch(column, (val) => WorldClocks.pref.set('column', val));
 const listWidth = computed(() => {
   const margin = 5;
   const count = locales.value.length;
-  const col = parseInt(column.value as any) || 1;
+  const col = parseInt(String(column.value), 10) || 1;
   const num = count === 0 ? col : Math.min(col, count);
   return num * (margin * 2 + radius.value * 2);
 });
@@ -80,14 +80,14 @@ const availableSkins = Object.keys(CoolClock.config.skins);
           :locale="element"
           :radius="radius"
           :skin="skin"
-          :showAnalogClock="showAnalogClock"
-          :showSecondHand="showSecondHand"
-          :showDigitalClock="showDigitalClock"
-          :useDigitalClock24h="useDigitalClock24h"
-          :showDate="showDate"
-          :digitalClockFontSize="digitalClockFontSize"
-          :editMode="isEditMode"
-          :timeZones="timeZones"
+          :show-analog-clock="showAnalogClock"
+          :show-second-hand="showSecondHand"
+          :show-digital-clock="showDigitalClock"
+          :use-digital-clock24h="useDigitalClock24h"
+          :show-date="showDate"
+          :digital-clock-font-size="digitalClockFontSize"
+          :edit-mode="isEditMode"
+          :time-zones="timeZones"
           @update:label="element.label = $event"
           @update:offset="element.offset = $event"
           @update:dst="element.dst = $event"
@@ -107,7 +107,7 @@ const availableSkins = Object.keys(CoolClock.config.skins);
       <transition name="blind">
         <div v-if="isEditMode" class="option-content well">
           <div>
-            <button class="btn add-button" @click.prevent="addClock" :title="t('ADD_HELP')">
+            <button class="btn add-button" :title="t('ADD_HELP')" @click.prevent="addClock">
               {{ t('ADD_HELP') }}
             </button>
           </div>

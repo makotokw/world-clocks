@@ -38,7 +38,7 @@ const isEditingLabel = ref(false);
 const editLabelValue = ref(props.locale.label);
 const labelInputRef = ref<HTMLInputElement | null>(null);
 
-let timerId: any = null;
+let timerId: ReturnType<typeof setInterval> | null = null;
 
 const getDisplayTime = (date: Date) => {
   const offset = props.locale.offset + (props.locale.dst ? 1 : 0);
@@ -170,7 +170,7 @@ const onDstChange = (e: Event) => {
       @blur="submitLabel"
     />
 
-    <canvas ref="canvasRef" class="analog-clock" v-show="showAnalogClock"></canvas>
+    <canvas v-show="showAnalogClock" ref="canvasRef" class="analog-clock"></canvas>
 
     <span
       v-show="showDigitalClock"

@@ -1,12 +1,12 @@
 import Locale from './locale.ts';
 
 class WorldClocks {
-  msg(key: string, args?: any): string {
+  msg(key: string, args?: string | (string | number)[]): string {
     try {
       if (typeof chrome !== 'undefined' && chrome && typeof chrome.i18n !== 'undefined') {
         return chrome.i18n.getMessage(key, args);
       }
-    } catch (e) {
+    } catch {
       // ignore and fall back
     }
     return key;
@@ -17,10 +17,10 @@ class WorldClocks {
     set: this.setPref.bind(this),
   };
 
-  private setPref(key: string, value: any): void {
+  private setPref(key: string, value: string | number | boolean): void {
     try {
       if (typeof window !== 'undefined' && window.localStorage) {
-        window.localStorage.setItem(key, value);
+        window.localStorage.setItem(key, String(value));
       }
     } catch (e) {
       console.error(e);
@@ -50,6 +50,7 @@ class WorldClocks {
 
   get defaultLocales(): Locale[] {
     const localeTime = new Date();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const localeOffset = localeTime.getTimezoneOffset() / -60.0;
     return [
       this.localLocale,
@@ -60,7 +61,7 @@ class WorldClocks {
   }
 
   loadLocales(): Locale[] {
-    let storedLocales = this.pref.get('locales');
+    const storedLocales = this.pref.get('locales');
     if (!storedLocales) {
       return this.defaultLocales;
     }
@@ -70,14 +71,14 @@ class WorldClocks {
         return [];
       }
       return parsed.map(
-        (item: any): Locale => ({
+        (item: Record<string, unknown>): Locale => ({
           label: String(item.label || ''),
           offset:
             typeof item.offset === 'string' ? parseFloat(item.offset) : Number(item.offset || 0),
           dst: !!item.dst,
         }),
       );
-    } catch (e) {
+    } catch {
       return [];
     }
   }

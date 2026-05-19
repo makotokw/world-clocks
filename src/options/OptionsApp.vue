@@ -22,7 +22,7 @@ watch(selectedSkin, (newValue) => {
         skin: newValue,
       })
       .then(() => {});
-  } catch (e) {
+  } catch {
     // ignore
   }
   WorldClocks.pref.set('ba_skin', newValue);
@@ -66,7 +66,7 @@ function t(key: string): string {
           <label class="control-label"></label>
           <div class="controls">
             <label class="checkbox-label">
-              <input type="checkbox" v-model="showFooter" />
+              <input v-model="showFooter" type="checkbox" />
               <span>{{ t('SHOW_FOOTER_LABEL') }}</span>
             </label>
             <p class="help-block">{{ t('SHOW_FOOTER_HELP') }}</p>
