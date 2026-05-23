@@ -27,7 +27,7 @@ async function setupOffscreenDocument() {
   });
 }
 
-chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((message, _sender, _sendResponse) => {
   if (!message || message.target !== 'service-worker') {
     return;
   }
