@@ -16,7 +16,7 @@ onMounted(() => {
 watch(selectedSkin, (newValue) => {
   try {
     WorldClocks.pref.set('ba_skin', newValue);
-    void chrome.runtime.sendMessage({type: 'updateIcon', target: 'service-worker'});
+    void chrome.runtime.sendMessage({ type: 'updateIcon', target: 'service-worker' });
   } catch {
     // ignore
   }

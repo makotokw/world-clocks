@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     if (message.type === 'drawClock') {
-      coolClock.setSkin(WorldClocks.pref.get('ba_skin', 'chunkySwiss') as string).tick()
+      coolClock.setSkin(WorldClocks.pref.get('ba_skin', 'chunkySwiss') as string).tick();
       const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
       sendResponse({
         width: imageData.width,
