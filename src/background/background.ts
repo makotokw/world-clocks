@@ -1,3 +1,4 @@
+import WorldClocks from '@/common/scripts/world-clocks';
 import CoolClock from '@/common/scripts/coolclock-more-skins';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -6,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const coolClock = new CoolClock({
     canvasId: canvas.id,
     displayRadius: 9,
-    skin: localStorage['ba_skin'] || 'fancy',
+    skin: WorldClocks.pref.get('ba_skin', 'chunkySwiss'),
     showSecondHand: false,
     showDigital: false,
   });
@@ -16,14 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     if (message.type === 'drawClock') {
+      coolClock.setSkin(WorldClocks.pref.get('ba_skin', 'chunkySwiss') as string).tick()
       const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
       sendResponse({
         width: imageData.width,
         height: imageData.height,
         data: Array.from(imageData.data),
       });
-    } else if (message.type === 'setSkin') {
-      coolClock.setSkin(message.skinId as string).tick();
     }
   });
 });

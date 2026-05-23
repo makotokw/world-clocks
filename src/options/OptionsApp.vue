@@ -15,17 +15,11 @@ onMounted(() => {
 
 watch(selectedSkin, (newValue) => {
   try {
-    chrome.runtime
-      .sendMessage({
-        type: 'setSkin',
-        target: 'offscreen',
-        skin: newValue,
-      })
-      .then(() => {});
+    WorldClocks.pref.set('ba_skin', newValue);
+    void chrome.runtime.sendMessage({type: 'updateIcon', target: 'service-worker'});
   } catch {
     // ignore
   }
-  WorldClocks.pref.set('ba_skin', newValue);
 });
 
 watch(showFooter, (newValue) => {

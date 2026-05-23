@@ -27,6 +27,17 @@ async function setupOffscreenDocument() {
   });
 }
 
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  if (!message || message.target !== 'service-worker') {
+    return;
+  }
+
+  if (message.type === 'updateIcon') {
+    void updateIcon();
+    return;
+  }
+});
+
 const updateClockAlarmName = 'update-clock';
 async function setupAlarm() {
   const alarm = await chrome.alarms.get(updateClockAlarmName);
