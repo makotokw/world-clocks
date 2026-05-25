@@ -17,6 +17,13 @@ export default defineConfig({
       origin: [/chrome-extension:\/\//],
     },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        offscreen: path.resolve(__dirname, 'src/background/background.html'),
+      },
+    },
+  },
   plugins: [
     vue(),
     crx({ manifest }),
