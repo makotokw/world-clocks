@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1] – 2026/05/26 (Chrome Extension)
+
+- Chrome: Fixed browser icon clock updates by including the offscreen document in the release build
+
 ## [1.0.0] – 2026/05/23 (Chrome Extension)
 
 - Chrome: Updated to manifest version 3

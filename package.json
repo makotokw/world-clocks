@@ -1,7 +1,7 @@
 {
   "name": "world-clocks-extension",
   "description": "World Clocks Browser Extension.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "private": true,
   "type": "module",
