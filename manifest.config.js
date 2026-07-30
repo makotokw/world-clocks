@@ -2,8 +2,8 @@ import { defineManifest } from '@crxjs/vite-plugin';
 import pkg from './package.json';
 
 // https://developer.chrome.com/docs/extensions/reference/manifest
-export default defineManifest({
-  name: '__MSG_APP_TITLE__',
+export default defineManifest(({ command }) => ({
+  name: command === 'serve' ? '__MSG_APP_TITLE_DEV__' : '__MSG_APP_TITLE__',
   description: '__MSG_APP_DESCRIPTION__',
   version: pkg.version,
   manifest_version: 3,
@@ -32,4 +32,4 @@ export default defineManifest({
     default_popup: 'src/popup/popup.html',
   },
   permissions: ['alarms', 'offscreen'],
-});
+}));

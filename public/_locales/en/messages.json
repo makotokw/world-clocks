@@ -1,6 +1,7 @@
 {
   "APP_LOCALE": { "message": "en" },
   "APP_TITLE": { "message": "World Clocks" },
+  "APP_TITLE_DEV": { "message": "World Clocks (Dev)" },
   "APP_DESCRIPTION": {
     "message": "World Clock. It displays multiple world clocks that you can add, remove, sort and edit."
   },

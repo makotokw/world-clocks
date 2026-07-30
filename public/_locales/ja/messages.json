@@ -1,6 +1,7 @@
 {
   "APP_LOCALE": { "message": "ja" },
   "APP_TITLE": { "message": "世界時計" },
+  "APP_TITLE_DEV": { "message": "世界時計 (Dev)" },
   "APP_DESCRIPTION": {
     "message": "世界時計を表示します。任意の時差の時計を複数並べることができます。"
   },
