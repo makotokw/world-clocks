@@ -3,7 +3,10 @@ import CoolClock from '@/common/scripts/coolclock-more-skins';
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('canvas') as HTMLCanvasElement;
-  const canvasContext = canvas.getContext('2d')!;
+  const canvasContext = canvas.getContext('2d', {
+    // The action icon is read back with getImageData on every redraw.
+    willReadFrequently: true,
+  })!;
   const coolClock = new CoolClock({
     canvasId: canvas.id,
     displayRadius: 9,
