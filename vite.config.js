@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import { crx } from '@crxjs/vite-plugin';
 import zip from 'vite-plugin-zip-pack';
 import manifest from './manifest.config';
+import pkg from './package.json';
 
 export default defineConfig({
   resolve: {
@@ -28,6 +29,6 @@ export default defineConfig({
     vue(),
     crx({ manifest }),
     // https://www.npmjs.com/package/vite-plugin-zip-pack
-    zip({ outDir: 'release', outFileName: `crx-${manifest.version}.zip` }),
+    zip({ outDir: 'release', outFileName: `crx-${pkg.version}.zip` }),
   ],
 });
