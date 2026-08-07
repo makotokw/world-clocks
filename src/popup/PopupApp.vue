@@ -18,6 +18,9 @@ const showAnalogClock = ref(WorldClocks.pref.get('showAnalogClock', 'true') !== 
 const showSecondHand = ref(WorldClocks.pref.get('showSecondHand', 'true') !== 'false');
 const showDigitalClock = ref(WorldClocks.pref.get('showDigitalClock', 'true') !== 'false');
 const useDigitalClock24h = ref(WorldClocks.pref.get('useDigitalClock24h', 'true') !== 'false');
+const showDigitalClockSeconds = ref(
+  WorldClocks.pref.get('showDigitalClockSeconds', 'false') === 'true',
+);
 const showDate = ref(WorldClocks.pref.get('showDate', 'true') !== 'false');
 const showFooter = ref(WorldClocks.pref.get('showFooter', 'true') !== 'false');
 const column = ref(WorldClocks.pref.get('column', 4));
@@ -36,6 +39,7 @@ watch(showAnalogClock, (val) => WorldClocks.pref.set('showAnalogClock', val));
 watch(showSecondHand, (val) => WorldClocks.pref.set('showSecondHand', val));
 watch(showDigitalClock, (val) => WorldClocks.pref.set('showDigitalClock', val));
 watch(useDigitalClock24h, (val) => WorldClocks.pref.set('useDigitalClock24h', val));
+watch(showDigitalClockSeconds, (val) => WorldClocks.pref.set('showDigitalClockSeconds', val));
 watch(showDate, (val) => WorldClocks.pref.set('showDate', val));
 watch(column, (val) => WorldClocks.pref.set('column', val));
 
@@ -82,6 +86,7 @@ const availableSkins = Object.keys(CoolClock.config.skins);
           :show-second-hand="showSecondHand"
           :show-digital-clock="showDigitalClock"
           :use-digital-clock24h="useDigitalClock24h"
+          :show-digital-clock-seconds="showDigitalClockSeconds"
           :show-date="showDate"
           :digital-clock-font-size="digitalClockFontSize"
           :edit-mode="isEditMode"
@@ -172,6 +177,10 @@ const availableSkins = Object.keys(CoolClock.config.skins);
                 <label class="checkbox-label">
                   <input v-model="useDigitalClock24h" type="checkbox" />
                   {{ t('DIGITAL_CLOCK_24H') }}
+                </label>
+                <label class="checkbox-label">
+                  <input v-model="showDigitalClockSeconds" type="checkbox" />
+                  {{ t('SHOW_DIGITAL_CLOCK_SECONDS_LABEL') }}
                 </label>
                 <label class="checkbox-label">
                   <input v-model="showDate" type="checkbox" />

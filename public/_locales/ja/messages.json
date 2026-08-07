@@ -30,6 +30,7 @@
   "SHOW_ANALOG_CLOCK_LABEL": { "message": "アナログ時計の表示" },
   "SHOW_DIGITAL_CLOCK_LABEL": { "message": "デジタル時計の表示" },
   "DIGITAL_CLOCK_24H": { "message": "24時間表記にする" },
+  "SHOW_DIGITAL_CLOCK_SECONDS_LABEL": { "message": "秒を表示" },
   "SHOW_DATE_LABEL": { "message": "日付の表示" },
   "SHOW_FOOTER_LABEL": { "message": "フッターを表示" },
   "SHOW_FOOTER_HELP": { "message": "ポップアップの時計を変更する場合はチェックを入れてください" }

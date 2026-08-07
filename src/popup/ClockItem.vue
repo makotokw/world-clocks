@@ -14,6 +14,7 @@ const props = defineProps<{
   showSecondHand: boolean;
   showDigitalClock: boolean;
   useDigitalClock24h: boolean;
+  showDigitalClockSeconds: boolean;
   showDate: boolean;
   digitalClockFontSize: number;
   editMode: boolean;
@@ -41,7 +42,11 @@ const updateTime = () => {
   if (coolClock.value) {
     coolClock.value.setOffset(props.locale.currentOffsetHours(now));
   }
-  digitalTimeStr.value = toLocaleShortTimeString(lt, false, props.useDigitalClock24h);
+  digitalTimeStr.value = toLocaleShortTimeString(
+    lt,
+    props.showDigitalClockSeconds,
+    props.useDigitalClock24h,
+  );
   dateStr.value = toShortDateString(lt);
 };
 

@@ -30,6 +30,7 @@
   "SHOW_ANALOG_CLOCK_LABEL": { "message": "Analoguhr anzeigen" },
   "SHOW_DIGITAL_CLOCK_LABEL": { "message": "Digitaluhr anzeigen" },
   "DIGITAL_CLOCK_24H": { "message": "24-Stunden-Format verwenden" },
+  "SHOW_DIGITAL_CLOCK_SECONDS_LABEL": { "message": "Sekunden anzeigen" },
   "SHOW_DATE_LABEL": { "message": "Datum anzeigen" },
   "SHOW_FOOTER_LABEL": { "message": "Fußzeile anzeigen" },
   "SHOW_FOOTER_HELP": {
