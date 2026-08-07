@@ -3,6 +3,7 @@
 ## [1.1] – 2026/MM/DD (Chrome Extension)
 
 - Chrome: Changed clock configuration from manual UTC offsets to IANA time zone management
+- Chrome: Added Spanish, French, German, and Portuguese (Brazil/Portugal) translations
 
 ## [1.0.1] – 2026/05/26 (Chrome Extension)
 

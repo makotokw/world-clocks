@@ -1,0 +1,38 @@
+{
+  "APP_LOCALE": { "message": "de" },
+  "APP_TITLE": { "message": "Weltuhren" },
+  "APP_TITLE_DEV": { "message": "Weltuhren (Dev)" },
+  "APP_DESCRIPTION": {
+    "message": "Weltuhr. Zeigt mehrere Weltuhren an, die Sie hinzufügen, entfernen, sortieren und bearbeiten können."
+  },
+  "OPTION_TITLE": { "message": "Weltuhren-Einstellungen" },
+  "LOCAL_TIME": { "message": "Lokale Zeit" },
+  "LONDON": { "message": "London" },
+  "SANJOSE": { "message": "San Jose" },
+  "TOKYO": { "message": "Tokio" },
+  "POPUP_OPTION_OPEN": { "message": "Bearbeiten" },
+  "POPUP_OPTION_CLOSE": { "message": "Fertig" },
+  "ADD_HELP": { "message": "Uhr hinzufügen" },
+  "REMOVE_CLOCK_LABEL": { "message": "Löschen" },
+  "TIME_ZONE_LABEL": { "message": "Zeitzone" },
+  "TIME_ZONE_SEARCH_PLACEHOLDER": { "message": "Stadt oder Zeitzone suchen" },
+  "TIME_ZONE_NO_RESULTS": { "message": "Keine passenden Zeitzonen gefunden" },
+  "SIZE_LABEL": { "message": "Größe" },
+  "FONT_SIZE_LABEL": { "message": "Schrift" },
+  "SKIN_LABEL": { "message": "Design" },
+  "ICON_GROUP": { "message": "Symbol" },
+  "POPUP_GROUP": { "message": "Pop-up" },
+  "ANALOG_SECTION": { "message": "Analog" },
+  "DIGITAL_SECTION": { "message": "Digital und Datum" },
+  "COLUMN_LABEL": { "message": "Spalten" },
+  "DETAIL_LABEL": { "message": "Detail" },
+  "SHOW_SECOND_HAND_LABEL": { "message": "Sekundenzeiger anzeigen" },
+  "SHOW_ANALOG_CLOCK_LABEL": { "message": "Analoguhr anzeigen" },
+  "SHOW_DIGITAL_CLOCK_LABEL": { "message": "Digitaluhr anzeigen" },
+  "DIGITAL_CLOCK_24H": { "message": "24-Stunden-Format verwenden" },
+  "SHOW_DATE_LABEL": { "message": "Datum anzeigen" },
+  "SHOW_FOOTER_LABEL": { "message": "Fußzeile anzeigen" },
+  "SHOW_FOOTER_HELP": {
+    "message": "Aktivieren Sie diese Option, wenn Sie die Uhren auf der Pop-up-Seite ändern möchten"
+  }
+}

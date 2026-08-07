@@ -1,0 +1,38 @@
+{
+  "APP_LOCALE": { "message": "es" },
+  "APP_TITLE": { "message": "Relojes mundiales" },
+  "APP_TITLE_DEV": { "message": "Relojes mundiales (Dev)" },
+  "APP_DESCRIPTION": {
+    "message": "Reloj mundial. Muestra varios relojes mundiales que puedes añadir, eliminar, ordenar y editar."
+  },
+  "OPTION_TITLE": { "message": "Configuración de Relojes mundiales" },
+  "LOCAL_TIME": { "message": "Hora local" },
+  "LONDON": { "message": "Londres" },
+  "SANJOSE": { "message": "San José" },
+  "TOKYO": { "message": "Tokio" },
+  "POPUP_OPTION_OPEN": { "message": "Editar" },
+  "POPUP_OPTION_CLOSE": { "message": "Listo" },
+  "ADD_HELP": { "message": "Añadir un reloj" },
+  "REMOVE_CLOCK_LABEL": { "message": "Eliminar" },
+  "TIME_ZONE_LABEL": { "message": "Zona horaria" },
+  "TIME_ZONE_SEARCH_PLACEHOLDER": { "message": "Buscar ciudad o zona horaria" },
+  "TIME_ZONE_NO_RESULTS": { "message": "No se encontraron zonas horarias" },
+  "SIZE_LABEL": { "message": "Tamaño" },
+  "FONT_SIZE_LABEL": { "message": "Fuente" },
+  "SKIN_LABEL": { "message": "Estilo" },
+  "ICON_GROUP": { "message": "Icono" },
+  "POPUP_GROUP": { "message": "Ventana emergente" },
+  "ANALOG_SECTION": { "message": "Analógico" },
+  "DIGITAL_SECTION": { "message": "Digital y fecha" },
+  "COLUMN_LABEL": { "message": "Columnas" },
+  "DETAIL_LABEL": { "message": "Detalle" },
+  "SHOW_SECOND_HAND_LABEL": { "message": "Mostrar segundero" },
+  "SHOW_ANALOG_CLOCK_LABEL": { "message": "Mostrar reloj analógico" },
+  "SHOW_DIGITAL_CLOCK_LABEL": { "message": "Mostrar reloj digital" },
+  "DIGITAL_CLOCK_24H": { "message": "Usar formato de 24 horas" },
+  "SHOW_DATE_LABEL": { "message": "Mostrar fecha" },
+  "SHOW_FOOTER_LABEL": { "message": "Mostrar pie de página" },
+  "SHOW_FOOTER_HELP": {
+    "message": "Marca esta opción si quieres cambiar los relojes en la ventana emergente"
+  }
+}

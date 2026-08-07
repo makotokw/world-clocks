@@ -1,0 +1,38 @@
+{
+  "APP_LOCALE": { "message": "pt_PT" },
+  "APP_TITLE": { "message": "Relógios mundiais" },
+  "APP_TITLE_DEV": { "message": "Relógios mundiais (Dev)" },
+  "APP_DESCRIPTION": {
+    "message": "Relógio mundial. Mostra vários relógios mundiais que pode adicionar, remover, ordenar e editar."
+  },
+  "OPTION_TITLE": { "message": "Definições dos Relógios mundiais" },
+  "LOCAL_TIME": { "message": "Hora local" },
+  "LONDON": { "message": "Londres" },
+  "SANJOSE": { "message": "San Jose" },
+  "TOKYO": { "message": "Tóquio" },
+  "POPUP_OPTION_OPEN": { "message": "Editar" },
+  "POPUP_OPTION_CLOSE": { "message": "Concluído" },
+  "ADD_HELP": { "message": "Adicionar um relógio" },
+  "REMOVE_CLOCK_LABEL": { "message": "Eliminar" },
+  "TIME_ZONE_LABEL": { "message": "Fuso horário" },
+  "TIME_ZONE_SEARCH_PLACEHOLDER": { "message": "Pesquisar cidade ou fuso horário" },
+  "TIME_ZONE_NO_RESULTS": { "message": "Nenhum fuso horário correspondente" },
+  "SIZE_LABEL": { "message": "Tamanho" },
+  "FONT_SIZE_LABEL": { "message": "Tipo de letra" },
+  "SKIN_LABEL": { "message": "Estilo" },
+  "ICON_GROUP": { "message": "Ícone" },
+  "POPUP_GROUP": { "message": "Pop-up" },
+  "ANALOG_SECTION": { "message": "Analógico" },
+  "DIGITAL_SECTION": { "message": "Digital e data" },
+  "COLUMN_LABEL": { "message": "Colunas" },
+  "DETAIL_LABEL": { "message": "Detalhe" },
+  "SHOW_SECOND_HAND_LABEL": { "message": "Mostrar ponteiro dos segundos" },
+  "SHOW_ANALOG_CLOCK_LABEL": { "message": "Mostrar relógio analógico" },
+  "SHOW_DIGITAL_CLOCK_LABEL": { "message": "Mostrar relógio digital" },
+  "DIGITAL_CLOCK_24H": { "message": "Usar formato de 24 horas" },
+  "SHOW_DATE_LABEL": { "message": "Mostrar data" },
+  "SHOW_FOOTER_LABEL": { "message": "Mostrar rodapé" },
+  "SHOW_FOOTER_HELP": {
+    "message": "Assinale esta opção se quiser alterar os relógios na página do popup"
+  }
+}

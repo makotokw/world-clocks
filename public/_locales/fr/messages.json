@@ -1,0 +1,38 @@
+{
+  "APP_LOCALE": { "message": "fr" },
+  "APP_TITLE": { "message": "Horloges mondiales" },
+  "APP_TITLE_DEV": { "message": "Horloges mondiales (Dev)" },
+  "APP_DESCRIPTION": {
+    "message": "Horloge mondiale. Affiche plusieurs horloges mondiales que vous pouvez ajouter, supprimer, trier et modifier."
+  },
+  "OPTION_TITLE": { "message": "Paramètres des Horloges mondiales" },
+  "LOCAL_TIME": { "message": "Heure locale" },
+  "LONDON": { "message": "Londres" },
+  "SANJOSE": { "message": "San Jose" },
+  "TOKYO": { "message": "Tokyo" },
+  "POPUP_OPTION_OPEN": { "message": "Modifier" },
+  "POPUP_OPTION_CLOSE": { "message": "Terminé" },
+  "ADD_HELP": { "message": "Ajouter une horloge" },
+  "REMOVE_CLOCK_LABEL": { "message": "Supprimer" },
+  "TIME_ZONE_LABEL": { "message": "Fuseau horaire" },
+  "TIME_ZONE_SEARCH_PLACEHOLDER": { "message": "Rechercher une ville ou un fuseau horaire" },
+  "TIME_ZONE_NO_RESULTS": { "message": "Aucun fuseau horaire correspondant" },
+  "SIZE_LABEL": { "message": "Taille" },
+  "FONT_SIZE_LABEL": { "message": "Police" },
+  "SKIN_LABEL": { "message": "Style" },
+  "ICON_GROUP": { "message": "Icône" },
+  "POPUP_GROUP": { "message": "Pop-up" },
+  "ANALOG_SECTION": { "message": "Analogique" },
+  "DIGITAL_SECTION": { "message": "Numérique et date" },
+  "COLUMN_LABEL": { "message": "Colonnes" },
+  "DETAIL_LABEL": { "message": "Détail" },
+  "SHOW_SECOND_HAND_LABEL": { "message": "Afficher la trotteuse" },
+  "SHOW_ANALOG_CLOCK_LABEL": { "message": "Afficher l'horloge analogique" },
+  "SHOW_DIGITAL_CLOCK_LABEL": { "message": "Afficher l'horloge numérique" },
+  "DIGITAL_CLOCK_24H": { "message": "Utiliser le format 24 heures" },
+  "SHOW_DATE_LABEL": { "message": "Afficher la date" },
+  "SHOW_FOOTER_LABEL": { "message": "Afficher le pied de page" },
+  "SHOW_FOOTER_HELP": {
+    "message": "Cochez cette case si vous souhaitez modifier les horloges dans la fenêtre popup"
+  }
+}
