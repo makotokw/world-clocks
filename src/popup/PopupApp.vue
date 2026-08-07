@@ -3,9 +3,8 @@ import { ref, onMounted, watch, computed } from 'vue';
 import draggable from 'vuedraggable';
 import ClockItem from './ClockItem.vue';
 import WorldClocks from '@/common/scripts/world-clocks';
-import Locale from '@/common/scripts/locale.ts';
+import IanaLocale from '@/common/scripts/locale/iana-locale';
 import CoolClock from '@/common/scripts/coolclock-more-skins';
-import timeZones from '@/common/scripts/time-zones';
 import TheCopyright from '@/common/components/TheCopyright.vue';
 
 function t(key: string): string {
@@ -23,10 +22,9 @@ const showDate = ref(WorldClocks.pref.get('showDate', 'true') !== 'false');
 const showFooter = ref(WorldClocks.pref.get('showFooter', 'true') !== 'false');
 const column = ref(WorldClocks.pref.get('column', 4));
 const isEditMode = ref(false);
-const locales = ref<Locale[]>([]);
+const locales = ref<IanaLocale[]>(WorldClocks.loadLocales());
 
 onMounted(() => {
-  locales.value = WorldClocks.loadLocales();
   document.documentElement.lang = chrome.i18n.getUILanguage();
 });
 
@@ -87,10 +85,8 @@ const availableSkins = Object.keys(CoolClock.config.skins);
           :show-date="showDate"
           :digital-clock-font-size="digitalClockFontSize"
           :edit-mode="isEditMode"
-          :time-zones="timeZones"
           @update:label="element.label = $event"
-          @update:offset="element.offset = $event"
-          @update:dst="element.dst = $event"
+          @update:zone-id="element.zoneId = $event"
           @remove="removeClock(index)"
         />
       </template>

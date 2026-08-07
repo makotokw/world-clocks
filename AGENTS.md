@@ -23,6 +23,8 @@ with Vue 3 and TypeScript, bundled via Vite with the `@crxjs/vite-plugin`.
 - `yarn dev` — start the Vite dev server with HMR
 - `yarn build` — production build into `dist/`, also emits `release/crx-<version>.zip`
 - `yarn clean` — remove the `dist/` directory
+- `yarn update-tz` — regenerate `src/common/data/time-zones.json` from
+  the Noda Time TZDB feed
 - `yarn lint` — run ESLint over the project; `yarn lint:fix` to auto-fix
 - `yarn format` — format the project with Prettier; `yarn format:check`
   to verify without writing
@@ -75,6 +77,27 @@ with Vue 3 and TypeScript, bundled via Vite with the `@crxjs/vite-plugin`.
   the same keys in `messages.json`.
 - When adding user-facing text, add a message key instead of hard-coding the
   string in Vue components, scripts, or the manifest.
+
+## Time Zone Data
+
+- The searchable time zone picker reads generated data from
+  `src/common/data/time-zones.json`.
+- Regenerate the catalog with `yarn update-tz` when TZDB is released or before
+  preparing a release that should include newer time zone definitions.
+- The updater fetches `https://nodatime.org/TimeZones?format=json`, stores the
+  source `ianaVersion` as `tzdbVersion`, supplements location-backed alias
+  zones from IANA `zone.tab`, and writes only city/location-backed zones. This
+  intentionally excludes non-city `Etc/*` style entries from the picker.
+- After running `yarn update-tz`, review the generated JSON diff. A normal
+  update should primarily change `tzdbVersion` and add, remove, or adjust zone
+  catalog entries according to the upstream TZDB release.
+- Verify time zone data updates with `yarn lint` and `yarn build`. If updater
+  behavior changes, also inspect `tools/update-time-zones.js` and the picker
+  helpers in `src/common/scripts/time-zones.ts`.
+- Do not pin picker behavior to the catalog version alone. Runtime Chrome ICU
+  support can lag behind TZDB, so UI code should continue filtering with
+  `Intl.supportedValuesOf('timeZone')` when available and rely on the
+  `IanaLocale` UTC fallback for unsupported saved zones.
 
 ## Notes
 

@@ -1,38 +1,93 @@
-const timeZones = [
-  { value: '-12', label: '(GMT -12:00) Eniwetok, Kwajalein' },
-  { value: '-11', label: '(GMT -11:00) Midway Island, Samoa' },
-  { value: '-10', label: '(GMT -10:00) Hawaii' },
-  { value: '-9', label: '(GMT -9:00) Alaska' },
-  { value: '-8', label: '(GMT -8:00) Pacific Time (US &amp; Canada)' },
-  { value: '-7', label: '(GMT -7:00) Mountain Time (US &amp; Canada)' },
-  { value: '-6', label: '(GMT -6:00) Central Time (US &amp; Canada), Mexico City' },
-  { value: '-5', label: '(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima' },
-  { value: '-4.5', label: '(GMT -4:30) Caracas' },
-  { value: '-4', label: '(GMT -4:00) Atlantic Time (Canada), La Paz' },
-  { value: '-3.5', label: '(GMT -3:30) Newfoundland' },
-  { value: '-3', label: '(GMT -3:00) Brazil, Buenos Aires, Georgetown' },
-  { value: '-2', label: '(GMT -2:00) Mid-Atlantic' },
-  { value: '-1', label: '(GMT -1:00) Azores, Cape Verde Islands' },
-  { value: '0', label: '(GMT) Western Europe Time, London, Lisbon, Casablanca' },
-  { value: '1', label: '(GMT +1:00) Brussels, Copenhagen, Madrid, Paris' },
-  { value: '2', label: '(GMT +2:00) Kaliningrad, South Africa' },
-  { value: '3', label: '(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg' },
-  { value: '3.5', label: '(GMT +3:30) Tehran' },
-  { value: '4', label: '(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi' },
-  { value: '4.5', label: '(GMT +4:30) Kabul' },
-  { value: '5', label: '(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent' },
-  { value: '5.5', label: '(GMT +5:30) Bombay, Calcutta, Madras, New Delhi' },
-  { value: '5.75', label: '(GMT +5:45) Kathmandu' },
-  { value: '6', label: '(GMT +6:00) Almaty, Dhaka, Colombo' },
-  { value: '6.5', label: '(GMT +6:30) Rangoon' },
-  { value: '7', label: '(GMT +7:00) Bangkok, Hanoi, Jakarta' },
-  { value: '8', label: '(GMT +8:00) Beijing, Perth, Singapore, Hong Kong' },
-  { value: '9', label: '(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk' },
-  { value: '9.5', label: '(GMT +9:30) Adelaide, Darwin' },
-  { value: '10', label: '(GMT +10:00) Eastern Australia, Guam, Vladivostok' },
-  { value: '11', label: '(GMT +11:00) Magadan, Solomon Islands, New Caledonia' },
-  { value: '12', label: '(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka' },
-  { value: '13', label: "(GMT +13:00) Nuku'alofa" },
-];
+import data from '@/common/data/time-zones.json';
 
-export default timeZones;
+export interface TimeZoneEntry {
+  id: string;
+  country: string;
+  countryCode: string;
+  comment?: string;
+  aliases: string[];
+}
+
+interface TimeZoneData {
+  tzdbVersion: string;
+  zones: TimeZoneEntry[];
+}
+
+const timeZoneData = data as TimeZoneData;
+
+export const tzdbVersion = timeZoneData.tzdbVersion;
+export const timeZones: TimeZoneEntry[] = timeZoneData.zones;
+
+let supportedTimeZoneIds: Set<string> | null | undefined;
+
+function normalizeSearchText(value: string): string {
+  // Fold accents and timezone separators so searches like "cote", "new york",
+  // and "America New_York" match the same catalog text.
+  return value
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[_/-]/g, ' ')
+    .toLowerCase();
+}
+
+function getSupportedTimeZoneIdSet(): Set<string> | null {
+  if (supportedTimeZoneIds !== undefined) {
+    return supportedTimeZoneIds;
+  }
+
+  const supportedValuesOf = (
+    Intl as typeof Intl & {
+      supportedValuesOf?: (key: 'timeZone') => string[];
+    }
+  ).supportedValuesOf;
+
+  supportedTimeZoneIds =
+    typeof supportedValuesOf === 'function' ? new Set(supportedValuesOf('timeZone')) : null;
+
+  return supportedTimeZoneIds;
+}
+
+export function isTimeZoneSupported(zoneId: string): boolean {
+  const supportedIds = getSupportedTimeZoneIdSet();
+  return supportedIds === null || supportedIds.has(zoneId);
+}
+
+export function supportedTimeZones(entries: TimeZoneEntry[] = timeZones): TimeZoneEntry[] {
+  return entries.filter((entry) => isTimeZoneSupported(entry.id));
+}
+
+export function timeZoneCityName(zoneId: string): string {
+  return (zoneId.split('/').pop() || zoneId).replace(/_/g, ' ');
+}
+
+export function formatTimeZoneLabel(entry: TimeZoneEntry): string {
+  const city = timeZoneCityName(entry.id);
+  const region = entry.comment ? `${entry.country} - ${entry.comment}` : entry.country;
+  return `${city}, ${region} (${entry.id})`;
+}
+
+export function timeZoneSearchText(entry: TimeZoneEntry): string {
+  return normalizeSearchText(
+    [
+      entry.id,
+      timeZoneCityName(entry.id),
+      entry.country,
+      entry.countryCode,
+      entry.comment || '',
+      ...entry.aliases,
+    ].join(' '),
+  );
+}
+
+export function searchTimeZones(
+  query: string,
+  entries: TimeZoneEntry[] = supportedTimeZones(),
+  limit = 50,
+): TimeZoneEntry[] {
+  const normalizedQuery = normalizeSearchText(query.trim());
+  const candidates = normalizedQuery
+    ? entries.filter((entry) => timeZoneSearchText(entry).includes(normalizedQuery))
+    : entries;
+
+  return limit > 0 ? candidates.slice(0, limit) : candidates;
+}

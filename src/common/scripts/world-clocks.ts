@@ -1,6 +1,9 @@
-import Locale from './locale.ts';
+import IanaLocale from './locale/iana-locale';
+import LocaleRepository from './locale/locale-repository';
 
 class WorldClocks {
+  private readonly localeRepository = new LocaleRepository();
+
   msg(key: string, args?: string | (string | number)[]): string {
     try {
       if (typeof chrome !== 'undefined' && chrome && typeof chrome.i18n !== 'undefined') {
@@ -42,49 +45,26 @@ class WorldClocks {
     return value;
   }
 
-  get localLocale(): Locale {
-    const localeTime = new Date();
-    const localeOffset = localeTime.getTimezoneOffset() / -60.0;
-    return { label: this.msg('LOCAL_TIME'), offset: localeOffset, dst: false };
+  get localLocale(): IanaLocale {
+    const zoneId = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+    return new IanaLocale(this.msg('LOCAL_TIME'), zoneId);
   }
 
-  get defaultLocales(): Locale[] {
-    const localeTime = new Date();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const localeOffset = localeTime.getTimezoneOffset() / -60.0;
+  get defaultLocales(): IanaLocale[] {
     return [
       this.localLocale,
-      { label: this.msg('LONDON'), offset: 0, dst: false },
-      { label: this.msg('SANJOSE'), offset: -8, dst: false },
-      { label: this.msg('TOKYO'), offset: 9, dst: false },
+      new IanaLocale(this.msg('LONDON'), 'Europe/London'),
+      new IanaLocale(this.msg('SANJOSE'), 'America/Los_Angeles'),
+      new IanaLocale(this.msg('TOKYO'), 'Asia/Tokyo'),
     ];
   }
 
-  loadLocales(): Locale[] {
-    const storedLocales = this.pref.get('locales');
-    if (!storedLocales) {
-      return this.defaultLocales;
-    }
-    try {
-      const parsed = JSON.parse(storedLocales);
-      if (!Array.isArray(parsed)) {
-        return [];
-      }
-      return parsed.map(
-        (item: Record<string, unknown>): Locale => ({
-          label: String(item.label || ''),
-          offset:
-            typeof item.offset === 'string' ? parseFloat(item.offset) : Number(item.offset || 0),
-          dst: !!item.dst,
-        }),
-      );
-    } catch {
-      return [];
-    }
+  loadLocales(): IanaLocale[] {
+    return this.localeRepository.load() || this.defaultLocales;
   }
 
-  saveLocales(locales: Locale[]) {
-    this.pref.set('locales', JSON.stringify(locales));
+  saveLocales(locales: IanaLocale[]) {
+    this.localeRepository.save(locales);
   }
 }
 

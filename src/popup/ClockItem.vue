@@ -2,15 +2,12 @@
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 import CoolClock from '@/common/scripts/coolclock-more-skins';
 import WorldClocks from '@/common/scripts/world-clocks';
-import Locale from '@/common/scripts/locale';
-import {
-  toLocalTime,
-  toShortDateString,
-  toLocaleShortTimeString,
-} from '@/common/scripts/time-utils';
+import IanaLocale from '@/common/scripts/locale/iana-locale';
+import { toShortDateString, toLocaleShortTimeString } from '@/common/scripts/time-utils';
+import TimeZonePicker from './TimeZonePicker.vue';
 
 const props = defineProps<{
-  locale: Locale;
+  locale: IanaLocale;
   radius: number;
   skin: string;
   showAnalogClock: boolean;
@@ -20,13 +17,11 @@ const props = defineProps<{
   showDate: boolean;
   digitalClockFontSize: number;
   editMode: boolean;
-  timeZones: { label: string; value: string }[];
 }>();
 
 const emit = defineEmits<{
   (e: 'update:label', label: string): void;
-  (e: 'update:offset', offset: number): void;
-  (e: 'update:dst', dst: boolean): void;
+  (e: 'update:zoneId', zoneId: string): void;
   (e: 'remove'): void;
 }>();
 
@@ -40,14 +35,12 @@ const labelInputRef = ref<HTMLInputElement | null>(null);
 
 let timerId: ReturnType<typeof setInterval> | null = null;
 
-const getDisplayTime = (date: Date) => {
-  const offset = props.locale.offset + (props.locale.dst ? 1 : 0);
-  const t = new Date(date.valueOf() + offset * 1000 * 60 * 60);
-  return toLocalTime(t);
-};
-
 const updateTime = () => {
-  const lt = getDisplayTime(new Date());
+  const now = new Date();
+  const lt = props.locale.currentTime(now);
+  if (coolClock.value) {
+    coolClock.value.setOffset(props.locale.currentOffsetHours(now));
+  }
   digitalTimeStr.value = toLocaleShortTimeString(lt, false, props.useDigitalClock24h);
   dateStr.value = toShortDateString(lt);
 };
@@ -60,7 +53,7 @@ onMounted(() => {
       canvasId: canvasId,
       displayRadius: props.radius,
       skin: props.skin,
-      gmtOffset: props.locale.offset + (props.locale.dst ? 1 : 0),
+      gmtOffset: props.locale.currentOffsetHours(),
       showSecondHand: props.showSecondHand,
       showDigital: false,
     });
@@ -110,10 +103,10 @@ watch(
 );
 
 watch(
-  () => [props.locale.offset, props.locale.dst],
+  () => props.locale.zoneId,
   () => {
     if (coolClock.value) {
-      coolClock.value.setOffset(props.locale.offset + (props.locale.dst ? 1 : 0));
+      coolClock.value.setOffset(props.locale.currentOffsetHours());
       coolClock.value.refreshDisplay();
     }
     updateTime();
@@ -141,13 +134,8 @@ const cancelEditLabel = () => {
   isEditingLabel.value = false;
 };
 
-const onTzChange = (e: Event) => {
-  const val = (e.target as HTMLSelectElement).value;
-  emit('update:offset', parseFloat(val));
-};
-
-const onDstChange = (e: Event) => {
-  emit('update:dst', !!(e.target as HTMLInputElement).checked);
+const updateZoneId = (zoneId: string) => {
+  emit('update:zoneId', zoneId);
 };
 </script>
 
@@ -180,21 +168,12 @@ const onDstChange = (e: Event) => {
     >
     <span v-show="showDate" class="date">{{ dateStr }}</span>
 
-    <div v-if="editMode" class="timezone">
-      <select :value="locale.offset" @change="onTzChange">
-        <option v-for="tz in timeZones" :key="tz.value" :value="tz.value">
-          {{ tz.label }}
-        </option>
-      </select>
-      <label class="checkbox-label">
-        <input class="dst" type="checkbox" :checked="locale.dst" @change="onDstChange" />
-        {{ WorldClocks.msg('DST_LABEL') }}
-      </label>
+    <div v-if="editMode" class="edit-controls">
+      <TimeZonePicker :model-value="locale.zoneId" @update:model-value="updateZoneId" />
+      <button class="btn btn-danger remove-button" @click.prevent="$emit('remove')">
+        {{ WorldClocks.msg('REMOVE_CLOCK_LABEL') }}
+      </button>
     </div>
-
-    <button v-if="editMode" class="btn btn-danger remove-button" @click.prevent="$emit('remove')">
-      {{ WorldClocks.msg('REMOVE_CLOCK_LABEL') }}
-    </button>
   </li>
 </template>
 
@@ -284,5 +263,11 @@ input[type='text'].label-input {
 
 .remove-button {
   width: 100%;
+}
+
+.edit-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 </style>

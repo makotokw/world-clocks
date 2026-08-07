@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1] – 2026/MM/DD (Chrome Extension)
+
+- Chrome: Changed clock configuration from manual UTC offsets to IANA time zone management
+
 ## [1.0.1] – 2026/05/26 (Chrome Extension)
 
 - Chrome: Fixed browser icon clock updates by including the offscreen document in the release build

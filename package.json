@@ -13,6 +13,7 @@
     "clean": "rimraf dist",
     "dev": "vite",
     "build": "vite build",
+    "update-tz": "node tools/update-time-zones.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
