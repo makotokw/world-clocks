@@ -15,3 +15,10 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# AI Agents
+AGENTS.override.md
+
+# Claude
+CLAUDE.local.md
+.claude/*.local.json
