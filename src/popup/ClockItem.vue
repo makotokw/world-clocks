@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue';
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue';
 import CoolClock from '@/common/scripts/coolclock-more-skins';
 import WorldClocks from '@/common/scripts/world-clocks';
 import IanaLocale from '@/common/scripts/locale/iana-locale';
 import { toShortDateString, toLocaleShortTimeString } from '@/common/scripts/time-utils';
+import { getDigitalClockFontOption } from '@/common/scripts/digital-clock-fonts';
 import TimeZonePicker from './TimeZonePicker.vue';
 
 const props = defineProps<{
@@ -17,6 +18,8 @@ const props = defineProps<{
   showDigitalClockSeconds: boolean;
   showDate: boolean;
   digitalClockFontSize: number;
+  digitalClockFont: string;
+  digitalClockFontBold: boolean;
   editMode: boolean;
 }>();
 
@@ -33,6 +36,10 @@ const dateStr = ref('');
 const isEditingLabel = ref(false);
 const editLabelValue = ref(props.locale.label);
 const labelInputRef = ref<HTMLInputElement | null>(null);
+const digitalClockFontFamily = computed(
+  () => getDigitalClockFontOption(props.digitalClockFont).fontFamily,
+);
+const digitalClockFontWeight = computed(() => (props.digitalClockFontBold ? 'bold' : 'normal'));
 
 let timerId: ReturnType<typeof setInterval> | null = null;
 
@@ -168,10 +175,23 @@ const updateZoneId = (zoneId: string) => {
     <span
       v-show="showDigitalClock"
       class="digital-clock"
-      :style="{ fontSize: digitalClockFontSize + 'px' }"
+      :style="{
+        fontSize: digitalClockFontSize + 'px',
+        fontFamily: digitalClockFontFamily,
+        fontWeight: digitalClockFontWeight,
+      }"
       >{{ digitalTimeStr }}</span
     >
-    <span v-show="showDate" class="date">{{ dateStr }}</span>
+    <span
+      v-show="showDate"
+      class="date"
+      :style="{
+        fontSize: digitalClockFontSize + 'px',
+        fontFamily: digitalClockFontFamily,
+        fontWeight: digitalClockFontWeight,
+      }"
+      >{{ dateStr }}</span
+    >
 
     <div v-if="editMode" class="edit-controls">
       <TimeZonePicker :model-value="locale.zoneId" @update:model-value="updateZoneId" />
@@ -187,10 +207,69 @@ const updateZoneId = (zoneId: string) => {
 @use '@/common/styles/mixins' as *;
 @use '@/common/styles/common';
 
-$font-family-digital: 'digitalclock';
 @font-face {
-  font-family: $font-family-digital;
-  src: url('@/common/fonts/Days.otf');
+  font-family: 'Days One';
+  src: url('@/common/fonts/DaysOne.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('@/common/fonts/Inter.woff2') format('woff2');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('@/common/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('@/common/fonts/Rajdhani.woff2') format('woff2');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('@/common/fonts/Rajdhani-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Oxanium';
+  src: url('@/common/fonts/Oxanium.woff2') format('woff2');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Oxanium';
+  src: url('@/common/fonts/Oxanium-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: url('@/common/fonts/ChakraPetch.woff2') format('woff2');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Chakra Petch';
+  src: url('@/common/fonts/ChakraPetch-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Orbitron';
+  src: url('@/common/fonts/Orbitron.woff2') format('woff2');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Orbitron';
+  src: url('@/common/fonts/Orbitron-Bold.woff2') format('woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'DSEG7 Modern';
+  src: url('@/common/fonts/DSEG7Modern-Regular.woff2') format('woff2');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'DSEG7 Modern';
+  src: url('@/common/fonts/DSEG7Modern-Bold.woff2') format('woff2');
+  font-weight: bold;
 }
 
 .clock {
@@ -259,11 +338,10 @@ input[type='text'].label-input {
   margin-top: 2px;
   white-space: nowrap;
   overflow: hidden;
-  font-family: $font-family-digital;
 }
 .digital-clock {
-  font-weight: bold;
   font-size: 10px;
+  font-variant-numeric: tabular-nums;
 }
 
 .remove-button {

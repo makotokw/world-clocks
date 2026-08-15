@@ -1,6 +1,11 @@
 # Changelog
 
-## [1.1] – 2026/MM/DD (Chrome Extension)
+## [1.2] – 2026/MM/DD (Chrome Extension)
+
+- Chrome: Added an option to select the digital clock font (Days One, System Default, Inter, Rajdhani, Oxanium, Chakra Petch, Orbitron, DSEG7 Modern)
+- Chrome: Replaced the bundled digital clock font (`Days.otf`) with the OFL-licensed Days One
+
+## [1.1] – 2026/08/09 (Chrome Extension)
 
 - Chrome: Changed clock configuration from manual UTC offsets to IANA time zone management
 - Chrome: Added an option to show seconds in digital clocks

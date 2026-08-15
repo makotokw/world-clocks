@@ -5,6 +5,12 @@ import ClockItem from './ClockItem.vue';
 import WorldClocks from '@/common/scripts/world-clocks';
 import IanaLocale from '@/common/scripts/locale/iana-locale';
 import CoolClock from '@/common/scripts/coolclock-more-skins';
+import {
+  DEFAULT_DIGITAL_CLOCK_FONT_BOLD,
+  DEFAULT_DIGITAL_CLOCK_FONT_ID,
+  digitalClockFonts,
+  getDigitalClockFontOption,
+} from '@/common/scripts/digital-clock-fonts';
 import TheCopyright from '@/common/components/TheCopyright.vue';
 
 function t(key: string): string {
@@ -13,6 +19,13 @@ function t(key: string): string {
 
 const radius = ref(WorldClocks.pref.get('radius', 40));
 const digitalClockFontSize = ref(WorldClocks.pref.get('digitalClockFontSize', 10));
+const digitalClockFont = ref(
+  getDigitalClockFontOption(WorldClocks.pref.get('digitalClockFont', DEFAULT_DIGITAL_CLOCK_FONT_ID))
+    .id,
+);
+const digitalClockFontBold = ref(
+  WorldClocks.pref.get('digitalClockFontBold', String(DEFAULT_DIGITAL_CLOCK_FONT_BOLD)) !== 'false',
+);
 const skin = ref(WorldClocks.pref.get('skin', 'chunkySwiss'));
 const showAnalogClock = ref(WorldClocks.pref.get('showAnalogClock', 'true') !== 'false');
 const showSecondHand = ref(WorldClocks.pref.get('showSecondHand', 'true') !== 'false');
@@ -34,6 +47,8 @@ onMounted(() => {
 watch(locales, (val) => WorldClocks.saveLocales(val), { deep: true });
 watch(radius, (val) => WorldClocks.pref.set('radius', val));
 watch(digitalClockFontSize, (val) => WorldClocks.pref.set('digitalClockFontSize', val));
+watch(digitalClockFont, (val) => WorldClocks.pref.set('digitalClockFont', val));
+watch(digitalClockFontBold, (val) => WorldClocks.pref.set('digitalClockFontBold', val));
 watch(skin, (val) => WorldClocks.pref.set('skin', val));
 watch(showAnalogClock, (val) => WorldClocks.pref.set('showAnalogClock', val));
 watch(showSecondHand, (val) => WorldClocks.pref.set('showSecondHand', val));
@@ -67,35 +82,39 @@ const availableSkins = Object.keys(CoolClock.config.skins);
 </script>
 
 <template>
-  <div>
-    <draggable
-      v-model="locales"
-      tag="ul"
-      class="clocks"
-      item-key="label"
-      :disabled="!isEditMode"
-      :style="{ width: listWidth + 'px' }"
-    >
-      <!--suppress VueUnrecognizedSlot -->
-      <template #item="{ element, index }">
-        <ClockItem
-          :locale="element"
-          :radius="radius"
-          :skin="skin"
-          :show-analog-clock="showAnalogClock"
-          :show-second-hand="showSecondHand"
-          :show-digital-clock="showDigitalClock"
-          :use-digital-clock24h="useDigitalClock24h"
-          :show-digital-clock-seconds="showDigitalClockSeconds"
-          :show-date="showDate"
-          :digital-clock-font-size="digitalClockFontSize"
-          :edit-mode="isEditMode"
-          @update:label="element.label = $event"
-          @update:zone-id="element.zoneId = $event"
-          @remove="removeClock(index)"
-        />
-      </template>
-    </draggable>
+  <div class="popup-page" :style="{ width: listWidth + 'px' }">
+    <div class="clock-preview">
+      <draggable
+        v-model="locales"
+        tag="ul"
+        class="clocks"
+        item-key="label"
+        :disabled="!isEditMode"
+        :style="{ width: listWidth + 'px' }"
+      >
+        <!--suppress VueUnrecognizedSlot -->
+        <template #item="{ element, index }">
+          <ClockItem
+            :locale="element"
+            :radius="radius"
+            :skin="skin"
+            :show-analog-clock="showAnalogClock"
+            :show-second-hand="showSecondHand"
+            :show-digital-clock="showDigitalClock"
+            :use-digital-clock24h="useDigitalClock24h"
+            :show-digital-clock-seconds="showDigitalClockSeconds"
+            :show-date="showDate"
+            :digital-clock-font-size="digitalClockFontSize"
+            :digital-clock-font="digitalClockFont"
+            :digital-clock-font-bold="digitalClockFontBold"
+            :edit-mode="isEditMode"
+            @update:label="element.label = $event"
+            @update:zone-id="element.zoneId = $event"
+            @remove="removeClock(index)"
+          />
+        </template>
+      </draggable>
+    </div>
 
     <div v-if="showFooter" class="footer">
       <div class="option-header well">
@@ -155,12 +174,12 @@ const availableSkins = Object.keys(CoolClock.config.skins);
           <fieldset>
             <legend>{{ t('DIGITAL_SECTION') }}</legend>
             <div class="control-group">
-              <label class="control-label">{{ t('FONT_SIZE_LABEL') }}</label>
+              <label class="control-label">{{ t('DIGITAL_CLOCK_FONT_SIZE_LABEL') }}</label>
               <div class="controls">
                 <input
                   v-model.number="digitalClockFontSize"
                   type="number"
-                  min="10"
+                  min="8"
                   max="40"
                   step="1"
                   required
@@ -168,8 +187,27 @@ const availableSkins = Object.keys(CoolClock.config.skins);
               </div>
             </div>
             <div class="control-group">
+              <label class="control-label">{{ t('DIGITAL_CLOCK_FONT_LABEL') }}</label>
+              <div class="controls">
+                <select v-model="digitalClockFont">
+                  <option
+                    v-for="font in digitalClockFonts"
+                    :key="font.id"
+                    :value="font.id"
+                    :style="{ fontFamily: font.fontFamily }"
+                  >
+                    {{ font.labelKey ? t(font.labelKey) : font.label }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="control-group">
               <label class="control-label">{{ t('DETAIL_LABEL') }}</label>
               <div class="controls">
+                <label class="checkbox-label">
+                  <input v-model="digitalClockFontBold" type="checkbox" />
+                  {{ t('DIGITAL_CLOCK_FONT_BOLD_LABEL') }}
+                </label>
                 <label class="checkbox-label">
                   <input v-model="showDigitalClock" type="checkbox" />
                   {{ t('SHOW_DIGITAL_CLOCK_LABEL') }}
@@ -199,6 +237,15 @@ const availableSkins = Object.keys(CoolClock.config.skins);
 @use '@/common/styles/variables' as *;
 @use '@/common/styles/mixins' as *;
 @use '@/common/styles/common';
+
+.clock-preview {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background: $color-bg-white;
+  padding-bottom: $spacing-tiny;
+}
 
 .clocks {
   list-style: none;
@@ -243,6 +290,6 @@ legend {
 }
 .blind-enter-to,
 .blind-leave-from {
-  max-height: 500px;
+  max-height: 1200px;
 }
 </style>
