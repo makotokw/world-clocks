@@ -11,6 +11,11 @@ const OUTPUT_PATH = resolve(
   dirname(fileURLToPath(import.meta.url)),
   '../src/common/data/time-zones.json',
 );
+const offsetReferenceYear = new Date().getUTCFullYear();
+const OFFSET_REFERENCE_DATES = [
+  new Date(Date.UTC(offsetReferenceYear, 0, 1, 12)),
+  new Date(Date.UTC(offsetReferenceYear, 6, 1, 12)),
+];
 const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
 
 function asString(value, fieldName) {
@@ -56,6 +61,47 @@ function parseZoneTab(value) {
   return locationsByZoneId;
 }
 
+function partsToUtcTimestamp(parts, milliseconds) {
+  return Date.UTC(
+    parts.get('year') || 1970,
+    (parts.get('month') || 1) - 1,
+    parts.get('day') || 1,
+    parts.get('hour') || 0,
+    parts.get('minute') || 0,
+    parts.get('second') || 0,
+    milliseconds,
+  );
+}
+
+function offsetMinutesAt(zoneId, date) {
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    calendar: 'gregory',
+    numberingSystem: 'latn',
+    hourCycle: 'h23',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    timeZone: zoneId,
+  });
+  const parts = new Map(
+    formatter
+      .formatToParts(date)
+      .filter((part) => part.type !== 'literal')
+      .map((part) => [part.type, Number(part.value)]),
+  );
+
+  return Math.round((partsToUtcTimestamp(parts, date.getMilliseconds()) - date.getTime()) / 60000);
+}
+
+function offsetMinutes(zoneId) {
+  return [...new Set(OFFSET_REFERENCE_DATES.map((date) => offsetMinutesAt(zoneId, date)))].sort(
+    (a, b) => a - b,
+  );
+}
+
 function normalizeZone(zone) {
   if (!zone || typeof zone !== 'object') {
     throw new TypeError('Expected zone to be an object');
@@ -67,6 +113,7 @@ function normalizeZone(zone) {
     country: asString(location.countryName, `${zone.id}.location.countryName`),
     countryCode: asString(location.countryCode, `${zone.id}.location.countryCode`),
     aliases: asStringArray(zone.aliases ?? [], `${zone.id}.aliases`),
+    offsetMinutes: offsetMinutes(zone.id),
   };
 
   if (typeof location.comment === 'string' && location.comment.length > 0) {
@@ -82,6 +129,7 @@ function normalizeAliasZone(alias, aliasLocation) {
     country: aliasLocation.country,
     countryCode: aliasLocation.countryCode,
     aliases: [],
+    offsetMinutes: offsetMinutes(alias),
   };
 
   if (aliasLocation.comment) {

@@ -6,6 +6,7 @@ export interface TimeZoneEntry {
   countryCode: string;
   comment?: string;
   aliases: string[];
+  offsetMinutes?: number[];
 }
 
 interface TimeZoneData {
@@ -45,6 +46,24 @@ function getSupportedTimeZoneIdSet(): Set<string> | null {
     typeof supportedValuesOf === 'function' ? new Set(supportedValuesOf('timeZone')) : null;
 
   return supportedTimeZoneIds;
+}
+
+function parseOffsetQuery(query: string): number | null {
+  const match = query
+    .trim()
+    .match(/^(?:utc|gmt)?\s*([+-]?)(\d{1,2})(?:(?::?([0-5]\d))|(?:\.(\d{1,2})))?$/i);
+  if (!match) {
+    return null;
+  }
+
+  const sign = match[1] === '-' ? -1 : 1;
+  const hours = Number(match[2]);
+  const colonMinutes = match[3] ? Number(match[3]) : null;
+  const decimalMinutes = match[4] ? Math.round(Number(`0.${match[4]}`) * 60) : null;
+  const minutes = colonMinutes ?? decimalMinutes ?? 0;
+  const offsetMinutes = sign * (hours * 60 + minutes);
+
+  return offsetMinutes >= -12 * 60 && offsetMinutes <= 14 * 60 ? offsetMinutes : null;
 }
 
 export function isTimeZoneSupported(zoneId: string): boolean {
@@ -88,5 +107,11 @@ export function searchTimeZones(
     return entries;
   }
 
-  return entries.filter((entry) => timeZoneSearchText(entry).includes(normalizedQuery));
+  const offsetMinutes = parseOffsetQuery(query);
+
+  return entries.filter(
+    (entry) =>
+      timeZoneSearchText(entry).includes(normalizedQuery) ||
+      (offsetMinutes !== null && (entry.offsetMinutes || []).includes(offsetMinutes)),
+  );
 }

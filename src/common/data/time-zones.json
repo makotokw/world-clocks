@@ -5,2711 +5,4320 @@
       "id": "Africa/Abidjan",
       "country": "Côte d’Ivoire",
       "countryCode": "CI",
-      "aliases": ["Africa/Timbuktu", "Iceland"]
+      "aliases": [
+        "Africa/Timbuktu",
+        "Iceland"
+      ],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Accra",
       "country": "Ghana",
       "countryCode": "GH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Addis_Ababa",
       "country": "Ethiopia",
       "countryCode": "ET",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Africa/Algiers",
       "country": "Algeria",
       "countryCode": "DZ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Asmara",
       "country": "Eritrea",
       "countryCode": "ER",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Africa/Bamako",
       "country": "Mali",
       "countryCode": "ML",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Bangui",
       "country": "Central African Republic",
       "countryCode": "CF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Banjul",
       "country": "Gambia",
       "countryCode": "GM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Bissau",
       "country": "Guinea-Bissau",
       "countryCode": "GW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Blantyre",
       "country": "Malawi",
       "countryCode": "MW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Brazzaville",
       "country": "Congo - Brazzaville",
       "countryCode": "CG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Bujumbura",
       "country": "Burundi",
       "countryCode": "BI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Cairo",
       "country": "Egypt",
       "countryCode": "EG",
-      "aliases": ["Egypt"]
+      "aliases": [
+        "Egypt"
+      ],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Africa/Casablanca",
       "country": "Morocco",
       "countryCode": "MA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Ceuta",
       "country": "Spain",
       "countryCode": "ES",
       "aliases": [],
-      "comment": "Ceuta, Melilla"
+      "comment": "Ceuta, Melilla",
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Africa/Conakry",
       "country": "Guinea",
       "countryCode": "GN",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Dakar",
       "country": "Senegal",
       "countryCode": "SN",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Dar_es_Salaam",
       "country": "Tanzania",
       "countryCode": "TZ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Africa/Djibouti",
       "country": "Djibouti",
       "countryCode": "DJ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Africa/Douala",
       "country": "Cameroon",
       "countryCode": "CM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/El_Aaiun",
       "country": "Western Sahara",
       "countryCode": "EH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Freetown",
       "country": "Sierra Leone",
       "countryCode": "SL",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Gaborone",
       "country": "Botswana",
       "countryCode": "BW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Harare",
       "country": "Zimbabwe",
       "countryCode": "ZW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Johannesburg",
       "country": "South Africa",
       "countryCode": "ZA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Juba",
       "country": "South Sudan",
       "countryCode": "SS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Kampala",
       "country": "Uganda",
       "countryCode": "UG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Africa/Khartoum",
       "country": "Sudan",
       "countryCode": "SD",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Kigali",
       "country": "Rwanda",
       "countryCode": "RW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Kinshasa",
       "country": "Congo - Kinshasa",
       "countryCode": "CD",
       "aliases": [],
-      "comment": "Dem. Rep. of Congo (west)"
+      "comment": "Dem. Rep. of Congo (west)",
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Lagos",
       "country": "Nigeria",
       "countryCode": "NG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Libreville",
       "country": "Gabon",
       "countryCode": "GA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Lome",
       "country": "Togo",
       "countryCode": "TG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Luanda",
       "country": "Angola",
       "countryCode": "AO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Lubumbashi",
       "country": "Congo - Kinshasa",
       "countryCode": "CD",
       "aliases": [],
-      "comment": "Dem. Rep. of Congo (east)"
+      "comment": "Dem. Rep. of Congo (east)",
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Lusaka",
       "country": "Zambia",
       "countryCode": "ZM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Malabo",
       "country": "Equatorial Guinea",
       "countryCode": "GQ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Maputo",
       "country": "Mozambique",
       "countryCode": "MZ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Maseru",
       "country": "Lesotho",
       "countryCode": "LS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Mbabane",
       "country": "Eswatini",
       "countryCode": "SZ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Mogadishu",
       "country": "Somalia",
       "countryCode": "SO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Africa/Monrovia",
       "country": "Liberia",
       "countryCode": "LR",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Nairobi",
       "country": "Kenya",
       "countryCode": "KE",
-      "aliases": ["Africa/Asmera"]
+      "aliases": [
+        "Africa/Asmera"
+      ],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Africa/Ndjamena",
       "country": "Chad",
       "countryCode": "TD",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Niamey",
       "country": "Niger",
       "countryCode": "NE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Nouakchott",
       "country": "Mauritania",
       "countryCode": "MR",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Ouagadougou",
       "country": "Burkina Faso",
       "countryCode": "BF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Porto-Novo",
       "country": "Benin",
       "countryCode": "BJ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Sao_Tome",
       "country": "Sao Tome & Principe",
       "countryCode": "ST",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Africa/Tripoli",
       "country": "Libya",
       "countryCode": "LY",
-      "aliases": ["Libya"]
+      "aliases": [
+        "Libya"
+      ],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Africa/Tunis",
       "country": "Tunisia",
       "countryCode": "TN",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60
+      ]
     },
     {
       "id": "Africa/Windhoek",
       "country": "Namibia",
       "countryCode": "NA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "America/Adak",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["America/Atka", "US/Aleutian"],
-      "comment": "Alaska - western Aleutians"
+      "aliases": [
+        "America/Atka",
+        "US/Aleutian"
+      ],
+      "comment": "Alaska - western Aleutians",
+      "offsetMinutes": [
+        -600,
+        -540
+      ]
     },
     {
       "id": "America/Anchorage",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["US/Alaska"],
-      "comment": "Alaska (most areas)"
+      "aliases": [
+        "US/Alaska"
+      ],
+      "comment": "Alaska (most areas)",
+      "offsetMinutes": [
+        -540,
+        -480
+      ]
     },
     {
       "id": "America/Anguilla",
       "country": "Anguilla",
       "countryCode": "AI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Antigua",
       "country": "Antigua & Barbuda",
       "countryCode": "AG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Araguaina",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Tocantins"
+      "comment": "Tocantins",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Buenos_Aires",
       "country": "Argentina",
       "countryCode": "AR",
-      "aliases": ["America/Buenos_Aires"],
-      "comment": "Buenos Aires (BA, CF)"
+      "aliases": [
+        "America/Buenos_Aires"
+      ],
+      "comment": "Buenos Aires (BA, CF)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Catamarca",
       "country": "Argentina",
       "countryCode": "AR",
-      "aliases": ["America/Argentina/ComodRivadavia", "America/Catamarca"],
-      "comment": "Catamarca (CT), Chubut (CH)"
+      "aliases": [
+        "America/Argentina/ComodRivadavia",
+        "America/Catamarca"
+      ],
+      "comment": "Catamarca (CT), Chubut (CH)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Cordoba",
       "country": "Argentina",
       "countryCode": "AR",
-      "aliases": ["America/Cordoba", "America/Rosario"],
-      "comment": "Argentina (most areas: CB, CC, CN, ER, FM, MN, SE, SF)"
+      "aliases": [
+        "America/Cordoba",
+        "America/Rosario"
+      ],
+      "comment": "Argentina (most areas: CB, CC, CN, ER, FM, MN, SE, SF)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Jujuy",
       "country": "Argentina",
       "countryCode": "AR",
-      "aliases": ["America/Jujuy"],
-      "comment": "Jujuy (JY)"
+      "aliases": [
+        "America/Jujuy"
+      ],
+      "comment": "Jujuy (JY)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/La_Rioja",
       "country": "Argentina",
       "countryCode": "AR",
       "aliases": [],
-      "comment": "La Rioja (LR)"
+      "comment": "La Rioja (LR)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Mendoza",
       "country": "Argentina",
       "countryCode": "AR",
-      "aliases": ["America/Mendoza"],
-      "comment": "Mendoza (MZ)"
+      "aliases": [
+        "America/Mendoza"
+      ],
+      "comment": "Mendoza (MZ)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Rio_Gallegos",
       "country": "Argentina",
       "countryCode": "AR",
       "aliases": [],
-      "comment": "Santa Cruz (SC)"
+      "comment": "Santa Cruz (SC)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Salta",
       "country": "Argentina",
       "countryCode": "AR",
       "aliases": [],
-      "comment": "Salta (SA, LP, NQ, RN)"
+      "comment": "Salta (SA, LP, NQ, RN)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/San_Juan",
       "country": "Argentina",
       "countryCode": "AR",
       "aliases": [],
-      "comment": "San Juan (SJ)"
+      "comment": "San Juan (SJ)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/San_Luis",
       "country": "Argentina",
       "countryCode": "AR",
       "aliases": [],
-      "comment": "San Luis (SL)"
+      "comment": "San Luis (SL)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Tucuman",
       "country": "Argentina",
       "countryCode": "AR",
       "aliases": [],
-      "comment": "Tucuman (TM)"
+      "comment": "Tucuman (TM)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Argentina/Ushuaia",
       "country": "Argentina",
       "countryCode": "AR",
       "aliases": [],
-      "comment": "Tierra del Fuego (TF)"
+      "comment": "Tierra del Fuego (TF)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Aruba",
       "country": "Aruba",
       "countryCode": "AW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Asuncion",
       "country": "Paraguay",
       "countryCode": "PY",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Atikokan",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "EST - ON (Atikokan), NU (Coral H)"
+      "comment": "EST - ON (Atikokan), NU (Coral H)",
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Bahia",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Bahia"
+      "comment": "Bahia",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Bahia_Banderas",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Bahia de Banderas"
+      "comment": "Bahia de Banderas",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Barbados",
       "country": "Barbados",
       "countryCode": "BB",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Belem",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Para (east), Amapa"
+      "comment": "Para (east), Amapa",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Belize",
       "country": "Belize",
       "countryCode": "BZ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Blanc-Sablon",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "AST - QC (Lower North Shore)"
+      "comment": "AST - QC (Lower North Shore)",
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Boa_Vista",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Roraima"
+      "comment": "Roraima",
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Bogota",
       "country": "Colombia",
       "countryCode": "CO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Boise",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Mountain - ID (south), OR (east)"
+      "comment": "Mountain - ID (south), OR (east)",
+      "offsetMinutes": [
+        -420,
+        -360
+      ]
     },
     {
       "id": "America/Cambridge_Bay",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "Mountain - NU (west)"
+      "comment": "Mountain - NU (west)",
+      "offsetMinutes": [
+        -420,
+        -360
+      ]
     },
     {
       "id": "America/Campo_Grande",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Mato Grosso do Sul"
+      "comment": "Mato Grosso do Sul",
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Cancun",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Quintana Roo"
+      "comment": "Quintana Roo",
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Caracas",
       "country": "Venezuela",
       "countryCode": "VE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Cayenne",
       "country": "French Guiana",
       "countryCode": "GF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Cayman",
       "country": "Cayman Islands",
       "countryCode": "KY",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Chicago",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["CST6CDT", "US/Central"],
-      "comment": "Central (most areas)"
+      "aliases": [
+        "CST6CDT",
+        "US/Central"
+      ],
+      "comment": "Central (most areas)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Chihuahua",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Chihuahua (most areas)"
+      "comment": "Chihuahua (most areas)",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Ciudad_Juarez",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Chihuahua (US border - west)"
+      "comment": "Chihuahua (US border - west)",
+      "offsetMinutes": [
+        -420,
+        -360
+      ]
     },
     {
       "id": "America/Costa_Rica",
       "country": "Costa Rica",
       "countryCode": "CR",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Coyhaique",
       "country": "Chile",
       "countryCode": "CL",
       "aliases": [],
-      "comment": "Aysen Region"
+      "comment": "Aysen Region",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Creston",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "MST - BC (Creston)"
+      "comment": "MST - BC (Creston)",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Cuiaba",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Mato Grosso"
+      "comment": "Mato Grosso",
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Curacao",
       "country": "Curaçao",
       "countryCode": "CW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Danmarkshavn",
       "country": "Greenland",
       "countryCode": "GL",
       "aliases": [],
-      "comment": "National Park (east coast)"
+      "comment": "National Park (east coast)",
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "America/Dawson",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "MST - Yukon (west)"
+      "comment": "MST - Yukon (west)",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Dawson_Creek",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "MST - BC (Dawson Cr, Ft St John)"
+      "comment": "MST - BC (Dawson Cr, Ft St John)",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Denver",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["America/Shiprock", "MST7MDT", "Navajo", "US/Mountain"],
-      "comment": "Mountain (most areas)"
+      "aliases": [
+        "America/Shiprock",
+        "MST7MDT",
+        "Navajo",
+        "US/Mountain"
+      ],
+      "comment": "Mountain (most areas)",
+      "offsetMinutes": [
+        -420,
+        -360
+      ]
     },
     {
       "id": "America/Detroit",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["US/Michigan"],
-      "comment": "Eastern - MI (most areas)"
+      "aliases": [
+        "US/Michigan"
+      ],
+      "comment": "Eastern - MI (most areas)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Dominica",
       "country": "Dominica",
       "countryCode": "DM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Edmonton",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["America/Yellowknife", "Canada/Mountain"],
-      "comment": "CST - AB, BC(E), NT(E), SK(W)"
+      "aliases": [
+        "America/Yellowknife",
+        "Canada/Mountain"
+      ],
+      "comment": "CST - AB, BC(E), NT(E), SK(W)",
+      "offsetMinutes": [
+        -420,
+        -360
+      ]
     },
     {
       "id": "America/Eirunepe",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Amazonas (west)"
+      "comment": "Amazonas (west)",
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/El_Salvador",
       "country": "El Salvador",
       "countryCode": "SV",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Fort_Nelson",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "MST - BC (Ft Nelson)"
+      "comment": "MST - BC (Ft Nelson)",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Fortaleza",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Brazil (northeast: MA, PI, CE, RN, PB)"
+      "comment": "Brazil (northeast: MA, PI, CE, RN, PB)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Glace_Bay",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "Atlantic - NS (Cape Breton)"
+      "comment": "Atlantic - NS (Cape Breton)",
+      "offsetMinutes": [
+        -240,
+        -180
+      ]
     },
     {
       "id": "America/Goose_Bay",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "Atlantic - Labrador (most areas)"
+      "comment": "Atlantic - Labrador (most areas)",
+      "offsetMinutes": [
+        -240,
+        -180
+      ]
     },
     {
       "id": "America/Grand_Turk",
       "country": "Turks & Caicos Is",
       "countryCode": "TC",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Grenada",
       "country": "Grenada",
       "countryCode": "GD",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Guadeloupe",
       "country": "Guadeloupe",
       "countryCode": "GP",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Guatemala",
       "country": "Guatemala",
       "countryCode": "GT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Guayaquil",
       "country": "Ecuador",
       "countryCode": "EC",
       "aliases": [],
-      "comment": "Ecuador (mainland)"
+      "comment": "Ecuador (mainland)",
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Guyana",
       "country": "Guyana",
       "countryCode": "GY",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Halifax",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["Canada/Atlantic"],
-      "comment": "Atlantic - NS (most areas), PE"
+      "aliases": [
+        "Canada/Atlantic"
+      ],
+      "comment": "Atlantic - NS (most areas), PE",
+      "offsetMinutes": [
+        -240,
+        -180
+      ]
     },
     {
       "id": "America/Havana",
       "country": "Cuba",
       "countryCode": "CU",
-      "aliases": ["Cuba"]
+      "aliases": [
+        "Cuba"
+      ],
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Hermosillo",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Sonora"
+      "comment": "Sonora",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Indiana/Indianapolis",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["America/Fort_Wayne", "America/Indianapolis", "US/East-Indiana"],
-      "comment": "Eastern - IN (most areas)"
+      "aliases": [
+        "America/Fort_Wayne",
+        "America/Indianapolis",
+        "US/East-Indiana"
+      ],
+      "comment": "Eastern - IN (most areas)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Indiana/Knox",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["America/Knox_IN", "US/Indiana-Starke"],
-      "comment": "Central - IN (Starke)"
+      "aliases": [
+        "America/Knox_IN",
+        "US/Indiana-Starke"
+      ],
+      "comment": "Central - IN (Starke)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Indiana/Marengo",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Eastern - IN (Crawford)"
+      "comment": "Eastern - IN (Crawford)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Indiana/Petersburg",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Eastern - IN (Pike)"
+      "comment": "Eastern - IN (Pike)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Indiana/Tell_City",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Central - IN (Perry)"
+      "comment": "Central - IN (Perry)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Indiana/Vevay",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Eastern - IN (Switzerland)"
+      "comment": "Eastern - IN (Switzerland)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Indiana/Vincennes",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Eastern - IN (Da, Du, K, Mn)"
+      "comment": "Eastern - IN (Da, Du, K, Mn)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Indiana/Winamac",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Eastern - IN (Pulaski)"
+      "comment": "Eastern - IN (Pulaski)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Inuvik",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "Mountain - NT (west)"
+      "comment": "Mountain - NT (west)",
+      "offsetMinutes": [
+        -420,
+        -360
+      ]
     },
     {
       "id": "America/Iqaluit",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["America/Pangnirtung"],
-      "comment": "Eastern - NU (most areas)"
+      "aliases": [
+        "America/Pangnirtung"
+      ],
+      "comment": "Eastern - NU (most areas)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Jamaica",
       "country": "Jamaica",
       "countryCode": "JM",
-      "aliases": ["Jamaica"]
+      "aliases": [
+        "Jamaica"
+      ],
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Juneau",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Alaska - Juneau area"
+      "comment": "Alaska - Juneau area",
+      "offsetMinutes": [
+        -540,
+        -480
+      ]
     },
     {
       "id": "America/Kentucky/Louisville",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["America/Louisville"],
-      "comment": "Eastern - KY (Louisville area)"
+      "aliases": [
+        "America/Louisville"
+      ],
+      "comment": "Eastern - KY (Louisville area)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Kentucky/Monticello",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Eastern - KY (Wayne)"
+      "comment": "Eastern - KY (Wayne)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Kralendijk",
       "country": "Caribbean Netherlands",
       "countryCode": "BQ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/La_Paz",
       "country": "Bolivia",
       "countryCode": "BO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Lima",
       "country": "Peru",
       "countryCode": "PE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Los_Angeles",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["PST8PDT", "US/Pacific"],
-      "comment": "Pacific"
+      "aliases": [
+        "PST8PDT",
+        "US/Pacific"
+      ],
+      "comment": "Pacific",
+      "offsetMinutes": [
+        -480,
+        -420
+      ]
     },
     {
       "id": "America/Lower_Princes",
       "country": "Sint Maarten",
       "countryCode": "SX",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Maceio",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Alagoas, Sergipe"
+      "comment": "Alagoas, Sergipe",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Managua",
       "country": "Nicaragua",
       "countryCode": "NI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Manaus",
       "country": "Brazil",
       "countryCode": "BR",
-      "aliases": ["Brazil/West"],
-      "comment": "Amazonas (east)"
+      "aliases": [
+        "Brazil/West"
+      ],
+      "comment": "Amazonas (east)",
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Marigot",
       "country": "St. Martin",
       "countryCode": "MF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Martinique",
       "country": "Martinique",
       "countryCode": "MQ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Matamoros",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Coahuila, Nuevo Leon, Tamaulipas (US border)"
+      "comment": "Coahuila, Nuevo Leon, Tamaulipas (US border)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Mazatlan",
       "country": "Mexico",
       "countryCode": "MX",
-      "aliases": ["Mexico/BajaSur"],
-      "comment": "Baja California Sur, Nayarit (most areas), Sinaloa"
+      "aliases": [
+        "Mexico/BajaSur"
+      ],
+      "comment": "Baja California Sur, Nayarit (most areas), Sinaloa",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Menominee",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Central - MI (Wisconsin border)"
+      "comment": "Central - MI (Wisconsin border)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Merida",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Campeche, Yucatan"
+      "comment": "Campeche, Yucatan",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Metlakatla",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Alaska - Annette Island"
+      "comment": "Alaska - Annette Island",
+      "offsetMinutes": [
+        -540,
+        -480
+      ]
     },
     {
       "id": "America/Mexico_City",
       "country": "Mexico",
       "countryCode": "MX",
-      "aliases": ["Mexico/General"],
-      "comment": "Central Mexico"
+      "aliases": [
+        "Mexico/General"
+      ],
+      "comment": "Central Mexico",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Miquelon",
       "country": "St Pierre & Miquelon",
       "countryCode": "PM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -180,
+        -120
+      ]
     },
     {
       "id": "America/Moncton",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "Atlantic - New Brunswick"
+      "comment": "Atlantic - New Brunswick",
+      "offsetMinutes": [
+        -240,
+        -180
+      ]
     },
     {
       "id": "America/Monterrey",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Durango; Coahuila, Nuevo Leon, Tamaulipas (most areas)"
+      "comment": "Durango; Coahuila, Nuevo Leon, Tamaulipas (most areas)",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Montevideo",
       "country": "Uruguay",
       "countryCode": "UY",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Montserrat",
       "country": "Montserrat",
       "countryCode": "MS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Nassau",
       "country": "Bahamas",
       "countryCode": "BS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/New_York",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["EST5EDT", "US/Eastern"],
-      "comment": "Eastern (most areas)"
+      "aliases": [
+        "EST5EDT",
+        "US/Eastern"
+      ],
+      "comment": "Eastern (most areas)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Nome",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Alaska (west)"
+      "comment": "Alaska (west)",
+      "offsetMinutes": [
+        -540,
+        -480
+      ]
     },
     {
       "id": "America/Noronha",
       "country": "Brazil",
       "countryCode": "BR",
-      "aliases": ["Brazil/DeNoronha"],
-      "comment": "Atlantic islands"
+      "aliases": [
+        "Brazil/DeNoronha"
+      ],
+      "comment": "Atlantic islands",
+      "offsetMinutes": [
+        -120
+      ]
     },
     {
       "id": "America/North_Dakota/Beulah",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Central - ND (Mercer)"
+      "comment": "Central - ND (Mercer)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/North_Dakota/Center",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Central - ND (Oliver)"
+      "comment": "Central - ND (Oliver)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/North_Dakota/New_Salem",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Central - ND (Morton rural)"
+      "comment": "Central - ND (Morton rural)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Nuuk",
       "country": "Greenland",
       "countryCode": "GL",
-      "aliases": ["America/Godthab"],
-      "comment": "most of Greenland"
+      "aliases": [
+        "America/Godthab"
+      ],
+      "comment": "most of Greenland",
+      "offsetMinutes": [
+        -120,
+        -60
+      ]
     },
     {
       "id": "America/Ojinaga",
       "country": "Mexico",
       "countryCode": "MX",
       "aliases": [],
-      "comment": "Chihuahua (US border - east)"
+      "comment": "Chihuahua (US border - east)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Panama",
       "country": "Panama",
       "countryCode": "PA",
-      "aliases": ["America/Coral_Harbour", "EST"]
+      "aliases": [
+        "America/Coral_Harbour",
+        "EST"
+      ],
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Paramaribo",
       "country": "Suriname",
       "countryCode": "SR",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Phoenix",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["MST", "US/Arizona"],
-      "comment": "MST - AZ (except Navajo)"
+      "aliases": [
+        "MST",
+        "US/Arizona"
+      ],
+      "comment": "MST - AZ (except Navajo)",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Port_of_Spain",
       "country": "Trinidad & Tobago",
       "countryCode": "TT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Port-au-Prince",
       "country": "Haiti",
       "countryCode": "HT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Porto_Velho",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Rondonia"
+      "comment": "Rondonia",
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Puerto_Rico",
       "country": "Puerto Rico",
       "countryCode": "PR",
-      "aliases": ["America/Virgin"]
+      "aliases": [
+        "America/Virgin"
+      ],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Punta_Arenas",
       "country": "Chile",
       "countryCode": "CL",
       "aliases": [],
-      "comment": "Magallanes Region"
+      "comment": "Magallanes Region",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Rankin_Inlet",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "Central - NU (central)"
+      "comment": "Central - NU (central)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Recife",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Pernambuco"
+      "comment": "Pernambuco",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Regina",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["Canada/Saskatchewan"],
-      "comment": "CST - SK (most areas)"
+      "aliases": [
+        "Canada/Saskatchewan"
+      ],
+      "comment": "CST - SK (most areas)",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Resolute",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "Central - NU (Resolute)"
+      "comment": "Central - NU (Resolute)",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Rio_Branco",
       "country": "Brazil",
       "countryCode": "BR",
-      "aliases": ["America/Porto_Acre", "Brazil/Acre"],
-      "comment": "Acre"
+      "aliases": [
+        "America/Porto_Acre",
+        "Brazil/Acre"
+      ],
+      "comment": "Acre",
+      "offsetMinutes": [
+        -300
+      ]
     },
     {
       "id": "America/Santarem",
       "country": "Brazil",
       "countryCode": "BR",
       "aliases": [],
-      "comment": "Para (west)"
+      "comment": "Para (west)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Santiago",
       "country": "Chile",
       "countryCode": "CL",
-      "aliases": ["Chile/Continental"],
-      "comment": "most of Chile"
+      "aliases": [
+        "Chile/Continental"
+      ],
+      "comment": "most of Chile",
+      "offsetMinutes": [
+        -240,
+        -180
+      ]
     },
     {
       "id": "America/Santo_Domingo",
       "country": "Dominican Republic",
       "countryCode": "DO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Sao_Paulo",
       "country": "Brazil",
       "countryCode": "BR",
-      "aliases": ["Brazil/East"],
-      "comment": "Brazil (southeast: GO, DF, MG, ES, RJ, SP, PR, SC, RS)"
+      "aliases": [
+        "Brazil/East"
+      ],
+      "comment": "Brazil (southeast: GO, DF, MG, ES, RJ, SP, PR, SC, RS)",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "America/Scoresbysund",
       "country": "Greenland",
       "countryCode": "GL",
       "aliases": [],
-      "comment": "Scoresbysund/Ittoqqortoormiit"
+      "comment": "Scoresbysund/Ittoqqortoormiit",
+      "offsetMinutes": [
+        -120,
+        -60
+      ]
     },
     {
       "id": "America/Sitka",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Alaska - Sitka area"
+      "comment": "Alaska - Sitka area",
+      "offsetMinutes": [
+        -540,
+        -480
+      ]
     },
     {
       "id": "America/St_Barthelemy",
       "country": "St. Barthélemy",
       "countryCode": "BL",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/St_Johns",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["Canada/Newfoundland"],
-      "comment": "Newfoundland, Labrador (SE)"
+      "aliases": [
+        "Canada/Newfoundland"
+      ],
+      "comment": "Newfoundland, Labrador (SE)",
+      "offsetMinutes": [
+        -210,
+        -150
+      ]
     },
     {
       "id": "America/St_Kitts",
       "country": "St. Kitts & Nevis",
       "countryCode": "KN",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/St_Lucia",
       "country": "St. Lucia",
       "countryCode": "LC",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/St_Thomas",
       "country": "U.S. Virgin Islands",
       "countryCode": "VI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/St_Vincent",
       "country": "St. Vincent & Grenadines",
       "countryCode": "VC",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Swift_Current",
       "country": "Canada",
       "countryCode": "CA",
       "aliases": [],
-      "comment": "CST - SK (midwest)"
+      "comment": "CST - SK (midwest)",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Tegucigalpa",
       "country": "Honduras",
       "countryCode": "HN",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "America/Thule",
       "country": "Greenland",
       "countryCode": "GL",
       "aliases": [],
-      "comment": "Thule/Pituffik"
+      "comment": "Thule/Pituffik",
+      "offsetMinutes": [
+        -240,
+        -180
+      ]
     },
     {
       "id": "America/Tijuana",
       "country": "Mexico",
       "countryCode": "MX",
-      "aliases": ["America/Ensenada", "America/Santa_Isabel", "Mexico/BajaNorte"],
-      "comment": "Baja California"
+      "aliases": [
+        "America/Ensenada",
+        "America/Santa_Isabel",
+        "Mexico/BajaNorte"
+      ],
+      "comment": "Baja California",
+      "offsetMinutes": [
+        -480,
+        -420
+      ]
     },
     {
       "id": "America/Toronto",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["America/Montreal", "America/Nipigon", "America/Thunder_Bay", "Canada/Eastern"],
-      "comment": "Eastern - ON & QC (most areas)"
+      "aliases": [
+        "America/Montreal",
+        "America/Nipigon",
+        "America/Thunder_Bay",
+        "Canada/Eastern"
+      ],
+      "comment": "Eastern - ON & QC (most areas)",
+      "offsetMinutes": [
+        -300,
+        -240
+      ]
     },
     {
       "id": "America/Tortola",
       "country": "British Virgin Islands",
       "countryCode": "VG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240
+      ]
     },
     {
       "id": "America/Vancouver",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["Canada/Pacific"],
-      "comment": "MST - BC (most areas)"
+      "aliases": [
+        "Canada/Pacific"
+      ],
+      "comment": "MST - BC (most areas)",
+      "offsetMinutes": [
+        -480,
+        -420
+      ]
     },
     {
       "id": "America/Whitehorse",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["Canada/Yukon"],
-      "comment": "MST - Yukon (east)"
+      "aliases": [
+        "Canada/Yukon"
+      ],
+      "comment": "MST - Yukon (east)",
+      "offsetMinutes": [
+        -420
+      ]
     },
     {
       "id": "America/Winnipeg",
       "country": "Canada",
       "countryCode": "CA",
-      "aliases": ["America/Rainy_River", "Canada/Central"],
-      "comment": "Central - ON (west), Manitoba"
+      "aliases": [
+        "America/Rainy_River",
+        "Canada/Central"
+      ],
+      "comment": "Central - ON (west), Manitoba",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "America/Yakutat",
       "country": "United States",
       "countryCode": "US",
       "aliases": [],
-      "comment": "Alaska - Yakutat"
+      "comment": "Alaska - Yakutat",
+      "offsetMinutes": [
+        -540,
+        -480
+      ]
     },
     {
       "id": "Antarctica/Casey",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Casey"
+      "comment": "Casey",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Antarctica/Davis",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Davis"
+      "comment": "Davis",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Antarctica/DumontDUrville",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Dumont-d'Urville"
+      "comment": "Dumont-d'Urville",
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Antarctica/Macquarie",
       "country": "Australia",
       "countryCode": "AU",
       "aliases": [],
-      "comment": "Macquarie Island"
+      "comment": "Macquarie Island",
+      "offsetMinutes": [
+        600,
+        660
+      ]
     },
     {
       "id": "Antarctica/Mawson",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Mawson"
+      "comment": "Mawson",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Antarctica/McMurdo",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "New Zealand time - McMurdo, South Pole"
+      "comment": "New Zealand time - McMurdo, South Pole",
+      "offsetMinutes": [
+        720,
+        780
+      ]
     },
     {
       "id": "Antarctica/Palmer",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Palmer"
+      "comment": "Palmer",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "Antarctica/Rothera",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Rothera"
+      "comment": "Rothera",
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "Antarctica/Syowa",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Syowa"
+      "comment": "Syowa",
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Antarctica/Troll",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Troll"
+      "comment": "Troll",
+      "offsetMinutes": [
+        0,
+        120
+      ]
     },
     {
       "id": "Antarctica/Vostok",
       "country": "Antarctica",
       "countryCode": "AQ",
       "aliases": [],
-      "comment": "Vostok"
+      "comment": "Vostok",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Arctic/Longyearbyen",
       "country": "Svalbard & Jan Mayen",
       "countryCode": "SJ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Asia/Aden",
       "country": "Yemen",
       "countryCode": "YE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Almaty",
       "country": "Kazakhstan",
       "countryCode": "KZ",
       "aliases": [],
-      "comment": "most of Kazakhstan"
+      "comment": "most of Kazakhstan",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Amman",
       "country": "Jordan",
       "countryCode": "JO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Anadyr",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+09 - Bering Sea"
+      "comment": "MSK+09 - Bering Sea",
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Asia/Aqtau",
       "country": "Kazakhstan",
       "countryCode": "KZ",
       "aliases": [],
-      "comment": "Mangghystau/Mankistau"
+      "comment": "Mangghystau/Mankistau",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Aqtobe",
       "country": "Kazakhstan",
       "countryCode": "KZ",
       "aliases": [],
-      "comment": "Aqtobe/Aktobe"
+      "comment": "Aqtobe/Aktobe",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Ashgabat",
       "country": "Turkmenistan",
       "countryCode": "TM",
-      "aliases": ["Asia/Ashkhabad"]
+      "aliases": [
+        "Asia/Ashkhabad"
+      ],
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Atyrau",
       "country": "Kazakhstan",
       "countryCode": "KZ",
       "aliases": [],
-      "comment": "Atyrau/Atirau/Gur'yev"
+      "comment": "Atyrau/Atirau/Gur'yev",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Baghdad",
       "country": "Iraq",
       "countryCode": "IQ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Bahrain",
       "country": "Bahrain",
       "countryCode": "BH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Baku",
       "country": "Azerbaijan",
       "countryCode": "AZ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Asia/Bangkok",
       "country": "Thailand",
       "countryCode": "TH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Barnaul",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+04 - Altai"
+      "comment": "MSK+04 - Altai",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Beirut",
       "country": "Lebanon",
       "countryCode": "LB",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Asia/Bishkek",
       "country": "Kyrgyzstan",
       "countryCode": "KG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        360
+      ]
     },
     {
       "id": "Asia/Brunei",
       "country": "Brunei",
       "countryCode": "BN",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Chita",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+06 - Zabaykalsky"
+      "comment": "MSK+06 - Zabaykalsky",
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Colombo",
       "country": "Sri Lanka",
       "countryCode": "LK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        330
+      ]
     },
     {
       "id": "Asia/Damascus",
       "country": "Syria",
       "countryCode": "SY",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Dhaka",
       "country": "Bangladesh",
       "countryCode": "BD",
-      "aliases": ["Asia/Dacca"]
+      "aliases": [
+        "Asia/Dacca"
+      ],
+      "offsetMinutes": [
+        360
+      ]
     },
     {
       "id": "Asia/Dili",
       "country": "East Timor",
       "countryCode": "TL",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Dubai",
       "country": "United Arab Emirates",
       "countryCode": "AE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Asia/Dushanbe",
       "country": "Tajikistan",
       "countryCode": "TJ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Famagusta",
       "country": "Cyprus",
       "countryCode": "CY",
       "aliases": [],
-      "comment": "Northern Cyprus"
+      "comment": "Northern Cyprus",
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Asia/Gaza",
       "country": "Palestine",
       "countryCode": "PS",
       "aliases": [],
-      "comment": "Gaza Strip"
+      "comment": "Gaza Strip",
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Asia/Hebron",
       "country": "Palestine",
       "countryCode": "PS",
       "aliases": [],
-      "comment": "West Bank"
+      "comment": "West Bank",
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Asia/Ho_Chi_Minh",
       "country": "Vietnam",
       "countryCode": "VN",
-      "aliases": ["Asia/Saigon"]
+      "aliases": [
+        "Asia/Saigon"
+      ],
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Hong_Kong",
       "country": "Hong Kong",
       "countryCode": "HK",
-      "aliases": ["Hongkong"]
+      "aliases": [
+        "Hongkong"
+      ],
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Hovd",
       "country": "Mongolia",
       "countryCode": "MN",
       "aliases": [],
-      "comment": "Bayan-Olgii, Hovd, Uvs"
+      "comment": "Bayan-Olgii, Hovd, Uvs",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Irkutsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+05 - Irkutsk, Buryatia"
+      "comment": "MSK+05 - Irkutsk, Buryatia",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Jakarta",
       "country": "Indonesia",
       "countryCode": "ID",
       "aliases": [],
-      "comment": "Java, Sumatra"
+      "comment": "Java, Sumatra",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Jayapura",
       "country": "Indonesia",
       "countryCode": "ID",
       "aliases": [],
-      "comment": "New Guinea (West Papua / Irian Jaya), Malukus/Moluccas"
+      "comment": "New Guinea (West Papua / Irian Jaya), Malukus/Moluccas",
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Jerusalem",
       "country": "Israel",
       "countryCode": "IL",
-      "aliases": ["Asia/Tel_Aviv", "Israel"]
+      "aliases": [
+        "Asia/Tel_Aviv",
+        "Israel"
+      ],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Asia/Kabul",
       "country": "Afghanistan",
       "countryCode": "AF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        270
+      ]
     },
     {
       "id": "Asia/Kamchatka",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+09 - Kamchatka"
+      "comment": "MSK+09 - Kamchatka",
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Asia/Karachi",
       "country": "Pakistan",
       "countryCode": "PK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Kathmandu",
       "country": "Nepal",
       "countryCode": "NP",
-      "aliases": ["Asia/Katmandu"]
+      "aliases": [
+        "Asia/Katmandu"
+      ],
+      "offsetMinutes": [
+        345
+      ]
     },
     {
       "id": "Asia/Khandyga",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+06 - Tomponsky, Ust-Maysky"
+      "comment": "MSK+06 - Tomponsky, Ust-Maysky",
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Kolkata",
       "country": "India",
       "countryCode": "IN",
-      "aliases": ["Asia/Calcutta"]
+      "aliases": [
+        "Asia/Calcutta"
+      ],
+      "offsetMinutes": [
+        330
+      ]
     },
     {
       "id": "Asia/Krasnoyarsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+04 - Krasnoyarsk area"
+      "comment": "MSK+04 - Krasnoyarsk area",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Kuala_Lumpur",
       "country": "Malaysia",
       "countryCode": "MY",
       "aliases": [],
-      "comment": "Malaysia (peninsula)"
+      "comment": "Malaysia (peninsula)",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Kuching",
       "country": "Malaysia",
       "countryCode": "MY",
       "aliases": [],
-      "comment": "Sabah, Sarawak"
+      "comment": "Sabah, Sarawak",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Kuwait",
       "country": "Kuwait",
       "countryCode": "KW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Macau",
       "country": "Macau",
       "countryCode": "MO",
-      "aliases": ["Asia/Macao"]
+      "aliases": [
+        "Asia/Macao"
+      ],
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Magadan",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+08 - Magadan"
+      "comment": "MSK+08 - Magadan",
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Asia/Makassar",
       "country": "Indonesia",
       "countryCode": "ID",
-      "aliases": ["Asia/Ujung_Pandang"],
-      "comment": "Borneo (east, south), Sulawesi/Celebes, Bali, Nusa Tengarra, Timor (west)"
+      "aliases": [
+        "Asia/Ujung_Pandang"
+      ],
+      "comment": "Borneo (east, south), Sulawesi/Celebes, Bali, Nusa Tengarra, Timor (west)",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Manila",
       "country": "Philippines",
       "countryCode": "PH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Muscat",
       "country": "Oman",
       "countryCode": "OM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Asia/Nicosia",
       "country": "Cyprus",
       "countryCode": "CY",
-      "aliases": ["Europe/Nicosia"],
-      "comment": "most of Cyprus"
+      "aliases": [
+        "Europe/Nicosia"
+      ],
+      "comment": "most of Cyprus",
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Asia/Novokuznetsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+04 - Kemerovo"
+      "comment": "MSK+04 - Kemerovo",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Novosibirsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+04 - Novosibirsk"
+      "comment": "MSK+04 - Novosibirsk",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Omsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+03 - Omsk"
+      "comment": "MSK+03 - Omsk",
+      "offsetMinutes": [
+        360
+      ]
     },
     {
       "id": "Asia/Oral",
       "country": "Kazakhstan",
       "countryCode": "KZ",
       "aliases": [],
-      "comment": "West Kazakhstan"
+      "comment": "West Kazakhstan",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Phnom_Penh",
       "country": "Cambodia",
       "countryCode": "KH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Pontianak",
       "country": "Indonesia",
       "countryCode": "ID",
       "aliases": [],
-      "comment": "Borneo (west, central)"
+      "comment": "Borneo (west, central)",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Pyongyang",
       "country": "Korea (North)",
       "countryCode": "KP",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Qatar",
       "country": "Qatar",
       "countryCode": "QA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Qostanay",
       "country": "Kazakhstan",
       "countryCode": "KZ",
       "aliases": [],
-      "comment": "Qostanay/Kostanay/Kustanay"
+      "comment": "Qostanay/Kostanay/Kustanay",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Qyzylorda",
       "country": "Kazakhstan",
       "countryCode": "KZ",
       "aliases": [],
-      "comment": "Qyzylorda/Kyzylorda/Kzyl-Orda"
+      "comment": "Qyzylorda/Kyzylorda/Kzyl-Orda",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Riyadh",
       "country": "Saudi Arabia",
       "countryCode": "SA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Asia/Sakhalin",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+08 - Sakhalin Island"
+      "comment": "MSK+08 - Sakhalin Island",
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Asia/Samarkand",
       "country": "Uzbekistan",
       "countryCode": "UZ",
       "aliases": [],
-      "comment": "Uzbekistan (west)"
+      "comment": "Uzbekistan (west)",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Seoul",
       "country": "Korea (South)",
       "countryCode": "KR",
-      "aliases": ["ROK"]
+      "aliases": [
+        "ROK"
+      ],
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Shanghai",
       "country": "China",
       "countryCode": "CN",
-      "aliases": ["Asia/Chongqing", "Asia/Chungking", "Asia/Harbin", "PRC"],
-      "comment": "Beijing Time"
+      "aliases": [
+        "Asia/Chongqing",
+        "Asia/Chungking",
+        "Asia/Harbin",
+        "PRC"
+      ],
+      "comment": "Beijing Time",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Singapore",
       "country": "Singapore",
       "countryCode": "SG",
-      "aliases": ["Singapore"]
+      "aliases": [
+        "Singapore"
+      ],
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Srednekolymsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+08 - Sakha (E), N Kuril Is"
+      "comment": "MSK+08 - Sakha (E), N Kuril Is",
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Asia/Taipei",
       "country": "Taiwan",
       "countryCode": "TW",
-      "aliases": ["ROC"]
+      "aliases": [
+        "ROC"
+      ],
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Tashkent",
       "country": "Uzbekistan",
       "countryCode": "UZ",
       "aliases": [],
-      "comment": "Uzbekistan (east)"
+      "comment": "Uzbekistan (east)",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Tbilisi",
       "country": "Georgia",
       "countryCode": "GE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Asia/Tehran",
       "country": "Iran",
       "countryCode": "IR",
-      "aliases": ["Iran"]
+      "aliases": [
+        "Iran"
+      ],
+      "offsetMinutes": [
+        210
+      ]
     },
     {
       "id": "Asia/Thimphu",
       "country": "Bhutan",
       "countryCode": "BT",
-      "aliases": ["Asia/Thimbu"]
+      "aliases": [
+        "Asia/Thimbu"
+      ],
+      "offsetMinutes": [
+        360
+      ]
     },
     {
       "id": "Asia/Tokyo",
       "country": "Japan",
       "countryCode": "JP",
-      "aliases": ["Japan"]
+      "aliases": [
+        "Japan"
+      ],
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Tomsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+04 - Tomsk"
+      "comment": "MSK+04 - Tomsk",
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Ulaanbaatar",
       "country": "Mongolia",
       "countryCode": "MN",
-      "aliases": ["Asia/Choibalsan", "Asia/Ulan_Bator"],
-      "comment": "most of Mongolia"
+      "aliases": [
+        "Asia/Choibalsan",
+        "Asia/Ulan_Bator"
+      ],
+      "comment": "most of Mongolia",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Asia/Urumqi",
       "country": "China",
       "countryCode": "CN",
-      "aliases": ["Asia/Kashgar"],
-      "comment": "Xinjiang Time"
+      "aliases": [
+        "Asia/Kashgar"
+      ],
+      "comment": "Xinjiang Time",
+      "offsetMinutes": [
+        360
+      ]
     },
     {
       "id": "Asia/Ust-Nera",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+07 - Oymyakonsky"
+      "comment": "MSK+07 - Oymyakonsky",
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Asia/Vientiane",
       "country": "Laos",
       "countryCode": "LA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Asia/Vladivostok",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+07 - Amur River"
+      "comment": "MSK+07 - Amur River",
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Asia/Yakutsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+06 - Lena River"
+      "comment": "MSK+06 - Lena River",
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Asia/Yangon",
       "country": "Myanmar (Burma)",
       "countryCode": "MM",
-      "aliases": ["Asia/Rangoon"]
+      "aliases": [
+        "Asia/Rangoon"
+      ],
+      "offsetMinutes": [
+        390
+      ]
     },
     {
       "id": "Asia/Yekaterinburg",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+02 - Urals"
+      "comment": "MSK+02 - Urals",
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Asia/Yerevan",
       "country": "Armenia",
       "countryCode": "AM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Atlantic/Azores",
       "country": "Portugal",
       "countryCode": "PT",
       "aliases": [],
-      "comment": "Azores"
+      "comment": "Azores",
+      "offsetMinutes": [
+        -60,
+        0
+      ]
     },
     {
       "id": "Atlantic/Bermuda",
       "country": "Bermuda",
       "countryCode": "BM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -240,
+        -180
+      ]
     },
     {
       "id": "Atlantic/Canary",
       "country": "Spain",
       "countryCode": "ES",
       "aliases": [],
-      "comment": "Canary Islands"
+      "comment": "Canary Islands",
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Atlantic/Cape_Verde",
       "country": "Cape Verde",
       "countryCode": "CV",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -60
+      ]
     },
     {
       "id": "Atlantic/Faroe",
       "country": "Faroe Islands",
       "countryCode": "FO",
-      "aliases": ["Atlantic/Faeroe"]
+      "aliases": [
+        "Atlantic/Faeroe"
+      ],
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Atlantic/Madeira",
       "country": "Portugal",
       "countryCode": "PT",
       "aliases": [],
-      "comment": "Madeira Islands"
+      "comment": "Madeira Islands",
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Atlantic/Reykjavik",
       "country": "Iceland",
       "countryCode": "IS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Atlantic/South_Georgia",
       "country": "South Georgia & the South Sandwich Islands",
       "countryCode": "GS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -120
+      ]
     },
     {
       "id": "Atlantic/St_Helena",
       "country": "St. Helena",
       "countryCode": "SH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0
+      ]
     },
     {
       "id": "Atlantic/Stanley",
       "country": "Falkland Islands",
       "countryCode": "FK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -180
+      ]
     },
     {
       "id": "Australia/Adelaide",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/South"],
-      "comment": "South Australia"
+      "aliases": [
+        "Australia/South"
+      ],
+      "comment": "South Australia",
+      "offsetMinutes": [
+        570,
+        630
+      ]
     },
     {
       "id": "Australia/Brisbane",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/Queensland"],
-      "comment": "Queensland (most areas)"
+      "aliases": [
+        "Australia/Queensland"
+      ],
+      "comment": "Queensland (most areas)",
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Australia/Broken_Hill",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/Yancowinna"],
-      "comment": "New South Wales (Yancowinna)"
+      "aliases": [
+        "Australia/Yancowinna"
+      ],
+      "comment": "New South Wales (Yancowinna)",
+      "offsetMinutes": [
+        570,
+        630
+      ]
     },
     {
       "id": "Australia/Darwin",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/North"],
-      "comment": "Northern Territory"
+      "aliases": [
+        "Australia/North"
+      ],
+      "comment": "Northern Territory",
+      "offsetMinutes": [
+        570
+      ]
     },
     {
       "id": "Australia/Eucla",
       "country": "Australia",
       "countryCode": "AU",
       "aliases": [],
-      "comment": "Western Australia (Eucla)"
+      "comment": "Western Australia (Eucla)",
+      "offsetMinutes": [
+        525
+      ]
     },
     {
       "id": "Australia/Hobart",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/Currie", "Australia/Tasmania"],
-      "comment": "Tasmania"
+      "aliases": [
+        "Australia/Currie",
+        "Australia/Tasmania"
+      ],
+      "comment": "Tasmania",
+      "offsetMinutes": [
+        600,
+        660
+      ]
     },
     {
       "id": "Australia/Lindeman",
       "country": "Australia",
       "countryCode": "AU",
       "aliases": [],
-      "comment": "Queensland (Whitsunday Islands)"
+      "comment": "Queensland (Whitsunday Islands)",
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Australia/Lord_Howe",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/LHI"],
-      "comment": "Lord Howe Island"
+      "aliases": [
+        "Australia/LHI"
+      ],
+      "comment": "Lord Howe Island",
+      "offsetMinutes": [
+        630,
+        660
+      ]
     },
     {
       "id": "Australia/Melbourne",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/Victoria"],
-      "comment": "Victoria"
+      "aliases": [
+        "Australia/Victoria"
+      ],
+      "comment": "Victoria",
+      "offsetMinutes": [
+        600,
+        660
+      ]
     },
     {
       "id": "Australia/Perth",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/West"],
-      "comment": "Western Australia (most areas)"
+      "aliases": [
+        "Australia/West"
+      ],
+      "comment": "Western Australia (most areas)",
+      "offsetMinutes": [
+        480
+      ]
     },
     {
       "id": "Australia/Sydney",
       "country": "Australia",
       "countryCode": "AU",
-      "aliases": ["Australia/ACT", "Australia/Canberra", "Australia/NSW"],
-      "comment": "New South Wales (most areas)"
+      "aliases": [
+        "Australia/ACT",
+        "Australia/Canberra",
+        "Australia/NSW"
+      ],
+      "comment": "New South Wales (most areas)",
+      "offsetMinutes": [
+        600,
+        660
+      ]
     },
     {
       "id": "Europe/Amsterdam",
       "country": "Netherlands",
       "countryCode": "NL",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Andorra",
       "country": "Andorra",
       "countryCode": "AD",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Astrakhan",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+01 - Astrakhan"
+      "comment": "MSK+01 - Astrakhan",
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Europe/Athens",
       "country": "Greece",
       "countryCode": "GR",
-      "aliases": ["EET"]
+      "aliases": [
+        "EET"
+      ],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Belgrade",
       "country": "Serbia",
       "countryCode": "RS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Berlin",
       "country": "Germany",
       "countryCode": "DE",
-      "aliases": ["Atlantic/Jan_Mayen"],
-      "comment": "most of Germany"
+      "aliases": [
+        "Atlantic/Jan_Mayen"
+      ],
+      "comment": "most of Germany",
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Bratislava",
       "country": "Slovakia",
       "countryCode": "SK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Brussels",
       "country": "Belgium",
       "countryCode": "BE",
-      "aliases": ["CET", "MET"]
+      "aliases": [
+        "CET",
+        "MET"
+      ],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Bucharest",
       "country": "Romania",
       "countryCode": "RO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Budapest",
       "country": "Hungary",
       "countryCode": "HU",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Busingen",
       "country": "Germany",
       "countryCode": "DE",
       "aliases": [],
-      "comment": "Busingen"
+      "comment": "Busingen",
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Chisinau",
       "country": "Moldova",
       "countryCode": "MD",
-      "aliases": ["Europe/Tiraspol"]
+      "aliases": [
+        "Europe/Tiraspol"
+      ],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Copenhagen",
       "country": "Denmark",
       "countryCode": "DK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Dublin",
       "country": "Ireland",
       "countryCode": "IE",
-      "aliases": ["Eire"]
+      "aliases": [
+        "Eire"
+      ],
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Europe/Gibraltar",
       "country": "Gibraltar",
       "countryCode": "GI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Guernsey",
       "country": "Guernsey",
       "countryCode": "GG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Europe/Helsinki",
       "country": "Finland",
       "countryCode": "FI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Isle_of_Man",
       "country": "Isle of Man",
       "countryCode": "IM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Europe/Istanbul",
       "country": "Turkey",
       "countryCode": "TR",
-      "aliases": ["Asia/Istanbul", "Turkey"]
+      "aliases": [
+        "Asia/Istanbul",
+        "Turkey"
+      ],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Europe/Jersey",
       "country": "Jersey",
       "countryCode": "JE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Europe/Kaliningrad",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK-01 - Kaliningrad"
+      "comment": "MSK-01 - Kaliningrad",
+      "offsetMinutes": [
+        120
+      ]
     },
     {
       "id": "Europe/Kirov",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+00 - Kirov"
+      "comment": "MSK+00 - Kirov",
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Europe/Kyiv",
       "country": "Ukraine",
       "countryCode": "UA",
-      "aliases": ["Europe/Kiev", "Europe/Uzhgorod", "Europe/Zaporozhye"],
-      "comment": "most of Ukraine"
+      "aliases": [
+        "Europe/Kiev",
+        "Europe/Uzhgorod",
+        "Europe/Zaporozhye"
+      ],
+      "comment": "most of Ukraine",
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Lisbon",
       "country": "Portugal",
       "countryCode": "PT",
-      "aliases": ["Portugal", "WET"],
-      "comment": "Portugal (mainland)"
+      "aliases": [
+        "Portugal",
+        "WET"
+      ],
+      "comment": "Portugal (mainland)",
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Europe/Ljubljana",
       "country": "Slovenia",
       "countryCode": "SI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/London",
       "country": "Britain (UK)",
       "countryCode": "GB",
-      "aliases": ["Europe/Belfast", "GB", "GB-Eire"]
+      "aliases": [
+        "Europe/Belfast",
+        "GB",
+        "GB-Eire"
+      ],
+      "offsetMinutes": [
+        0,
+        60
+      ]
     },
     {
       "id": "Europe/Luxembourg",
       "country": "Luxembourg",
       "countryCode": "LU",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Madrid",
       "country": "Spain",
       "countryCode": "ES",
       "aliases": [],
-      "comment": "Spain (mainland)"
+      "comment": "Spain (mainland)",
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Malta",
       "country": "Malta",
       "countryCode": "MT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Mariehamn",
       "country": "Åland Islands",
       "countryCode": "AX",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Minsk",
       "country": "Belarus",
       "countryCode": "BY",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Europe/Monaco",
       "country": "Monaco",
       "countryCode": "MC",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Moscow",
       "country": "Russia",
       "countryCode": "RU",
-      "aliases": ["W-SU"],
-      "comment": "MSK+00 - Moscow area"
+      "aliases": [
+        "W-SU"
+      ],
+      "comment": "MSK+00 - Moscow area",
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Europe/Oslo",
       "country": "Norway",
       "countryCode": "NO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Paris",
       "country": "France",
       "countryCode": "FR",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Podgorica",
       "country": "Montenegro",
       "countryCode": "ME",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Prague",
       "country": "Czech Republic",
       "countryCode": "CZ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Riga",
       "country": "Latvia",
       "countryCode": "LV",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Rome",
       "country": "Italy",
       "countryCode": "IT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Samara",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+01 - Samara, Udmurtia"
+      "comment": "MSK+01 - Samara, Udmurtia",
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Europe/San_Marino",
       "country": "San Marino",
       "countryCode": "SM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Sarajevo",
       "country": "Bosnia & Herzegovina",
       "countryCode": "BA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Saratov",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+01 - Saratov"
+      "comment": "MSK+01 - Saratov",
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Europe/Simferopol",
       "country": "Ukraine",
       "countryCode": "UA",
       "aliases": [],
-      "comment": "Crimea"
+      "comment": "Crimea",
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Europe/Skopje",
       "country": "North Macedonia",
       "countryCode": "MK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Sofia",
       "country": "Bulgaria",
       "countryCode": "BG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Stockholm",
       "country": "Sweden",
       "countryCode": "SE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Tallinn",
       "country": "Estonia",
       "countryCode": "EE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Tirane",
       "country": "Albania",
       "countryCode": "AL",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Ulyanovsk",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+01 - Ulyanovsk"
+      "comment": "MSK+01 - Ulyanovsk",
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Europe/Vaduz",
       "country": "Liechtenstein",
       "countryCode": "LI",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Vatican",
       "country": "Vatican City",
       "countryCode": "VA",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Vienna",
       "country": "Austria",
       "countryCode": "AT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Vilnius",
       "country": "Lithuania",
       "countryCode": "LT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        120,
+        180
+      ]
     },
     {
       "id": "Europe/Volgograd",
       "country": "Russia",
       "countryCode": "RU",
       "aliases": [],
-      "comment": "MSK+00 - Volgograd"
+      "comment": "MSK+00 - Volgograd",
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Europe/Warsaw",
       "country": "Poland",
       "countryCode": "PL",
-      "aliases": ["Poland"]
+      "aliases": [
+        "Poland"
+      ],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Zagreb",
       "country": "Croatia",
       "countryCode": "HR",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Europe/Zurich",
       "country": "Switzerland",
       "countryCode": "CH",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        60,
+        120
+      ]
     },
     {
       "id": "Indian/Antananarivo",
       "country": "Madagascar",
       "countryCode": "MG",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Indian/Chagos",
       "country": "British Indian Ocean Territory",
       "countryCode": "IO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        360
+      ]
     },
     {
       "id": "Indian/Christmas",
       "country": "Christmas Island",
       "countryCode": "CX",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        420
+      ]
     },
     {
       "id": "Indian/Cocos",
       "country": "Cocos (Keeling) Islands",
       "countryCode": "CC",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        390
+      ]
     },
     {
       "id": "Indian/Comoro",
       "country": "Comoros",
       "countryCode": "KM",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Indian/Kerguelen",
       "country": "French Southern Territories",
       "countryCode": "TF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Indian/Mahe",
       "country": "Seychelles",
       "countryCode": "SC",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Indian/Maldives",
       "country": "Maldives",
       "countryCode": "MV",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        300
+      ]
     },
     {
       "id": "Indian/Mauritius",
       "country": "Mauritius",
       "countryCode": "MU",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Indian/Mayotte",
       "country": "Mayotte",
       "countryCode": "YT",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        180
+      ]
     },
     {
       "id": "Indian/Reunion",
       "country": "Réunion",
       "countryCode": "RE",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        240
+      ]
     },
     {
       "id": "Pacific/Apia",
       "country": "Samoa (western)",
       "countryCode": "WS",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        780
+      ]
     },
     {
       "id": "Pacific/Auckland",
       "country": "New Zealand",
       "countryCode": "NZ",
-      "aliases": ["Antarctica/South_Pole", "NZ"],
-      "comment": "most of New Zealand"
+      "aliases": [
+        "Antarctica/South_Pole",
+        "NZ"
+      ],
+      "comment": "most of New Zealand",
+      "offsetMinutes": [
+        720,
+        780
+      ]
     },
     {
       "id": "Pacific/Bougainville",
       "country": "Papua New Guinea",
       "countryCode": "PG",
       "aliases": [],
-      "comment": "Bougainville"
+      "comment": "Bougainville",
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Pacific/Chatham",
       "country": "New Zealand",
       "countryCode": "NZ",
-      "aliases": ["NZ-CHAT"],
-      "comment": "Chatham Islands"
+      "aliases": [
+        "NZ-CHAT"
+      ],
+      "comment": "Chatham Islands",
+      "offsetMinutes": [
+        765,
+        825
+      ]
     },
     {
       "id": "Pacific/Chuuk",
       "country": "Micronesia",
       "countryCode": "FM",
       "aliases": [],
-      "comment": "Chuuk/Truk, Yap"
+      "comment": "Chuuk/Truk, Yap",
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Pacific/Easter",
       "country": "Chile",
       "countryCode": "CL",
-      "aliases": ["Chile/EasterIsland"],
-      "comment": "Easter Island"
+      "aliases": [
+        "Chile/EasterIsland"
+      ],
+      "comment": "Easter Island",
+      "offsetMinutes": [
+        -360,
+        -300
+      ]
     },
     {
       "id": "Pacific/Efate",
       "country": "Vanuatu",
       "countryCode": "VU",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Pacific/Fakaofo",
       "country": "Tokelau",
       "countryCode": "TK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        780
+      ]
     },
     {
       "id": "Pacific/Fiji",
       "country": "Fiji",
       "countryCode": "FJ",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Pacific/Funafuti",
       "country": "Tuvalu",
       "countryCode": "TV",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Pacific/Galapagos",
       "country": "Ecuador",
       "countryCode": "EC",
       "aliases": [],
-      "comment": "Galapagos Islands"
+      "comment": "Galapagos Islands",
+      "offsetMinutes": [
+        -360
+      ]
     },
     {
       "id": "Pacific/Gambier",
       "country": "French Polynesia",
       "countryCode": "PF",
       "aliases": [],
-      "comment": "Gambier Islands"
+      "comment": "Gambier Islands",
+      "offsetMinutes": [
+        -540
+      ]
     },
     {
       "id": "Pacific/Guadalcanal",
       "country": "Solomon Islands",
       "countryCode": "SB",
-      "aliases": ["Pacific/Ponape"]
+      "aliases": [
+        "Pacific/Ponape"
+      ],
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Pacific/Guam",
       "country": "Guam",
       "countryCode": "GU",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Pacific/Honolulu",
       "country": "United States",
       "countryCode": "US",
-      "aliases": ["HST", "Pacific/Johnston", "US/Hawaii"],
-      "comment": "Hawaii"
+      "aliases": [
+        "HST",
+        "Pacific/Johnston",
+        "US/Hawaii"
+      ],
+      "comment": "Hawaii",
+      "offsetMinutes": [
+        -600
+      ]
     },
     {
       "id": "Pacific/Kanton",
       "country": "Kiribati",
       "countryCode": "KI",
-      "aliases": ["Pacific/Enderbury"],
-      "comment": "Phoenix Islands"
+      "aliases": [
+        "Pacific/Enderbury"
+      ],
+      "comment": "Phoenix Islands",
+      "offsetMinutes": [
+        780
+      ]
     },
     {
       "id": "Pacific/Kiritimati",
       "country": "Kiribati",
       "countryCode": "KI",
       "aliases": [],
-      "comment": "Line Islands"
+      "comment": "Line Islands",
+      "offsetMinutes": [
+        840
+      ]
     },
     {
       "id": "Pacific/Kosrae",
       "country": "Micronesia",
       "countryCode": "FM",
       "aliases": [],
-      "comment": "Kosrae"
+      "comment": "Kosrae",
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Pacific/Kwajalein",
       "country": "Marshall Islands",
       "countryCode": "MH",
-      "aliases": ["Kwajalein"],
-      "comment": "Kwajalein"
+      "aliases": [
+        "Kwajalein"
+      ],
+      "comment": "Kwajalein",
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Pacific/Majuro",
       "country": "Marshall Islands",
       "countryCode": "MH",
       "aliases": [],
-      "comment": "most of Marshall Islands"
+      "comment": "most of Marshall Islands",
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Pacific/Marquesas",
       "country": "French Polynesia",
       "countryCode": "PF",
       "aliases": [],
-      "comment": "Marquesas Islands"
+      "comment": "Marquesas Islands",
+      "offsetMinutes": [
+        -570
+      ]
     },
     {
       "id": "Pacific/Midway",
       "country": "U.S. Outlying Islands",
       "countryCode": "UM",
       "aliases": [],
-      "comment": "Midway Islands"
+      "comment": "Midway Islands",
+      "offsetMinutes": [
+        -660
+      ]
     },
     {
       "id": "Pacific/Nauru",
       "country": "Nauru",
       "countryCode": "NR",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Pacific/Niue",
       "country": "Niue",
       "countryCode": "NU",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -660
+      ]
     },
     {
       "id": "Pacific/Norfolk",
       "country": "Norfolk Island",
       "countryCode": "NF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        660,
+        720
+      ]
     },
     {
       "id": "Pacific/Noumea",
       "country": "New Caledonia",
       "countryCode": "NC",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Pacific/Pago_Pago",
       "country": "Samoa (American)",
       "countryCode": "AS",
-      "aliases": ["Pacific/Samoa", "US/Samoa"]
+      "aliases": [
+        "Pacific/Samoa",
+        "US/Samoa"
+      ],
+      "offsetMinutes": [
+        -660
+      ]
     },
     {
       "id": "Pacific/Palau",
       "country": "Palau",
       "countryCode": "PW",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        540
+      ]
     },
     {
       "id": "Pacific/Pitcairn",
       "country": "Pitcairn",
       "countryCode": "PN",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -480
+      ]
     },
     {
       "id": "Pacific/Pohnpei",
       "country": "Micronesia",
       "countryCode": "FM",
       "aliases": [],
-      "comment": "Pohnpei/Ponape"
+      "comment": "Pohnpei/Ponape",
+      "offsetMinutes": [
+        660
+      ]
     },
     {
       "id": "Pacific/Port_Moresby",
       "country": "Papua New Guinea",
       "countryCode": "PG",
-      "aliases": ["Pacific/Truk", "Pacific/Yap"],
-      "comment": "most of Papua New Guinea"
+      "aliases": [
+        "Pacific/Truk",
+        "Pacific/Yap"
+      ],
+      "comment": "most of Papua New Guinea",
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Pacific/Rarotonga",
       "country": "Cook Islands",
       "countryCode": "CK",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        -600
+      ]
     },
     {
       "id": "Pacific/Saipan",
       "country": "Northern Mariana Islands",
       "countryCode": "MP",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        600
+      ]
     },
     {
       "id": "Pacific/Tahiti",
       "country": "French Polynesia",
       "countryCode": "PF",
       "aliases": [],
-      "comment": "Society Islands"
+      "comment": "Society Islands",
+      "offsetMinutes": [
+        -600
+      ]
     },
     {
       "id": "Pacific/Tarawa",
       "country": "Kiribati",
       "countryCode": "KI",
       "aliases": [],
-      "comment": "Gilbert Islands"
+      "comment": "Gilbert Islands",
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Pacific/Tongatapu",
       "country": "Tonga",
       "countryCode": "TO",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        780
+      ]
     },
     {
       "id": "Pacific/Wake",
       "country": "U.S. Outlying Islands",
       "countryCode": "UM",
       "aliases": [],
-      "comment": "Wake Island"
+      "comment": "Wake Island",
+      "offsetMinutes": [
+        720
+      ]
     },
     {
       "id": "Pacific/Wallis",
       "country": "Wallis & Futuna",
       "countryCode": "WF",
-      "aliases": []
+      "aliases": [],
+      "offsetMinutes": [
+        720
+      ]
     }
   ]
 }

@@ -4,6 +4,7 @@
 
 - Chrome: Added an option to select the digital clock font (Days One, System Default, Inter, Rajdhani, Oxanium, Chakra Petch, Orbitron, DSEG7 Modern)
 - Chrome: Replaced the bundled digital clock font (`Days.otf`) with the OFL-licensed Days One
+- Chrome: Added time zone search by UTC offset, for example `9`, `+9`, and `-9`
 - Chrome: Fixed the time zone picker so it shows all matching zones instead of stopping at a fixed limit
 
 ## [1.1] – 2026/08/09 (Chrome Extension)
