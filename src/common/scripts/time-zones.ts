@@ -82,12 +82,11 @@ export function timeZoneSearchText(entry: TimeZoneEntry): string {
 export function searchTimeZones(
   query: string,
   entries: TimeZoneEntry[] = supportedTimeZones(),
-  limit = 50,
 ): TimeZoneEntry[] {
   const normalizedQuery = normalizeSearchText(query.trim());
-  const candidates = normalizedQuery
-    ? entries.filter((entry) => timeZoneSearchText(entry).includes(normalizedQuery))
-    : entries;
+  if (!normalizedQuery) {
+    return entries;
+  }
 
-  return limit > 0 ? candidates.slice(0, limit) : candidates;
+  return entries.filter((entry) => timeZoneSearchText(entry).includes(normalizedQuery));
 }

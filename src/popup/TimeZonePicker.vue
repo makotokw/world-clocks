@@ -39,7 +39,7 @@ const selectedLabel = computed(() =>
 const selectedDisplayLabel = computed(() =>
   selectedEntry.value ? timeZoneCityName(selectedEntry.value.id) : props.modelValue,
 );
-const results = computed(() => searchTimeZones(searchQuery.value, supportedEntries, 30));
+const results = computed(() => searchTimeZones(searchQuery.value, supportedEntries));
 const activeOptionId = computed(() =>
   isOpen.value && results.value[activeIndex.value] ? `${inputId}_option_${activeIndex.value}` : '',
 );
