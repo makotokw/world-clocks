@@ -65,6 +65,36 @@ const listWidth = computed(() => {
   const num = count === 0 ? col : Math.min(col, count);
   return num * (margin * 2 + radius.value * 2);
 });
+const listWidthStyle = computed(() => {
+  const width = `${listWidth.value}px`;
+  return {
+    width,
+    minWidth: width,
+    maxWidth: width,
+  };
+});
+const applyPopupWidth = (width: number) => {
+  const cssWidth = `${width}px`;
+  const elements = [document.documentElement, document.body, document.getElementById('app')].filter(
+    (element): element is HTMLElement => Boolean(element),
+  );
+
+  elements.forEach((element) => {
+    element.style.width = cssWidth;
+    element.style.minWidth = cssWidth;
+    element.style.maxWidth = cssWidth;
+  });
+  document.body.style.overflowX = 'hidden';
+};
+
+watch(
+  listWidth,
+  (width) => {
+    applyPopupWidth(width);
+    requestAnimationFrame(() => applyPopupWidth(width));
+  },
+  { immediate: true },
+);
 
 const toggleEditMode = () => {
   isEditMode.value = !isEditMode.value;
@@ -82,15 +112,15 @@ const availableSkins = Object.keys(CoolClock.config.skins);
 </script>
 
 <template>
-  <div class="popup-page" :style="{ width: listWidth + 'px' }">
-    <div class="clock-preview">
+  <div class="popup-page" :style="listWidthStyle">
+    <div class="clock-preview" :style="listWidthStyle">
       <draggable
         v-model="locales"
         tag="ul"
         class="clocks"
         item-key="label"
         :disabled="!isEditMode"
-        :style="{ width: listWidth + 'px' }"
+        :style="listWidthStyle"
       >
         <!--suppress VueUnrecognizedSlot -->
         <template #item="{ element, index }">
